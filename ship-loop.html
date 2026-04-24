@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ship Loop — Cohort · $297/mo</title>
+<meta name="description" content="A cohort for Build Room members who've decided to ship one product in 30 days. Weekly live calls, private channel, milestone 1:1s. 20 seats per cohort.">
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="brand.css">
+
+<style>
+  /* Ship Loop: Ink dark, sparse orange, more whitespace */
+
+  body { background: var(--ink); color: var(--chalk); }
+
+  /* Override header for dark */
+  header.nav { border-bottom: 1px solid #1F1F22; }
+
+  .hero {
+    padding: var(--s-9) 0 var(--s-8);
+  }
+
+  .hero h1 {
+    color: var(--chalk);
+    max-width: 16ch;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  }
+
+  .hero .lede {
+    margin-top: var(--s-5);
+    max-width: 52ch;
+    color: var(--pencil-light);
+    font-size: 1.1875rem;
+    line-height: 1.55;
+  }
+
+  .hero-specs {
+    margin-top: var(--s-7);
+    padding-top: var(--s-5);
+    border-top: 1px solid #1F1F22;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s-5);
+  }
+
+  @media (max-width: 780px) {
+    .hero-specs { grid-template-columns: 1fr 1fr; gap: var(--s-5); }
+  }
+
+  .spec {
+    display: grid;
+    gap: var(--s-2);
+  }
+
+  .spec .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pencil-light);
+  }
+
+  .spec .value {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--chalk);
+    letter-spacing: -0.015em;
+  }
+
+  /* WHAT IT IS */
+  .whatisit {
+    padding: var(--s-8) 0;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .whatisit-inner {
+    max-width: 640px;
+  }
+
+  .whatisit h2 {
+    color: var(--chalk);
+    margin-top: var(--s-4);
+  }
+
+  .whatisit p {
+    margin-top: var(--s-5);
+    color: var(--pencil-light);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .whatisit .kicker {
+    margin-top: var(--s-5);
+    padding: var(--s-5);
+    border-left: 3px solid var(--signal);
+    background: #17171A;
+    color: var(--chalk);
+    font-size: 1.0625rem;
+  }
+
+  /* WEEK */
+  .week {
+    padding: var(--s-8) 0;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .week h2 {
+    color: var(--chalk);
+  }
+
+  .week-grid {
+    margin-top: var(--s-7);
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .week-row {
+    display: grid;
+    grid-template-columns: 120px 140px 1fr;
+    align-items: start;
+    gap: var(--s-5);
+    padding: var(--s-5) var(--s-4);
+    background: #17171A;
+  }
+
+  @media (max-width: 780px) {
+    .week-row { grid-template-columns: 1fr; gap: var(--s-2); padding: var(--s-4); }
+  }
+
+  .week-row .day {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--signal);
+    font-weight: 600;
+    padding-top: 4px;
+  }
+
+  .week-row .time {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil-light);
+    padding-top: 4px;
+  }
+
+  .week-row .what h4 {
+    color: var(--chalk);
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+
+  .week-row .what p {
+    margin-top: var(--s-2);
+    color: var(--pencil-light);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* INCLUDES */
+  .includes {
+    padding: var(--s-8) 0;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .includes h2 {
+    color: var(--chalk);
+  }
+
+  .includes-grid {
+    margin-top: var(--s-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-3);
+  }
+
+  @media (max-width: 780px) {
+    .includes-grid { grid-template-columns: 1fr; }
+  }
+
+  .include-item {
+    padding: var(--s-4) var(--s-5);
+    background: #17171A;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-4);
+    align-items: start;
+  }
+
+  .include-item .num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--signal);
+    font-weight: 600;
+    padding-top: 3px;
+  }
+
+  .include-item strong {
+    display: block;
+    color: var(--chalk);
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: var(--s-1);
+  }
+
+  .include-item span {
+    color: var(--pencil-light);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* WHO */
+  .who {
+    padding: var(--s-8) 0;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .who-inner {
+    max-width: 640px;
+  }
+
+  .who h2 {
+    color: var(--chalk);
+    margin-top: var(--s-4);
+  }
+
+  .who-list {
+    margin-top: var(--s-5);
+    list-style: none;
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .who-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-4);
+    padding: var(--s-4) 0;
+    border-bottom: 1px solid #1F1F22;
+    color: var(--pencil-light);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+
+  .who-list li::before {
+    content: "→";
+    color: var(--signal);
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+
+  .who-list li strong {
+    color: var(--chalk);
+    font-weight: 600;
+  }
+
+  /* ENROLLMENT */
+  .enroll {
+    padding: var(--s-9) 0;
+    border-top: 1px solid #1F1F22;
+    text-align: center;
+  }
+
+  .enroll-inner {
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  .enroll h2 {
+    color: var(--chalk);
+  }
+
+  .enroll .price {
+    margin-top: var(--s-5);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 4.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: var(--chalk);
+  }
+
+  .enroll .price .dollar {
+    font-size: 2.5rem;
+    vertical-align: top;
+    position: relative;
+    top: 0.3em;
+    margin-right: 0.1em;
+    color: var(--signal);
+  }
+
+  .enroll .price-sub {
+    margin-top: var(--s-3);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--pencil-light);
+  }
+
+  .enroll .cta-wrap {
+    margin-top: var(--s-6);
+  }
+
+  .enroll .micro {
+    margin-top: var(--s-5);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil-light);
+  }
+
+  .capacity {
+    margin-top: var(--s-6);
+    padding: var(--s-4);
+    background: #17171A;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil-light);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+  .capacity strong {
+    color: var(--signal);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* FAQ dark override */
+  .faq-section {
+    padding: var(--s-9) 0;
+    border-top: 1px solid #1F1F22;
+  }
+
+  .faq-section h2 { color: var(--chalk); }
+
+  .faq-item { border-bottom-color: #1F1F22; }
+  .faq-item summary { color: var(--chalk); }
+
+  footer.site-footer {
+    border-top: 1px solid #1F1F22;
+  }
+</style>
+</head>
+
+<body class="dark">
+
+<!-- HEADER -->
+<header class="nav">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">Build Room</span>
+    </a>
+    <div class="nav-right">Ship Loop<span class="dim"> · </span>Cohort · $297/mo</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Cohort · 20 seats · Enrolling now</div>
+
+    <h1>For the person who joined Build Room and wants the <span class="signal-word">next gear</span>.</h1>
+
+    <p class="lede">
+      A small cohort running the Ship Loop together for 30 days. Weekly live calls, a private channel, onboarding 1:1, milestone 1:1s, and me in the room when you get stuck. You're here to ship one product. That's the whole job.
+    </p>
+
+    <div class="hero-specs">
+      <div class="spec">
+        <span class="label">Cohort size</span>
+        <span class="value">20 builders</span>
+      </div>
+      <div class="spec">
+        <span class="label">Length</span>
+        <span class="value">4 weeks + alumni</span>
+      </div>
+      <div class="spec">
+        <span class="label">Live time</span>
+        <span class="value">~3 hrs / week</span>
+      </div>
+      <div class="spec">
+        <span class="label">Format</span>
+        <span class="value">Live + async</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IT IS -->
+<section class="whatisit">
+  <div class="wrap">
+    <div class="whatisit-inner">
+      <div class="mono-label">01_WHAT_THIS_IS</div>
+      <h2>The Ship Loop is not another course.</h2>
+
+      <p>It's a weekly rhythm with 20 other builders and me, aimed at one outcome: a deployed product with paying users by day 30.</p>
+
+      <p>You bring your own idea, or you use the cohort's first week to find one. From there, every week has a job: validate, blueprint, ship, sell. You show up to the calls. You post progress. You get unstuck in the channel. If you do the work, you ship.</p>
+
+      <div class="kicker">
+        You don't graduate by watching a video. You graduate by shipping.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE WEEK -->
+<section class="week">
+  <div class="wrap">
+    <div class="mono-label" style="color: var(--signal);">02_THE_WEEK</div>
+    <h2 style="margin-top: var(--s-4);">Three live things per week.</h2>
+
+    <div class="week-grid">
+      <div class="week-row">
+        <div class="day">Mon</div>
+        <div class="time">90 min · live</div>
+        <div class="what">
+          <h4>Ship Loop Call</h4>
+          <p>The week's stage — Ideate, Validate, Blueprint, Ship, or Sell. We walk it together. Members present progress, get feedback, unstick in public. This is the backbone of the cohort.</p>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="day">Wed</div>
+        <div class="time">90 min · live · optional</div>
+        <div class="what">
+          <h4>Build Session</h4>
+          <p>Co-working call. Screen-share if you want feedback, work silent if you don't. I'm in the room. Use the hour to actually build, not to research.</p>
+        </div>
+      </div>
+
+      <div class="week-row">
+        <div class="day">Fri</div>
+        <div class="time">async · in channel</div>
+        <div class="what">
+          <h4>Ship Board Review</h4>
+          <p>Post the week's shipped work. I review and give feedback on one or two per week. The Board is where the social proof lives — it's how you watch other members' work and know you're not alone at this.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDES -->
+<section class="includes">
+  <div class="wrap">
+    <div class="mono-label">03_WHAT_YOU_GET</div>
+    <h2 style="margin-top: var(--s-4);">Everything in Build Room, plus.</h2>
+
+    <div class="includes-grid">
+      <div class="include-item">
+        <span class="num">01</span>
+        <div>
+          <strong>Onboarding 1:1 (30 min)</strong>
+          <span>Idea audit and kill-filter. We decide what stage you're starting from before day one.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">02</span>
+        <div>
+          <strong>Milestone 1:1s (3 × 30 min)</strong>
+          <span>One call when you hit first waitlist signup, deployed URL, and first paying customer.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">03</span>
+        <div>
+          <strong>Private cohort channel</strong>
+          <span>Separate from the main Build Room chat. Only your 20 builders. Higher signal, faster feedback.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">04</span>
+        <div>
+          <strong>Full Blueprint Vault</strong>
+          <span>All 30+ repos (as they grow). Yours to use inside and outside the cohort.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">05</span>
+        <div>
+          <strong>72-hour validation template</strong>
+          <span>Landing page + ad copy + deposit page. The exact format I use to pressure-test an idea fast.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">06</span>
+        <div>
+          <strong>Launch playbook + outreach scripts</strong>
+          <span>How to get your first 10 paying users without an audience. Direct outreach, waitlist, first ad test.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">07</span>
+        <div>
+          <strong>Alumni channel after</strong>
+          <span>When you ship, you keep access. Not paying monthly to stay — you're in because you shipped.</span>
+        </div>
+      </div>
+
+      <div class="include-item">
+        <span class="num">08</span>
+        <div>
+          <strong>Stuck-point thread</strong>
+          <span>One sanctioned place to post the ugly questions. "This doesn't work and I don't know why." Fast answers.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section class="who">
+  <div class="wrap">
+    <div class="who-inner">
+      <div class="mono-label">04_WHO_THIS_IS_FOR</div>
+      <h2>This is for Build Room members who've decided to ship.</h2>
+
+      <ul class="who-list">
+        <li><strong>You're in Build Room or you've been building solo for 3+ months.</strong> The Ship Loop assumes you've already started. It's not an intro. If you're brand new to Claude Code, start at Build Room for $9/mo and come back here in a month.</li>
+        <li><strong>You have 5–10 hours a week to actually work.</strong> Two live calls plus async feedback plus the actual building. If you can't, this is the wrong time.</li>
+        <li><strong>You're willing to kill ideas.</strong> The first week kills most people's first idea. If you're married to yours, you'll hate me.</li>
+        <li><strong>You want the shorter version, not the longer one.</strong> If your plan is "learn AI over the next year," this isn't for you. If your plan is "ship one thing in 30 days," we're aligned.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLLMENT -->
+<section class="enroll">
+  <div class="wrap">
+    <div class="enroll-inner">
+      <div class="mono-label" style="color: var(--signal);">05_JOIN</div>
+      <h2 style="margin-top: var(--s-4);">Next cohort starts when it's full.</h2>
+
+      <div class="price"><span class="dollar">$</span>297</div>
+      <div class="price-sub">per month · month-to-month · cancel anytime</div>
+
+      <div class="capacity">
+        <span><strong>Capacity</strong> 20 seats per cohort</span>
+        <span><strong>Commitment</strong> 5–10 hrs/week for 4 weeks</span>
+      </div>
+
+      <div class="cta-wrap">
+        <a href="https://whop.com/automateit/cohort-8e/" class="cta">
+          Join the next cohort — $297/mo <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <p class="micro">Payment by Whop<span class="dim"> · </span>Cancel in one click<span class="dim"> · </span>Seats fill fast — join before the next cohort closes</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="mono-label">06_FAQ</div>
+    <h2 style="margin-top: var(--s-4);">Questions you probably have</h2>
+
+    <div class="faq-list" style="margin-top: var(--s-6); max-width: 720px;">
+      <details class="faq-item">
+        <summary>Why is the cohort capped at 20?</summary>
+        <div class="faq-answer">Because the room breaks past that. 20 is the number where feedback stays fast, the channel stays readable, and I can actually see each person's progress on the Ship Board. If seats run out before you join, the next cohort opens within a few weeks — join Build Room at $9/mo to hold your spot and get the notification first.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I don't ship?</summary>
+        <div class="faq-answer">I'll coach you through the next cohort free if you followed the process and didn't ship. If you didn't follow the process — didn't show up to calls, didn't post in the channel — that's on you. The format is the accountability; it only works if you use it.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Can I pause if I have a work emergency?</summary>
+        <div class="faq-answer">Don't join if you're about to have a work emergency. For real ones that happen mid-cohort, email me — I'll move you to the next cohort. Don't make a habit of it.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is $297/mo cohort-only, or does it continue?</summary>
+        <div class="faq-answer">Month-to-month. Most people do 1–2 months — one to ship, one optional to iterate. After that, the alumni channel is free. You're not locked in. You're in until you ship, then you leave.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I want 1:1 instead of group?</summary>
+        <div class="faq-answer">There's a 1:1 option (Ship & Sell) for people who want me personally walking them through the 30 days. It's waitlist-only and I take a handful of clients at a time. Join the cohort first and mention it in the channel — if it's the right fit, I'll send you the memo.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">Build Room</span>
+    </a>
+    <div class="version-stamp">
+      SHIP-LOOP.v1<span class="dot">·</span>2026-04-23<span class="dot">·</span>COHORT-01
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

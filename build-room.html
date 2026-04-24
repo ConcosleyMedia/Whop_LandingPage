@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Build Room — $9/mo shipping accountability room</title>
+<meta name="description" content="A $9/mo room for people who keep buying AI tools and keep not shipping. Blueprints, daily drops, and the people doing the work next to you.">
+
+<meta property="og:title" content="Build Room — $9/mo">
+<meta property="og:description" content="Stop paying $180/mo for AI tools you haven't shipped anything with. The room for people who want to.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="brand.css">
+
+<style>
+  /* Build Room: Paper, moderate orange, heavy mono */
+
+  .hero {
+    padding: var(--s-8) 0 var(--s-9);
+  }
+
+  .hero h1 {
+    max-width: 14ch;
+  }
+
+  .hero .lede {
+    margin-top: var(--s-5);
+    max-width: 52ch;
+    color: var(--pencil);
+    font-size: 1.1875rem;
+    line-height: 1.55;
+  }
+
+  .hero-meta {
+    margin-top: var(--s-6);
+    display: flex;
+    gap: var(--s-6);
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil);
+  }
+
+  .hero-meta strong {
+    display: block;
+    color: var(--graphite);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    margin-bottom: var(--s-1);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .hero-cta-row {
+    margin-top: var(--s-7);
+    display: flex;
+    gap: var(--s-4);
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-cta-row .price-line {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--pencil);
+    letter-spacing: 0.04em;
+  }
+
+  /* STACK WASTE — the hook section */
+  .stack-waste {
+    background: var(--paper-tape);
+    padding: var(--s-8) 0;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-7);
+    align-items: start;
+  }
+
+  @media (max-width: 780px) {
+    .stack-grid { grid-template-columns: 1fr; gap: var(--s-6); }
+  }
+
+  .stack-items {
+    list-style: none;
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .stack-items li {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: baseline;
+    padding: var(--s-3) 0;
+    border-bottom: 1px dashed var(--pencil-light);
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    color: var(--graphite);
+  }
+
+  .stack-items li .price {
+    color: var(--pencil);
+    font-size: 0.8125rem;
+  }
+
+  .stack-items .total {
+    border-bottom: none;
+    padding-top: var(--s-4);
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .stack-items .total .price {
+    color: var(--graphite);
+    font-weight: 700;
+  }
+
+  .stack-replacement {
+    padding: var(--s-6);
+    background: var(--ink);
+    color: var(--chalk);
+  }
+
+  .stack-replacement .mono-label {
+    color: var(--signal);
+    margin-bottom: var(--s-4);
+  }
+
+  .stack-replacement h3 {
+    color: var(--chalk);
+    margin-bottom: var(--s-3);
+  }
+
+  .stack-replacement p {
+    color: var(--pencil-light);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .stack-replacement .price-big {
+    margin-top: var(--s-5);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: var(--signal);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .stack-replacement .price-big .slash {
+    color: var(--pencil-light);
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+
+  /* FOUNDER STORY */
+  .story {
+    padding: var(--s-9) 0;
+  }
+
+  .story-inner {
+    max-width: var(--max-w-reading);
+  }
+
+  .story h2 {
+    margin-top: var(--s-4);
+  }
+
+  .story p {
+    margin-top: var(--s-4);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+
+  .story .kicker {
+    margin-top: var(--s-6);
+    padding: var(--s-5) var(--s-5);
+    background: var(--paper-tape);
+    font-weight: 500;
+    border-left: 3px solid var(--signal);
+    font-size: 1.0625rem;
+  }
+
+  /* VIBE TO SHIP */
+  .protocol {
+    background: var(--ink);
+    color: var(--chalk);
+    padding: var(--s-8) 0;
+  }
+
+  .protocol h2 {
+    color: var(--chalk);
+  }
+
+  .protocol .lede {
+    margin-top: var(--s-4);
+    color: var(--pencil-light);
+    max-width: 54ch;
+  }
+
+  .stages {
+    margin-top: var(--s-7);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border-top: 1px solid #2A2A2C;
+  }
+
+  @media (max-width: 900px) {
+    .stages { grid-template-columns: 1fr 1fr; }
+    .stages .stage { border-right: 1px solid #2A2A2C; }
+    .stages .stage:nth-child(2n) { border-right: none; }
+  }
+
+  @media (max-width: 540px) {
+    .stages { grid-template-columns: 1fr; }
+    .stages .stage { border-right: none; border-bottom: 1px solid #2A2A2C; }
+    .stages .stage:last-child { border-bottom: none; }
+  }
+
+  .stage {
+    padding: var(--s-5) var(--s-4);
+    border-right: 1px solid #2A2A2C;
+    border-bottom: 1px solid #2A2A2C;
+  }
+
+  .stage:last-child { border-right: none; }
+
+  .stage .num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--signal);
+    font-weight: 600;
+  }
+
+  .stage h4 {
+    margin-top: var(--s-3);
+    color: var(--chalk);
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+
+  .stage p {
+    margin-top: var(--s-3);
+    color: var(--pencil-light);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  /* WHAT'S INSIDE */
+  .inside {
+    padding: var(--s-9) 0;
+  }
+
+  .inside-grid {
+    margin-top: var(--s-6);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s-4);
+  }
+
+  @media (max-width: 780px) {
+    .inside-grid { grid-template-columns: 1fr; }
+  }
+
+  .feature {
+    padding: var(--s-5);
+    background: var(--paper-tape);
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .feature .meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .feature .meta .id { color: var(--signal); font-weight: 600; }
+  .feature .meta .tag { color: var(--pencil); }
+
+  .feature h4 {
+    font-size: 1.0625rem;
+    font-weight: 600;
+  }
+
+  .feature p {
+    font-size: 0.9375rem;
+    color: var(--pencil);
+    line-height: 1.6;
+  }
+
+  /* WHO IT'S FOR */
+  .kill-filter {
+    padding: var(--s-8) 0;
+    background: var(--paper-tape);
+  }
+
+  .kill-grid {
+    margin-top: var(--s-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-6);
+  }
+
+  @media (max-width: 780px) {
+    .kill-grid { grid-template-columns: 1fr; }
+  }
+
+  .kill-col h3 {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--graphite);
+    margin-bottom: var(--s-4);
+  }
+
+  .kill-col.out h3 { color: var(--pencil); }
+
+  .kill-list {
+    list-style: none;
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .kill-list li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  .kill-list.in li::before {
+    content: "✓";
+    color: var(--shipped);
+    font-weight: 600;
+  }
+
+  .kill-list.out li::before {
+    content: "✗";
+    color: var(--kill);
+    font-weight: 600;
+  }
+
+  .kill-list.out li { color: var(--pencil); }
+
+  /* FAQ */
+  .faq-section {
+    padding: var(--s-9) 0;
+  }
+
+  .faq-list {
+    margin-top: var(--s-6);
+    max-width: 720px;
+  }
+
+  /* FINAL */
+  .final {
+    padding: var(--s-9) 0;
+    background: var(--ink);
+    color: var(--chalk);
+    text-align: center;
+  }
+
+  .final-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .final h2 {
+    color: var(--chalk);
+    max-width: 18ch;
+    margin: 0 auto;
+  }
+
+  .final p {
+    margin-top: var(--s-5);
+    color: var(--pencil-light);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .final .cta-wrap {
+    margin-top: var(--s-6);
+  }
+
+  .final .micro {
+    margin-top: var(--s-4);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil-light);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="nav">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">Build Room</span>
+    </a>
+    <div class="nav-right">$9/mo<span class="dim"> · </span>Cancel Anytime</div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Build Room · Monthly · No contract</div>
+
+    <h1>The room for people who keep buying AI tools and keep <span class="signal-word">not shipping</span>.</h1>
+
+    <p class="lede">
+      A $9/mo accountability room. Blueprints, daily drops, and the people doing the work next to you. It's not another course. It's a room with its lights on.
+    </p>
+
+    <div class="hero-meta">
+      <div>
+        <strong>50+ Blueprints</strong>
+        Copy-paste Claude Code repos
+      </div>
+      <div>
+        <strong>Daily Drops</strong>
+        One prompt or pattern per day
+      </div>
+      <div>
+        <strong>Private Chat</strong>
+        People building now, not in 2027
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="https://whop.com/automateit/build-room/" class="cta">
+        Join Build Room — $9/mo <span class="arrow">→</span>
+      </a>
+      <span class="price-line">Cancel in one click · No 12-month lock-in</span>
+    </div>
+  </div>
+</section>
+
+<!-- STACK WASTE -->
+<section class="stack-waste">
+  <div class="wrap">
+    <div class="mono-label" style="margin-bottom: var(--s-5);">01_THE_PROBLEM</div>
+    <h2>You're paying $180/mo for a stack that doesn't ship.</h2>
+
+    <div class="stack-grid" style="margin-top: var(--s-7);">
+      <div>
+        <div class="mono-label" style="margin-bottom: var(--s-4);">YOUR CURRENT STACK</div>
+        <ul class="stack-items">
+          <li>Claude Max <span class="price">$200/mo</span></li>
+          <li>ChatGPT Plus <span class="price">$20/mo</span></li>
+          <li>Cursor Pro <span class="price">$20/mo</span></li>
+          <li>Lovable / Bolt / v0 credits <span class="price">~$40/mo</span></li>
+          <li>Canva / Framer / Notion <span class="price">~$30/mo</span></li>
+          <li class="total">Monthly bleed <span class="price">$310+</span></li>
+        </ul>
+
+        <p class="mono-body" style="margin-top: var(--s-5);">
+          Shipped products from that stack: <strong style="color: var(--graphite);">0</strong>
+        </p>
+      </div>
+
+      <div class="stack-replacement">
+        <div class="mono-label">WHAT YOU ACTUALLY NEED</div>
+        <h3>One tool. One room. One process.</h3>
+        <p>Claude Max stays. Everything else, you don't need until you have a deployed URL. Cancel them. Save $100+/mo. Use the savings to buy focus.</p>
+        <div class="price-big">$9<span class="slash"> /mo Build Room</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER STORY -->
+<section class="story">
+  <div class="wrap">
+    <div class="story-inner">
+      <div class="mono-label">02_WHY_THIS_EXISTS</div>
+      <h2>I ran a 1,200-member community teaching n8n. It failed.</h2>
+
+      <p>Not "shut down" failed. It paid the bills. Retention was fine. But it failed at the thing I actually cared about: almost nobody shipped.</p>
+
+      <p>n8n was a wall. People would join, spend three weeks on one workflow, and quit — not because they were dumb, because the tool required engineering discipline to escape the tutorial trap. Most can't do that alone.</p>
+
+      <p>Then Claude Code came out. And the same people started shipping actual software. Apps that got paid users.</p>
+
+      <div class="kicker">
+        The bottleneck was never the tool. It was the process. That's what Build Room sells. Not more tools.
+      </div>
+
+      <p>Build Room is the process, the room, and the blueprints. The part I didn't have when I was running AutomationFlow.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VIBE TO SHIP -->
+<section class="protocol">
+  <div class="wrap">
+    <div class="mono-label" style="color: var(--signal);">03_THE_METHOD</div>
+    <h2 style="margin-top: var(--s-4);">The Vibe-to-Ship Protocol</h2>
+    <p class="lede">
+      Five stages. No skipping. No rabbit holes. The thing I wish I'd given AutomationFlow members.
+    </p>
+
+    <div class="stages">
+      <div class="stage">
+        <span class="num">01</span>
+        <h4>Ideate</h4>
+        <p>Find an idea worth building. Kill 90% of bad ones in under an hour using the cut list.</p>
+      </div>
+      <div class="stage">
+        <span class="num">02</span>
+        <h4>Validate</h4>
+        <p>Test if anyone will pay before you write code. Landing page, ad, deposit — 72 hours.</p>
+      </div>
+      <div class="stage">
+        <span class="num">03</span>
+        <h4>Blueprint</h4>
+        <p>Scope the MVP in one session. Stack, schema, subagent roster. No yak-shaving.</p>
+      </div>
+      <div class="stage">
+        <span class="num">04</span>
+        <h4>Ship</h4>
+        <p>Build with Claude Code. Wall-Skip Kit handles the three named walls that break everyone.</p>
+      </div>
+      <div class="stage">
+        <span class="num">05</span>
+        <h4>Sell</h4>
+        <p>Launch. Waitlist. First 10 users. Decide whether to scale or kill. No marriage to the idea.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSIDE -->
+<section class="inside">
+  <div class="wrap">
+    <div class="mono-label">04_WHAT'S_INSIDE</div>
+    <h2 style="margin-top: var(--s-4);">Six things. That's it.</h2>
+
+    <div class="inside-grid">
+      <div class="feature">
+        <div class="meta"><span class="id">01</span><span class="tag">ASSETS</span></div>
+        <h4>Blueprint Vault</h4>
+        <p>50+ Claude Code repos you drag into your terminal and modify. Not tutorials. Working code. SaaS starter, scraper, AI wrapper, internal tool, auth starter, Stripe starter.</p>
+      </div>
+
+      <div class="feature">
+        <div class="meta"><span class="id">02</span><span class="tag">ASSETS</span></div>
+        <h4>Wall-Skip Kit</h4>
+        <p>The three named walls that break everyone: Supabase auth, Stripe webhooks, deploy. Fixed, documented, drop-in.</p>
+      </div>
+
+      <div class="feature">
+        <div class="meta"><span class="id">03</span><span class="tag">CADENCE</span></div>
+        <h4>Daily Drops</h4>
+        <p>One new prompt, pattern, or fix per day. Posted in the chat. Keep or ignore. No "you missed Day 23" guilt.</p>
+      </div>
+
+      <div class="feature">
+        <div class="meta"><span class="id">04</span><span class="tag">PEOPLE</span></div>
+        <h4>Private chat</h4>
+        <p>Small, quiet, focused. Not a 5,000-person Discord. People shipping this week, not in 2027. Stuck-point thread on Fridays.</p>
+      </div>
+
+      <div class="feature">
+        <div class="meta"><span class="id">05</span><span class="tag">CADENCE</span></div>
+        <h4>Weekly Office Hours</h4>
+        <p>One 60-min call a week. I unstick people live. Recorded if you can't make it. Bring your terminal, not your questions.</p>
+      </div>
+
+      <div class="feature">
+        <div class="meta"><span class="id">06</span><span class="tag">ASSETS</span></div>
+        <h4>Vibe-to-Ship Quick Start</h4>
+        <p>2-hour intro to the full 5-stage protocol. Watch once, reference when stuck. The whole thing in one sitting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KILL FILTER -->
+<section class="kill-filter">
+  <div class="wrap">
+    <div class="mono-label">05_KILL_FILTER</div>
+    <h2 style="margin-top: var(--s-4);">This is for you if...</h2>
+
+    <div class="kill-grid">
+      <div class="kill-col in">
+        <h3>Join if</h3>
+        <ul class="kill-list in">
+          <li>You're paying for Claude/Cursor/Lovable and haven't shipped anything with them</li>
+          <li>You can dedicate 5–10 hrs/week and you actually want to ship one product</li>
+          <li>You'd rather have one working app than a perfect understanding of ten tools</li>
+          <li>You want a small quiet room, not a 5,000-person Discord</li>
+          <li>You're okay with a process that asks you to kill ideas</li>
+        </ul>
+      </div>
+
+      <div class="kill-col out">
+        <h3>Don't join if</h3>
+        <ul class="kill-list out">
+          <li>You want a $97/mo "mentor" who promises $10K MRR in 30 days</li>
+          <li>You want someone to build your idea for you</li>
+          <li>You're looking for a passive info product you'll watch in 2027</li>
+          <li>You can't dedicate a few hours a week to actual building</li>
+          <li>You want a 2,000-video course library to binge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="mono-label">06_FAQ</div>
+    <h2 style="margin-top: var(--s-4);">Questions you probably have</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Can I cancel anytime?</summary>
+        <div class="faq-answer">Yes. One click inside your Whop account. No "chat with support" gate, no retention offer, no email loop. If it's not working for you, leave.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Do you offer refunds?</summary>
+        <div class="faq-answer">Not typically. It's $9. You can cancel before the next billing cycle. If something went actually wrong (double charge, couldn't access the room), reply to the welcome email and I'll fix it.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>I don't know how to code. Does this work?</summary>
+        <div class="faq-answer">Yes, if you're willing to learn a little while you build. Build Room is designed for non-technical and semi-technical people — the Blueprint Vault is built so you drag a repo in and Claude Code does most of the lifting. You'll still need to understand what's happening at a high level to fix things. If "I don't want to look at code ever" is a hard rule for you, this isn't the right fit.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>What if I join and don't ship anything?</summary>
+        <div class="faq-answer">That's on you, honestly. I can give you blueprints, a process, a room, and weekly calls. I can't open your laptop. If you're not going to open Claude Code at all in a given month, don't pay $9 to watch yourself not ship. Cancel and come back when you will.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is there a bigger program I can graduate into?</summary>
+        <div class="faq-answer">Yes, but I'm not going to sell it here. Once you're in the room and moving, I'll mention what's next where relevant. If you're asking up front: there's a $297/mo cohort called Ship Loop for people who want a sharper format with live weekly coaching. You get an invite after you've shown progress in Build Room.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Is this a replacement for my other AI subscriptions?</summary>
+        <div class="faq-answer">You'll still want Claude Max — Claude Code runs on top of it. That's where the work happens. The rest of your stack (Cursor, Lovable, Bolt, ChatGPT Plus) most people drop after a month here. Not because I say so — because you stop needing them when you have a process.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-inner">
+      <div class="mono-label" style="color: var(--signal);">07_JOIN</div>
+      <h2 style="margin-top: var(--s-4);">Idea → Execution. $9/mo. Cancel anytime.</h2>
+      <p>You already know whether the $180/mo stack you're paying for is working. $9 buys a room that does. Worst case, you leave in 30 days.</p>
+
+      <div class="cta-wrap">
+        <a href="https://whop.com/automateit/build-room/" class="cta">
+          Join Build Room — $9/mo <span class="arrow">→</span>
+        </a>
+      </div>
+
+      <p class="micro">Payment by Whop<span class="dim"> · </span>Cancel in one click<span class="dim"> · </span>First 7 days includes a 30-min onboarding call</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer" style="background: var(--ink); border-top: 1px solid #1F1F22; padding-top: var(--s-6);">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text" style="color: var(--chalk);">Build Room</span>
+    </a>
+    <div class="version-stamp" style="color: var(--pencil-light);">
+      BUILD-ROOM.v1<span class="dot">·</span>2026-04-23<span class="dot">·</span>PAYMENTS BY WHOP
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

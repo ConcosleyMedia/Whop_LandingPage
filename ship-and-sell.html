@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ship & Sell — Private 1:1 · Memo</title>
+<meta name="description" content="A 30-day 1:1 done-with-you program. By invite.">
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="brand.css">
+
+<style>
+  /* Ship & Sell: memo page, maximum restraint, near-zero orange */
+
+  body {
+    background: var(--paper);
+    color: var(--graphite);
+  }
+
+  .memo {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: var(--s-8) var(--s-5) var(--s-9);
+  }
+
+  @media (max-width: 640px) {
+    .memo { padding: var(--s-6) var(--s-4); }
+  }
+
+  /* Memo header */
+  .memo-head {
+    padding-bottom: var(--s-5);
+    border-bottom: 1px solid var(--graphite);
+    margin-bottom: var(--s-6);
+  }
+
+  .memo-head .stamp {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-3) var(--s-5);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    line-height: 1.7;
+  }
+
+  .memo-head .stamp .key {
+    color: var(--pencil);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 600;
+  }
+
+  .memo-head .stamp .value {
+    color: var(--graphite);
+  }
+
+  /* Title */
+  .memo h1 {
+    font-size: clamp(2rem, 3vw + 1rem, 2.75rem);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    max-width: 20ch;
+    font-weight: 700;
+  }
+
+  .memo .dek {
+    margin-top: var(--s-4);
+    font-size: 1.0625rem;
+    color: var(--pencil);
+    line-height: 1.6;
+    max-width: 48ch;
+  }
+
+  /* Sections */
+  .memo h2 {
+    font-size: 1.125rem;
+    margin-top: var(--s-7);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding-bottom: var(--s-2);
+    border-bottom: 1px solid var(--paper-tape);
+  }
+
+  .memo h2::before {
+    content: attr(data-num) "  ";
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    color: var(--pencil);
+    font-weight: 600;
+    margin-right: var(--s-2);
+    vertical-align: middle;
+  }
+
+  .memo p {
+    margin-top: var(--s-4);
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--graphite);
+  }
+
+  .memo p.dim {
+    color: var(--pencil);
+  }
+
+  .memo ul {
+    margin-top: var(--s-4);
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .memo ul li {
+    padding: var(--s-2) 0 var(--s-2) var(--s-5);
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .memo ul li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--graphite);
+    font-family: var(--font-mono);
+  }
+
+  /* Week breakdown */
+  .weeks {
+    margin-top: var(--s-5);
+    display: grid;
+    gap: var(--s-2);
+  }
+
+  .week-line {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-bottom: 1px solid var(--paper-tape);
+    align-items: baseline;
+  }
+
+  .week-line:last-child { border-bottom: none; }
+
+  .week-line .week-num {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    font-weight: 600;
+  }
+
+  .week-line .week-what strong {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .week-line .week-what span {
+    color: var(--pencil);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* Price block */
+  .price-block {
+    margin-top: var(--s-6);
+    padding: var(--s-5) 0;
+    border-top: 1px solid var(--graphite);
+    border-bottom: 1px solid var(--graphite);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--s-3);
+  }
+
+  .price-block .label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    font-weight: 600;
+  }
+
+  .price-block .amount {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    color: var(--graphite);
+  }
+
+  .price-block .split {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--pencil);
+    letter-spacing: 0.04em;
+  }
+
+  /* Apply */
+  .apply-block {
+    margin-top: var(--s-7);
+    padding: var(--s-5);
+    background: var(--paper-tape);
+  }
+
+  .apply-block .label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    font-weight: 600;
+    margin-bottom: var(--s-3);
+  }
+
+  .apply-block p {
+    margin-top: 0;
+    font-size: 0.9375rem;
+    color: var(--graphite);
+    line-height: 1.6;
+  }
+
+  .apply-cta {
+    margin-top: var(--s-4);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: var(--s-4) var(--s-5);
+    background: var(--graphite);
+    color: var(--paper);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.8125rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.15s ease;
+  }
+
+  .apply-cta:hover { background: var(--ink); }
+
+  .signature {
+    margin-top: var(--s-8);
+    padding-top: var(--s-5);
+    border-top: 1px solid var(--paper-tape);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--pencil);
+    letter-spacing: 0.04em;
+  }
+
+  .signature strong {
+    color: var(--graphite);
+    font-weight: 600;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="memo">
+
+  <!-- MEMO HEAD -->
+  <div class="memo-head">
+    <div class="stamp">
+      <span class="key">Memo</span>
+      <span class="value">Ship &amp; Sell · Private 1:1 Program</span>
+      <span class="key">Status</span>
+      <span class="value">By invite / referral only</span>
+      <span class="key">Version</span>
+      <span class="value">SHIP-AND-SELL.v1 · 2026-04-23</span>
+    </div>
+  </div>
+
+  <!-- TITLE -->
+  <h1>A 30-day 1:1 program for people who want me in the room, not a cohort.</h1>
+  <p class="dek">If you're reading this, I probably sent you the link. This page isn't public. It's a memo for the handful of people where group coaching is the wrong fit.</p>
+
+  <!-- WHY -->
+  <h2 data-num="01">Why this exists</h2>
+  <p>Most people who want to ship a product belong in Build Room ($9/mo) or the Ship Loop cohort ($297/mo). Those formats work — small room, weekly rhythm, peers doing the same thing. For a small minority, the cohort format is wrong. Usually because you're further along than most cohort members, or you're moving faster than a group rhythm allows, or you want someone who'll actually sit with your code and pair through hard parts.</p>
+  <p class="dim">If any of that is you, this is the format.</p>
+
+  <!-- HOW IT WORKS -->
+  <h2 data-num="02">How it works</h2>
+  <p>Four weeks. 1:1 with me. No group.</p>
+
+  <div class="weeks">
+    <div class="week-line">
+      <span class="week-num">Week 01</span>
+      <div class="week-what">
+        <strong>Idea &amp; validation</strong>
+        <span>We audit what you're working on, cut the wrong parts, run the 72-hour validation, and lock the scope.</span>
+      </div>
+    </div>
+
+    <div class="week-line">
+      <span class="week-num">Week 02</span>
+      <div class="week-what">
+        <strong>Blueprint &amp; stack</strong>
+        <span>MVP scoped in one session. Stack decided, schema sketched, subagent roster built. GitHub and deployment set up the right way.</span>
+      </div>
+    </div>
+
+    <div class="week-line">
+      <span class="week-num">Week 03</span>
+      <div class="week-what">
+        <strong>Build</strong>
+        <span>You build with Claude Code. Two 60-min 1:1 calls. Daily async in our shared channel. I pair through the walls — Supabase, Stripe, auth, deploy.</span>
+      </div>
+    </div>
+
+    <div class="week-line">
+      <span class="week-num">Week 04</span>
+      <div class="week-what">
+        <strong>Launch &amp; first users</strong>
+        <span>Waitlist, outreach, first paid ad test. We go from deployed URL to first 10 paying users. You end week 4 with a live, working product and real customers.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- INCLUDED -->
+  <h2 data-num="03">What's included</h2>
+  <ul>
+    <li>4 weekly 1:1 calls (60 min each)</li>
+    <li>2 extra build-session calls during Week 03</li>
+    <li>A private shared channel — I'm in it every weekday</li>
+    <li>Full Build Room access for the 30 days (plus 2 months after)</li>
+    <li>Full Blueprint Vault, Wall-Skip Kit, all templates</li>
+    <li>The 72-hour validation template and outreach scripts</li>
+    <li>Direct review of your code and prompts when you get stuck</li>
+    <li>An unlock for the Ship Loop alumni channel when you ship</li>
+  </ul>
+
+  <!-- THE PROMISE -->
+  <h2 data-num="04">The only promise I make</h2>
+  <p>You ship in 30 days, or I work with you for another 30 free. No refund hand-wringing, no exit interview. The program is built on an outcome, not on time spent.</p>
+  <p class="dim">If you don't show up to calls or open Claude Code, I can't help. The guarantee assumes you do the work.</p>
+
+  <!-- WHO THIS IS FOR -->
+  <h2 data-num="05">Who this is for</h2>
+  <ul>
+    <li>Build Room members who've outgrown the $9 format</li>
+    <li>Operators at day jobs who want to ship something on the side but can't wait for a cohort</li>
+    <li>Founders who've built something in Lovable/Bolt and need to own the code before launching</li>
+    <li>People who've bought ShipFast, a Skool program, or 3+ courses and still haven't shipped</li>
+  </ul>
+
+  <p class="dim">Not for you if: you want someone to build your idea for you, you're not willing to look at code, or your idea needs a real engineering team. Mention it when you join the waitlist and I'll point you somewhere better.</p>
+
+  <!-- PRICE -->
+  <h2 data-num="06">Pricing</h2>
+
+  <div class="price-block">
+    <div>
+      <div class="label">One-time</div>
+      <div class="amount">$2,997</div>
+    </div>
+    <div>
+      <div class="label">Or split</div>
+      <div class="split">$997 × 3 months</div>
+    </div>
+  </div>
+
+  <p class="dim">I take a handful of clients at a time. The waitlist is how I manage it — when a spot opens, I reach out to the next person on the list.</p>
+
+  <!-- WAITLIST -->
+  <div class="apply-block">
+    <div class="label">→ Join the waitlist</div>
+    <p>One form, 5 questions, takes 4 minutes. I reach out when a spot opens with either (a) a call link if you're still a fit, or (b) an honest "the format changed / here's what's right for you now."</p>
+    <a href="https://whop.com/automateit/1-on-1-0a/" class="apply-cta">
+      Join the Ship &amp; Sell waitlist →
+    </a>
+  </div>
+
+  <!-- SIG -->
+  <div class="signature">
+    — Build Room · <strong>Private memo · do not share this URL</strong>
+  </div>
+
+</div>
+
+</body>
+</html>

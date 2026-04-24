@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>You're in — Check your email</title>
+<meta name="description" content="The intro is on its way to your inbox.">
+
+<meta name="robots" content="noindex, nofollow">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="brand.css">
+
+<style>
+  .confirm {
+    padding: var(--s-9) 0 var(--s-7);
+  }
+
+  .confirm .content {
+    max-width: 620px;
+  }
+
+  .checkmark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--shipped);
+    color: white;
+    border-radius: 50%;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    margin-bottom: var(--s-5);
+  }
+
+  .confirm h1 {
+    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
+    max-width: 18ch;
+  }
+
+  .confirm .sub {
+    margin-top: var(--s-5);
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--pencil);
+  }
+
+  .what-next {
+    background: var(--paper-tape);
+    padding: var(--s-7) 0;
+  }
+
+  .what-next h3 {
+    margin-bottom: var(--s-5);
+  }
+
+  .step-list {
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    gap: var(--s-4);
+    max-width: 580px;
+  }
+
+  .step-list li {
+    counter-increment: step;
+    padding: var(--s-5);
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-4);
+    align-items: start;
+  }
+
+  .step-list li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--signal);
+    letter-spacing: 0.08em;
+  }
+
+  .step-list strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: var(--s-2);
+  }
+
+  .step-list span {
+    color: var(--pencil);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  /* One-time offer */
+  .oto {
+    padding: var(--s-9) 0;
+  }
+
+  .oto-card {
+    background: var(--ink);
+    color: var(--chalk);
+    padding: var(--s-7) var(--s-6);
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .oto-card .eyebrow {
+    color: var(--signal);
+    margin-bottom: var(--s-5);
+  }
+
+  .oto-card h2 {
+    color: var(--chalk);
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+    max-width: 20ch;
+  }
+
+  .oto-card .sub {
+    margin-top: var(--s-5);
+    color: var(--pencil-light);
+    font-size: 1rem;
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+
+  .oto-price {
+    margin-top: var(--s-6);
+    display: flex;
+    align-items: baseline;
+    gap: var(--s-3);
+    flex-wrap: wrap;
+  }
+
+  .oto-price .was {
+    font-family: var(--font-mono);
+    color: var(--pencil);
+    font-size: 0.9375rem;
+    letter-spacing: 0.04em;
+    text-decoration: line-through;
+  }
+
+  .oto-price .now {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 3.5rem;
+    color: var(--chalk);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .oto-price .now .dollar {
+    font-size: 2rem;
+    vertical-align: top;
+    position: relative;
+    top: 0.3em;
+    margin-right: 0.1em;
+  }
+
+  .oto-price .then {
+    font-family: var(--font-mono);
+    color: var(--pencil-light);
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .oto-includes {
+    margin-top: var(--s-6);
+    padding-top: var(--s-5);
+    border-top: 1px solid #2A2A2C;
+  }
+
+  .oto-includes .mono-label {
+    color: var(--pencil-light);
+    margin-bottom: var(--s-4);
+  }
+
+  .oto-includes ul {
+    list-style: none;
+    display: grid;
+    gap: var(--s-3);
+  }
+
+  .oto-includes li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--s-3);
+    font-size: 0.9375rem;
+    color: var(--chalk);
+    line-height: 1.5;
+  }
+
+  .oto-includes li::before {
+    content: "→";
+    color: var(--signal);
+    font-family: var(--font-mono);
+  }
+
+  .oto-cta {
+    margin-top: var(--s-6);
+  }
+
+  .oto-micro {
+    margin-top: var(--s-4);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    color: var(--pencil-light);
+  }
+
+  .pass {
+    text-align: center;
+    padding: var(--s-6) 0 var(--s-8);
+  }
+
+  .pass a {
+    color: var(--pencil);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--pencil-light);
+    padding-bottom: 2px;
+  }
+
+  .pass a:hover {
+    color: var(--graphite);
+    border-bottom-color: var(--graphite);
+  }
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="nav">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">Build Room</span>
+    </a>
+    <div class="nav-right">Step <span class="signal-word">02</span> / 02</div>
+  </div>
+</header>
+
+<!-- CONFIRMATION -->
+<section class="confirm">
+  <div class="wrap">
+    <div class="content">
+      <div class="mono-label">01_CONFIRMED</div>
+      <h1 style="margin-top: var(--s-4);">You're in. Check your email.</h1>
+      <p class="sub">
+        The intro video, the 5 starter prompts, and the Wall Map are on their way. Should arrive in under 2 minutes. If it's not there, check promotions or spam — sometimes my emails land there the first time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT NEXT -->
+<section class="what-next">
+  <div class="wrap">
+    <div class="mono-label">02_WHAT_TO_DO_NOW</div>
+    <h3 style="margin-top: var(--s-3);">While you wait for the email</h3>
+
+    <ol class="step-list">
+      <li>
+        <div>
+          <strong>Open the inbox you used</strong>
+          <span>The video lives in a private unlisted link. It's in the email. Don't share the link — it's how I track who actually watched versus who just collected the PDF.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Watch it in one sitting</strong>
+          <span>30 minutes. No pausing to "research" the tools. Watch it, run one prompt, and see what you think.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Reply if you get stuck</strong>
+          <span>The email is a real address. I read replies. Tell me where you hit the wall and I'll send back a specific fix.</span>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ONE-TIME OFFER -->
+<section class="oto">
+  <div class="wrap">
+    <div class="oto-card">
+      <div class="eyebrow">One-time offer · Ends when you leave this page</div>
+      <h2>Skip the 10-day warm-up. Get in the room for <span class="signal-word">$1</span>.</h2>
+      <p class="sub">
+        If you already know you want more than a 30-minute intro, the first month of Build Room is $1. After that, $9/mo. Cancel anytime — the cancel button is in your account, not behind a support ticket.
+      </p>
+
+      <div class="oto-price">
+        <span class="was">$9</span>
+        <span class="now"><span class="dollar">$</span>1</span>
+        <span class="then">/ first month, then $9/mo</span>
+      </div>
+
+      <div class="oto-includes">
+        <div class="mono-label">03_WHAT_YOU_GET</div>
+        <ul>
+          <li>50+ Claude Code blueprints (copy-paste repos)</li>
+          <li>The full Wall-Skip Kit — Supabase auth, Stripe webhooks, deploy checklist</li>
+          <li>One new drop every day (prompt, pattern, or fix)</li>
+          <li>Private chat with people building next to you</li>
+          <li>Weekly office hours call with me</li>
+        </ul>
+      </div>
+
+      <div class="oto-cta">
+        <a href="https://whop.com/checkout/plan_CbVyv3zqRXaFH" class="cta" style="width: 100%; max-width: 320px;">
+          Start for $1 <span class="arrow">→</span>
+        </a>
+        <p class="oto-micro">Payment by Whop · Cancel in one click</p>
+      </div>
+    </div>
+
+    <div class="pass">
+      <a href="#">No thanks — I'll try the free intro first</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="wrap">
+    <a href="/" class="logo">
+      <span class="logo-mark"></span>
+      <span class="logo-text">Build Room</span>
+    </a>
+    <div class="version-stamp">
+      THANK-YOU.v1<span class="dot">·</span>2026-04-23
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
