@@ -241,10 +241,8 @@
   }
 
   .who-list li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--s-4);
-    padding: var(--s-4) 0;
+    position: relative;
+    padding: var(--s-4) 0 var(--s-4) var(--s-6);
     border-bottom: 1px solid #1F1F22;
     color: var(--pencil-light);
     font-size: 1rem;
@@ -253,14 +251,19 @@
 
   .who-list li::before {
     content: "→";
+    position: absolute;
+    left: 0;
+    top: var(--s-4);
     color: var(--signal);
     font-family: var(--font-mono);
     font-weight: 600;
   }
 
   .who-list li strong {
+    display: block;
     color: var(--chalk);
     font-weight: 600;
+    margin-bottom: var(--s-2);
   }
 
   /* ENROLLMENT */
