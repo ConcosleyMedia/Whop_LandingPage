@@ -167,10 +167,10 @@ body.dark .mono-body { color: var(--pencil-light); }
   max-width: var(--max-w-reading);
 }
 
-section { padding: var(--s-9) 0; }
+section { padding: var(--s-8) 0; }
 
 @media (max-width: 640px) {
-  section { padding: var(--s-7) 0; }
+  section { padding: var(--s-6) 0; }
   .wrap, .wrap-narrow { padding-left: var(--s-4); padding-right: var(--s-4); }
 }
 
