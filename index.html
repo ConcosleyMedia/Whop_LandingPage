@@ -148,6 +148,85 @@
     color: var(--pencil);
   }
 
+  /* ——— Problem stage strip callout ——— */
+  .problem-section .stage-strip-callout {
+    margin-top: var(--s-6);
+    padding: var(--s-4) var(--s-5);
+    background: var(--paper-tape);
+    border-left: 2px solid var(--signal);
+  }
+
+  /* ——— Receipts block (brand pattern) ——— */
+  .receipts-block {
+    margin-top: var(--s-6);
+    margin-bottom: var(--s-4);
+    border: 1px solid rgba(26,26,28,0.15);
+    background: var(--paper-tape);
+  }
+
+  .receipts-header {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    padding: var(--s-3) var(--s-5);
+    border-bottom: 1px solid rgba(26,26,28,0.15);
+    background: var(--paper);
+  }
+
+  .receipts-rows {
+    padding: var(--s-2) var(--s-5);
+  }
+
+  .receipts-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: var(--s-4);
+    padding: var(--s-3) 0;
+    border-bottom: 1px dashed rgba(26,26,28,0.12);
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+  }
+
+  .receipts-row:last-child { border-bottom: none; }
+
+  .receipts-row .label {
+    color: var(--pencil);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.6875rem;
+  }
+
+  .receipts-row .value {
+    color: var(--graphite);
+    font-weight: 500;
+  }
+
+  .receipts-row .value .sub {
+    color: var(--pencil);
+    font-weight: 400;
+    margin-left: var(--s-2);
+  }
+
+  .receipts-row .value.kill {
+    color: var(--kill);
+    font-weight: 600;
+  }
+
+  .receipts-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    color: var(--pencil);
+    padding: var(--s-3) var(--s-5);
+    border-top: 1px solid rgba(26,26,28,0.15);
+    background: var(--paper);
+  }
+
   /* ——— Who this is / isn't for ——— */
   .who-section {
     padding: var(--s-8) 0;
@@ -312,6 +391,18 @@
       <p>
         This free intro shows you the 5-stage process I use — Ideate, Validate, Blueprint, Ship, Sell — and gives you 5 copy-paste Claude Code prompts that do the first stage for you.
       </p>
+
+      <div class="stage-strip stage-strip-callout" aria-label="Vibe-to-Ship Protocol stages">
+        <span class="stage"><strong>01_IDEATE</strong></span>
+        <span class="arrow">→</span>
+        <span class="stage"><strong>02_VALIDATE</strong></span>
+        <span class="arrow">→</span>
+        <span class="stage"><strong>03_BLUEPRINT</strong></span>
+        <span class="arrow">→</span>
+        <span class="stage"><strong>04_SHIP</strong></span>
+        <span class="arrow">→</span>
+        <span class="stage"><strong>05_SELL</strong></span>
+      </div>
     </div>
   </div>
 </section>
@@ -393,6 +484,25 @@
       <p>
         n8n was too hard for the people who needed it most. They'd join, get excited, spend three weeks on one workflow, quit. Not because they were dumb — because the tool was a wall.
       </p>
+
+      <div class="receipts-block">
+        <div class="receipts-header">RECEIPTS · AUTOMATIONFLOW · 2022—2025</div>
+        <div class="receipts-rows">
+          <div class="receipts-row">
+            <span class="label">Members</span>
+            <span class="value">1,200 <span class="sub">paying</span></span>
+          </div>
+          <div class="receipts-row">
+            <span class="label">Duration</span>
+            <span class="value">3 years <span class="sub">active community</span></span>
+          </div>
+          <div class="receipts-row">
+            <span class="label">Who shipped</span>
+            <span class="value kill">&lt; 5%</span>
+          </div>
+        </div>
+        <div class="receipts-tag">— Receipts, not renders.</div>
+      </div>
 
       <p>
         Then Claude Code came out. And the same people who'd quit before started shipping actual software. Apps people paid for.
