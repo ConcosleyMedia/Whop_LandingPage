@@ -65,27 +65,58 @@
     color: var(--pencil);
   }
 
+  /* ——— Problem section ——— */
+  .problem-section {
+    padding: var(--s-8) 0;
+    border-top: 1px solid rgba(26,26,28,0.08);
+  }
+
+  .problem-section .content {
+    max-width: var(--max-w-reading);
+  }
+
+  .problem-section h2 {
+    margin-top: var(--s-4);
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .problem-section p {
+    margin-top: var(--s-5);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--graphite);
+  }
+
+  /* ——— What you get (list style) ——— */
   .what-you-get {
     background: var(--paper-tape);
-    padding: var(--s-7) 0;
+    padding: var(--s-8) 0;
   }
 
-  .what-you-get-grid {
+  .what-you-get .inner {
+    max-width: var(--max-w-narrow);
+  }
+
+  .get-list {
+    list-style: none;
+    margin-top: var(--s-5);
+  }
+
+  .get-list li {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--s-6);
+    grid-template-columns: 48px 1fr;
+    gap: var(--s-5);
+    padding: var(--s-5) 0;
+    border-bottom: 1px dashed rgba(26,26,28,0.15);
+    align-items: baseline;
   }
 
-  @media (max-width: 780px) {
-    .what-you-get-grid { grid-template-columns: 1fr; gap: var(--s-5); }
-  }
+  .get-list li:last-child { border-bottom: none; }
 
-  .deliverable {
-    display: grid;
-    gap: var(--s-3);
-  }
-
-  .deliverable .num {
+  .get-list .num {
     font-family: var(--font-mono);
     font-weight: 600;
     font-size: 0.875rem;
@@ -93,15 +124,101 @@
     color: var(--signal);
   }
 
-  .deliverable h4 {
+  .get-list .body strong {
+    display: block;
+    font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
+    color: var(--graphite);
+    margin-bottom: var(--s-2);
+    letter-spacing: -0.01em;
   }
 
-  .deliverable p {
-    color: var(--pencil);
-    font-size: 0.9375rem;
+  .get-list .body p {
+    font-size: 1rem;
     line-height: 1.6;
+    color: var(--graphite);
+  }
+
+  .get-note {
+    margin-top: var(--s-5);
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.02em;
+    color: var(--pencil);
+  }
+
+  /* ——— Who this is / isn't for ——— */
+  .who-section {
+    padding: var(--s-8) 0;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--s-7);
+    margin-top: var(--s-6);
+  }
+
+  .who-grid .col.is-for {
+    padding-right: var(--s-6);
+    border-right: 1px dashed rgba(26,26,28,0.15);
+  }
+
+  @media (max-width: 780px) {
+    .who-grid { grid-template-columns: 1fr; gap: var(--s-6); }
+    .who-grid .col.is-for {
+      padding-right: 0;
+      border-right: none;
+      padding-bottom: var(--s-6);
+      border-bottom: 1px dashed rgba(26,26,28,0.15);
+    }
+  }
+
+  .who-grid h3 {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--pencil);
+    margin-bottom: var(--s-4);
+  }
+
+  .who-grid ul {
+    list-style: none;
+  }
+
+  .who-grid li {
+    position: relative;
+    padding: var(--s-3) 0 var(--s-3) var(--s-6);
+    font-size: 1rem;
+    line-height: 1.55;
+    border-bottom: 1px dashed rgba(26,26,28,0.08);
+  }
+
+  .who-grid li:last-child { border-bottom: none; }
+
+  .who-grid li::before {
+    position: absolute;
+    left: 0;
+    top: var(--s-3);
+    font-family: var(--font-mono);
+    font-weight: 600;
+  }
+
+  .who-grid .is-for li::before {
+    content: "→";
+    color: var(--signal);
+  }
+
+  .who-grid .not-for li {
+    color: var(--pencil);
+  }
+
+  .who-grid .not-for li::before {
+    content: "×";
+    color: var(--pencil-light);
   }
 
   .story-section {
@@ -177,26 +294,86 @@
   </div>
 </section>
 
+<!-- THE PROBLEM -->
+<section class="problem-section">
+  <div class="wrap">
+    <div class="content">
+      <div class="mono-label">02_THE_PROBLEM</div>
+      <h2>Most people don't need another course.</h2>
+
+      <p>
+        They have 14 browser tabs open, a Claude subscription, three unfinished projects, and no deployed URL.
+      </p>
+
+      <p>
+        The problem isn't the tools. It's that nobody showed you how to cut through the weeds and actually finish one thing.
+      </p>
+
+      <p>
+        This free intro shows you the 5-stage process I use — Ideate, Validate, Blueprint, Ship, Sell — and gives you 5 copy-paste Claude Code prompts that do the first stage for you.
+      </p>
+    </div>
+  </div>
+</section>
+
 <!-- WHAT YOU GET -->
 <section class="what-you-get">
   <div class="wrap">
-    <div class="mono-label" style="margin-bottom: var(--s-5);">02_WHAT_YOU_GET</div>
+    <div class="inner">
+      <div class="mono-label">03_WHAT_YOU_GET</div>
 
-    <div class="what-you-get-grid">
-      <div class="deliverable">
-        <span class="num">01</span>
-        <h4>30-minute intro video</h4>
-        <p>What Claude Code actually is, how to start, and a surface-level walkthrough of the Vibe-to-Ship Protocol. No fluff, no sponsor reads.</p>
+      <ul class="get-list">
+        <li>
+          <span class="num">01</span>
+          <div class="body">
+            <strong>30-minute intro video</strong>
+            <p>What Claude Code actually is, how to start, and a surface-level walkthrough of the Vibe-to-Ship Protocol. No fluff, no sponsor reads.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div class="body">
+            <strong>5 starter prompts</strong>
+            <p>Copy-paste prompts for the five places people get stuck first: ideating, scoping, debugging, shipping, and finding the first user.</p>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div class="body">
+            <strong>The Wall Map (PDF)</strong>
+            <p>The 5 most common walls non-technical founders hit with Claude Code — Supabase auth, Stripe webhooks, context loss, the rest — and how to skip each.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="get-note">No upsell wall. No "book a call." Claim the free intro and watch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO THIS IS / ISN'T FOR -->
+<section class="who-section">
+  <div class="wrap">
+    <div class="mono-label">04_WHO_THIS_IS_FOR</div>
+
+    <div class="who-grid">
+      <div class="col is-for">
+        <h3>Who this is for</h3>
+        <ul>
+          <li>You've been paying for Claude, ChatGPT, Cursor, Lovable, or some combo of them — and haven't shipped.</li>
+          <li>You've got ideas but can't tell which ones are worth building.</li>
+          <li>You're not a developer and you're tired of hearing "just learn to code."</li>
+          <li>You want one process, not ten more tools.</li>
+        </ul>
       </div>
-      <div class="deliverable">
-        <span class="num">02</span>
-        <h4>5 starter prompts</h4>
-        <p>Copy-paste prompts for the five places people get stuck first: ideating, scoping, debugging, shipping, and finding the first user.</p>
-      </div>
-      <div class="deliverable">
-        <span class="num">03</span>
-        <h4>The Wall Map (PDF)</h4>
-        <p>The 5 most common walls non-technical founders hit with Claude Code — Supabase auth, Stripe webhooks, context loss, the rest — and how to skip each.</p>
+
+      <div class="col not-for">
+        <h3>Who this isn't for</h3>
+        <ul>
+          <li>People looking for a "build a SaaS in a weekend" fantasy.</li>
+          <li>Experienced engineers. This will feel slow.</li>
+          <li>Anyone who wants done-for-you. I teach. You build.</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -206,7 +383,7 @@
 <section class="story-section">
   <div class="wrap">
     <div class="content">
-      <div class="mono-label">03_WHY_THIS_EXISTS</div>
+      <div class="mono-label">05_WHY_THIS_EXISTS</div>
       <h2 style="margin-top: var(--s-4);">I ran a 1,200-member community teaching n8n. It failed.</h2>
 
       <p>
@@ -236,7 +413,7 @@
 <section class="final-cta">
   <div class="wrap">
     <div class="inner">
-      <div class="mono-label">04_START</div>
+      <div class="mono-label">06_START</div>
       <h2>Watch the 30 minutes. Run the 5 prompts. Decide.</h2>
 
       <form class="form-box" style="margin-top: var(--s-6);">
