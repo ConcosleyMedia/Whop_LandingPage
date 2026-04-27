@@ -333,6 +333,20 @@ body.dark .version-stamp { color: var(--pencil-light); }
   margin: 0 var(--s-2);
 }
 
+.version-stamp a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.version-stamp a:hover {
+  color: var(--graphite);
+}
+
+body.dark .version-stamp a:hover {
+  color: var(--chalk);
+}
+
 /* ---------- TERMINAL FRAME (for dark content on Paper) ---------- */
 .terminal {
   background: var(--ink);
