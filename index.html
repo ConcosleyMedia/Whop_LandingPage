@@ -372,6 +372,8 @@ a.cta-large:active {
     gap: 8px;
     padding-top: 0;
     height: auto;
+    /* Reserve full height so cards fading in don't push content below */
+    min-height: 140px;
   }
 }
 
@@ -416,6 +418,8 @@ a.cta-large:active {
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 8px;
+    /* Reserve full stacked height so cards fading in don't push content below */
+    min-height: 300px;
   }
   .verdict-card {
     flex: 0 0 auto;
@@ -3579,8 +3583,7 @@ footer .container {
       timers.push(t);
       cumulative += line.wait;
     });
-    const restart = setTimeout(() => { running = false; render(); }, cumulative + 1000);
-    timers.push(restart);
+    // Loop disabled — terminal plays once and stops, prevents layout shift below.
   }
 
   function renderStatic() {
