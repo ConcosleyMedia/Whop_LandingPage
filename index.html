@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ship Your First Thing — Free Claude Code Intro · Build Room</title>
-<meta name="description" content="Free 30-minute Claude Code intro and 5 starter prompts for non-technical founders. Watch, run them, decide. No upsell wall.">
+<title>Build Room — Ship Your First Thing · Free Kill Filter + Claude Code Intro</title>
+<meta name="description" content="The Kill Filter scores your idea, kills it if it's bad, or generates the files you need to build it. Plus a 30-min Claude Code intro and 5 starter prompts. Free.">
 <link rel="canonical" href="https://buildroom.studio/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://buildroom.studio/">
 <meta property="og:site_name" content="Build Room">
-<meta property="og:title" content="Stop paying $180/mo for AI tools you haven't shipped anything with.">
-<meta property="og:description" content="A free 30-minute Claude Code intro and 5 starter prompts. Watch it, run them, and decide if you want more.">
+<meta property="og:title" content="Your half-built app is making someone else $50K/mo right now.">
+<meta property="og:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 starter prompts. Stop sitting on the idea. Ship it.">
 <meta property="og:image" content="https://buildroom.studio/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -20,8 +20,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Stop paying $180/mo for AI tools you haven't shipped anything with.">
-<meta name="twitter:description" content="A free 30-minute Claude Code intro and 5 starter prompts. Watch, run them, decide.">
+<meta name="twitter:title" content="Your half-built app is making someone else $50K/mo right now.">
+<meta name="twitter:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 starter prompts.">
 <meta name="twitter:image" content="https://buildroom.studio/og-image.png">
 
 <!-- Structured Data -->
@@ -47,7 +47,7 @@
     {
       "@type": "Course",
       "name": "Ship Your First Thing",
-      "description": "A free 30-minute Claude Code intro and 5 starter prompts for non-technical founders.",
+      "description": "A free Claude Code intro, 5 starter prompts, and the Kill Filter — a tool that scores your idea or generates the build files for you.",
       "provider": { "@id": "https://buildroom.studio/#organization" },
       "url": "https://buildroom.studio/",
       "offers": {
@@ -62,13 +62,11 @@
 }
 </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
-<link rel="stylesheet" href="brand.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
 <!-- Microsoft Clarity -->
 <script type="text/javascript">
@@ -98,541 +96,4055 @@
 <script defer src="/cta-tracking.js"></script>
 
 <style>
-  /* Page-specific — Free tier: Paper + Signal Tint accent */
-  .hero {
-    padding: var(--s-6) 0 var(--s-6);
+:root {
+  --paper: #F7F5F0;
+  --paper-tape: #EFEDE6;
+  --paper-deep: #E8E5DD;
+  --graphite: #1A1A1C;
+  --ink: #0E0E10;
+  --ink-soft: #161618;
+  --chalk: #EDEBE5;
+  --pencil: #6B6B6E;
+  --pencil-light: #A3A2A0;
+  --signal: #FF5B1F;
+  --signal-deep: #E04A15;
+  --signal-tint: #FFE4D6;
+  --shipped: #3F9B6F;
+  --stuck: #D4A84B;
+  --kill: #C44536;
+  --font-display: 'Inter Tight', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', Menlo, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--paper);
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.06 0 0 0 0 0.06 0 0 0 0 0.06 0 0 0 0.045 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
+  color: var(--graphite);
+  line-height: 1.6;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ——— Layout ——— */
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.container-narrow {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ——— Nav ——— */
+nav.top {
+  border-bottom: 1px solid rgba(26,26,28,0.08);
+  padding: 18px 0;
+}
+nav.top .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--graphite);
+  text-decoration: none;
+}
+.wordmark-mark {
+  width: 12px;
+  height: 12px;
+  background: var(--signal);
+  display: inline-block;
+}
+.nav-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+/* ——— Hero ——— */
+.hero { padding: 44px 0 40px; }
+
+.stage-strip {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.stage-strip .arrow { color: var(--signal); }
+.stage-strip .stage { white-space: nowrap; }
+
+h1.hero-headline {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(40px, 7vw, 72px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--graphite);
+  max-width: 18ch;
+  margin-bottom: 20px;
+}
+h1.hero-headline .dollar {
+  color: var(--signal);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-eyebrow::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--signal);
+  display: inline-block;
+}
+
+.hero-sub {
+  font-size: clamp(17px, 2vw, 20px);
+  line-height: 1.5;
+  color: var(--graphite);
+  max-width: 52ch;
+  margin-bottom: 28px;
+}
+
+/* ——— Form block ——— */
+.form-block {
+  background: var(--paper-tape);
+  border: 1px solid rgba(26,26,28,0.08);
+  padding: 22px;
+  max-width: 520px;
+  margin-bottom: 16px;
+}
+.form-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 12px;
+  display: block;
+}
+.form-row { display: flex; gap: 8px; flex-wrap: wrap; }
+
+input[type="email"] {
+  flex: 1 1 240px;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 14px 16px;
+  border: 1px solid rgba(26,26,28,0.15);
+  background: var(--paper);
+  color: var(--graphite);
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+input[type="email"]::placeholder { color: var(--pencil-light); }
+input[type="email"]:focus { border-color: var(--graphite); }
+
+button.cta, a.cta {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  padding: 14px 24px;
+  background: var(--signal);
+  color: var(--chalk);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.15s ease, transform 0.1s ease, box-shadow 0.15s ease;
+  white-space: nowrap;
+}
+button.cta:hover, a.cta:hover { background: var(--signal-deep); }
+button.cta:active, a.cta:active { transform: translateY(1px); }
+
+a.cta-large {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 18px 32px;
+  border: 2px solid var(--graphite);
+  letter-spacing: -0.015em;
+}
+a.cta-large:hover {
+  background: var(--signal-deep);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--graphite);
+}
+a.cta-large:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+
+.hero-cta-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.cta-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+.form-bonus {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--pencil);
+  max-width: 520px;
+  line-height: 1.6;
+}
+.form-bonus strong { color: var(--graphite); font-weight: 600; }
+
+/* ========================================================
+   HERO TERMINAL
+   ======================================================== */
+.terminal-wrap { margin-top: 36px; max-width: 940px; }
+
+.terminal-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 640px) {
+  .terminal-stage { grid-template-columns: 1fr; gap: 16px; }
+}
+
+.verdict-rail {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 0;
+  position: relative;
+  height: 520px;
+}
+
+@media (max-width: 640px) {
+  .verdict-rail {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 0;
+    height: auto;
   }
+}
 
-  .hero h1 {
-    margin-top: var(--s-5);
-    max-width: 12ch;
+.verdict-card {
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.1);
+  padding: 18px 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  box-shadow: 0 1px 0 rgba(26,26,28,0.04), 0 8px 24px -16px rgba(26,26,28,0.15);
+  flex: 1 1 0;
+  min-height: 0;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .verdict-card {
+    flex: 1 1 calc(33.333% - 8px);
+    min-width: 0;
+    transform: translateY(12px);
+    justify-content: flex-start;
   }
+}
 
-  .hero h1 .strike {
-    text-decoration: line-through;
-    text-decoration-color: var(--pencil-light);
-    text-decoration-thickness: 3px;
-    color: var(--pencil);
-    font-weight: 700;
-  }
+.verdict-card.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
 
-  .hero .sub {
-    margin-top: var(--s-5);
-    max-width: 52ch;
-    font-size: 1.1875rem;
-    line-height: 1.55;
-  }
+@media (max-width: 640px) {
+  .verdict-card.visible { transform: translateY(0); }
+}
 
-  .form-box {
-    margin-top: var(--s-6);
-    max-width: 520px;
-  }
+.verdict-card-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .form-label {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--pencil);
-    display: block;
-    margin-bottom: var(--s-2);
-  }
+.verdict-card-stamp {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
 
-  .form-micro {
-    margin-top: var(--s-3);
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.04em;
-    color: var(--pencil);
-  }
+.verdict-card-stamp .arrow {
+  display: inline-block;
+  margin-right: 6px;
+  font-size: 24px;
+  vertical-align: middle;
+  position: relative;
+  top: -2px;
+}
 
-  /* ——— Problem section ——— */
-  .problem-section {
-    padding: var(--s-6) 0;
-    border-top: 1px solid rgba(26,26,28,0.08);
-  }
+.verdict-card.kill .verdict-card-stamp { color: var(--kill); }
+.verdict-card.keep .verdict-card-stamp { color: var(--shipped); }
 
-  .problem-section .content {
-    max-width: var(--max-w-reading);
-  }
+.verdict-card-name {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--graphite);
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
 
-  .problem-section h2 {
-    margin-top: var(--s-4);
-    font-size: clamp(1.5rem, 3vw, 1.875rem);
-    line-height: 1.2;
-    letter-spacing: -0.02em;
-    font-weight: 700;
-  }
+.verdict-card.kill .verdict-card-name {
+  color: var(--pencil);
+  text-decoration: line-through;
+  text-decoration-color: rgba(196, 69, 54, 0.4);
+}
 
-  .problem-section p {
-    margin-top: var(--s-5);
-    font-size: 1.0625rem;
-    line-height: 1.7;
-    color: var(--graphite);
-  }
+.verdict-card-score {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--pencil);
+  letter-spacing: 0.05em;
+}
 
-  /* ——— What you get (list style) ——— */
-  .what-you-get {
-    background: var(--paper-tape);
-    padding: var(--s-6) 0;
-  }
+/* Side accent bar — kill = red, keep = green */
+.verdict-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+}
+.verdict-card.kill::before { background: var(--kill); }
+.verdict-card.keep::before { background: var(--shipped); }
 
-  .what-you-get .inner {
-    max-width: var(--max-w-narrow);
-  }
+/* Big stamp emphasis on the keep card */
+.verdict-card.keep {
+  background: var(--paper);
+  border-color: rgba(63, 155, 111, 0.3);
+}
+.verdict-card.keep .verdict-card-stamp {
+  font-size: 40px;
+}
 
-  .get-list {
-    list-style: none;
-    margin-top: var(--s-5);
-  }
+@media (prefers-reduced-motion: reduce) {
+  .verdict-card { transition: opacity 0.2s ease; transform: none !important; }
+}
 
-  .get-list li {
-    display: grid;
-    grid-template-columns: 48px 1fr;
-    gap: var(--s-5);
-    padding: var(--s-5) 0;
-    border-bottom: 1px dashed rgba(26,26,28,0.15);
-    align-items: baseline;
-  }
+.terminal-caption {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.terminal-caption::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--shipped);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
 
-  .get-list li:last-child { border-bottom: none; }
+.terminal {
+  background: var(--ink);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 20px 60px -20px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.15);
+  overflow: hidden;
+  position: relative;
+}
+.terminal-chrome {
+  background: #1a1a1d;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.terminal-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.2);
+}
+.terminal-path {
+  margin-left: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(237,235,229,0.5);
+  letter-spacing: 0.02em;
+}
+.terminal-body {
+  padding: 20px 22px 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--chalk);
+  min-height: 520px;
+  max-height: 520px;
+  overflow-y: auto;
+  position: relative;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(237,235,229,0.15) transparent;
+}
+.terminal-body::-webkit-scrollbar { width: 6px; }
+.terminal-body::-webkit-scrollbar-track { background: transparent; }
+.terminal-body::-webkit-scrollbar-thumb { background: rgba(237,235,229,0.15); }
 
-  .get-list .num {
-    font-family: var(--font-mono);
-    font-weight: 600;
-    font-size: 0.875rem;
-    letter-spacing: 0.1em;
-    color: var(--signal);
-  }
+.term-line { display: block; opacity: 0; }
+.term-line.visible { opacity: 1; animation: type-in 0.4s ease-out forwards; }
+@keyframes type-in {
+  from { opacity: 0; transform: translateX(-4px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
-  .get-list .body strong {
-    display: block;
-    font-family: var(--font-display);
-    font-weight: 600;
-    font-size: 1.125rem;
-    color: var(--graphite);
-    margin-bottom: var(--s-2);
-    letter-spacing: -0.01em;
-  }
+.term-prompt { color: var(--signal); }
+.term-user { color: var(--chalk); }
+.term-comment { color: rgba(237,235,229,0.45); }
+.term-kill { color: #ff7a5c; }
+.term-shipped { color: var(--shipped); }
+.term-dim { color: rgba(237,235,229,0.6); }
+.term-bold { font-weight: 600; color: var(--chalk); }
 
-  .get-list .body p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--graphite);
-  }
+.term-score-bar {
+  display: inline-block;
+  width: 60px;
+  height: 5px;
+  background: rgba(237,235,229,0.1);
+  position: relative;
+  margin: 0 6px;
+  vertical-align: middle;
+}
+.term-score-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--signal);
+}
 
-  .get-note {
-    margin-top: var(--s-5);
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    letter-spacing: 0.02em;
-    color: var(--pencil);
-  }
+@media (prefers-reduced-motion: reduce) {
+  .term-line { opacity: 1; animation: none; }
+  .terminal-caption::before { animation: none; }
+}
 
-  /* ——— Problem stage strip callout ——— */
-  .problem-section .stage-strip-callout {
-    margin-top: var(--s-6);
-    padding: var(--s-4) var(--s-5);
-    background: var(--paper-tape);
-    border-left: 2px solid var(--signal);
-  }
+@media (max-width: 600px) {
+  .terminal-body { font-size: 11px; padding: 16px 14px 18px; min-height: 480px; max-height: 480px; }
+  .terminal-path { display: none; }
+}
 
-  /* ——— Receipts block (brand pattern) ——— */
-  .receipts-block {
-    margin-top: var(--s-6);
-    margin-bottom: var(--s-4);
-    border: 1px solid rgba(26,26,28,0.15);
-    background: var(--paper-tape);
-  }
+/* ========================================================
+   FUNNEL CONSOLE — the main upgrade
+   ======================================================== */
+.console-section {
+  padding: 48px 0 56px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.console-header {
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.console-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.console-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+  max-width: 28ch;
+  /* reserve space for up to 3 lines so rotating phrases don't cause layout shift */
+  min-height: calc(1.05em * 3);
+}
+.console-sub {
+  font-size: 16px;
+  color: var(--pencil);
+  max-width: 56ch;
+  margin-top: 4px;
+}
 
-  .receipts-header {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--pencil);
-    padding: var(--s-3) var(--s-5);
-    border-bottom: 1px solid rgba(26,26,28,0.15);
-    background: var(--paper);
-  }
+/* Rotating phrase in console title */
+.rotator {
+  display: inline-block;
+  position: relative;
+  color: var(--signal);
+  white-space: nowrap;
+}
+.rotator-text {
+  display: inline-block;
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.rotator-text.fade-out {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+.rotator-text.fade-in-prep {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.rotator::after {
+  content: "";
+  display: inline-block;
+  width: 0.5ch;
+  height: 0.85em;
+  background: var(--signal);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: rotator-blink 1.1s steps(2, start) infinite;
+  position: relative;
+  top: -0.05em;
+}
+@keyframes rotator-blink {
+  to { visibility: hidden; }
+}
 
-  .receipts-rows {
-    padding: var(--s-2) var(--s-5);
-  }
+@media (prefers-reduced-motion: reduce) {
+  .rotator-text { transition: opacity 0.1s ease; transform: none !important; }
+  .rotator::after { animation: none; }
+}
 
-  .receipts-row {
-    display: grid;
-    grid-template-columns: 140px 1fr;
-    gap: var(--s-4);
-    padding: var(--s-3) 0;
-    border-bottom: 1px dashed rgba(26,26,28,0.12);
-    align-items: baseline;
-    font-family: var(--font-mono);
-    font-size: 0.8125rem;
-  }
+/* Tabs */
+.console-tabs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-bottom: 1px solid rgba(26,26,28,0.12);
+  margin-bottom: -1px;
+}
+@media (max-width: 720px) {
+  .console-tabs { grid-template-columns: repeat(5, minmax(120px, 1fr)); overflow-x: auto; scrollbar-width: none; }
+  .console-tabs::-webkit-scrollbar { display: none; }
+}
 
-  .receipts-row:last-child { border-bottom: none; }
+.console-tab {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 14px 12px 14px;
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+  position: relative;
+  --stage-color: var(--signal);
+}
+.console-tab[data-stage="01"] { --stage-color: var(--kill); }
+.console-tab[data-stage="02"] { --stage-color: var(--signal); }
+.console-tab[data-stage="03"] { --stage-color: var(--stuck); }
+.console-tab[data-stage="04"] { --stage-color: var(--shipped); }
+.console-tab[data-stage="05"] { --stage-color: var(--graphite); }
 
-  .receipts-row .label {
-    color: var(--pencil);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-weight: 600;
-    font-size: 0.6875rem;
-  }
+.console-tab:hover { background: rgba(26,26,28,0.03); }
+.console-tab-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--pencil);
+  transition: color 0.2s ease;
+}
+.console-tab-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+  color: var(--graphite);
+}
+.console-tab[aria-selected="true"] {
+  border-bottom-color: var(--stage-color);
+}
+.console-tab[aria-selected="true"] .console-tab-num {
+  color: var(--stage-color);
+}
 
-  .receipts-row .value {
-    color: var(--graphite);
-    font-weight: 500;
-  }
+/* Auto-rotate progress bar */
+.console-rotate-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: rgba(26,26,28,0.06);
+  pointer-events: none;
+  overflow: hidden;
+}
+.console-rotate-bar-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0%;
+  background: var(--panel-color, var(--signal));
+  transition: background 0.3s ease;
+}
+.console-rotate-bar.running .console-rotate-bar-fill {
+  animation: rotate-fill 5s linear forwards;
+}
+.console-rotate-bar.paused .console-rotate-bar-fill {
+  animation: none;
+  width: 0;
+  opacity: 0;
+}
+@keyframes rotate-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
 
-  .receipts-row .value .sub {
-    color: var(--pencil);
-    font-weight: 400;
-    margin-left: var(--s-2);
-  }
+/* Panel */
+.console-panel-wrap {
+  border: 1px solid rgba(26,26,28,0.12);
+  background: var(--paper-tape);
+  position: relative;
+  min-height: 480px;
+  --panel-color: var(--signal);
+  transition: border-color 0.3s ease;
+}
 
-  .receipts-row .value.kill {
-    color: var(--kill);
-    font-weight: 600;
-  }
+.console-panel-wrap[data-active-stage="01"] { --panel-color: var(--kill); border-color: rgba(196, 69, 54, 0.35); }
+.console-panel-wrap[data-active-stage="02"] { --panel-color: var(--signal); border-color: rgba(255, 91, 31, 0.35); }
+.console-panel-wrap[data-active-stage="03"] { --panel-color: var(--stuck); border-color: rgba(212, 168, 75, 0.45); }
+.console-panel-wrap[data-active-stage="04"] { --panel-color: var(--shipped); border-color: rgba(63, 155, 111, 0.4); }
+.console-panel-wrap[data-active-stage="05"] { --panel-color: var(--graphite); border-color: rgba(26, 26, 28, 0.5); }
 
-  .receipts-tag {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    letter-spacing: 0.08em;
-    color: var(--pencil);
-    padding: var(--s-3) var(--s-5);
-    border-top: 1px solid rgba(26,26,28,0.15);
-    background: var(--paper);
-  }
+/* Top accent bar that connects panel to active tab */
+.console-panel-wrap::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 2px;
+  background: var(--panel-color);
+  opacity: 0;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+.console-panel-wrap[data-active-stage]::before { opacity: 1; }
 
-  /* ——— Who this is / isn't for ——— */
-  .who-section {
-    padding: var(--s-6) 0;
-    border-top: 1px solid rgba(26,26,28,0.08);
-  }
+.console-panel {
+  display: none;
+  padding: 28px 28px 32px;
+  animation: panel-in 0.4s ease-out;
+}
+.console-panel.active { display: block; }
 
-  .who-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--s-7);
-    margin-top: var(--s-6);
-  }
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  .who-grid .col.is-for {
-    padding-right: var(--s-6);
-    border-right: 1px dashed rgba(26,26,28,0.15);
-  }
+.panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 18px;
+}
+.panel-head-left { flex: 1 1 320px; min-width: 0; }
+.panel-stage-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--panel-color, var(--signal));
+  background: rgba(255, 91, 31, 0.1);
+  padding: 4px 8px;
+  margin-bottom: 10px;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.console-panel-wrap[data-active-stage="01"] .panel-stage-tag { background: rgba(196, 69, 54, 0.12); }
+.console-panel-wrap[data-active-stage="02"] .panel-stage-tag { background: rgba(255, 91, 31, 0.12); }
+.console-panel-wrap[data-active-stage="03"] .panel-stage-tag { background: rgba(212, 168, 75, 0.18); }
+.console-panel-wrap[data-active-stage="04"] .panel-stage-tag { background: rgba(63, 155, 111, 0.12); }
+.console-panel-wrap[data-active-stage="05"] .panel-stage-tag { background: rgba(26, 26, 28, 0.08); }
+.panel-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--graphite);
+  margin-bottom: 6px;
+}
+.panel-desc {
+  font-size: 15px;
+  color: var(--graphite);
+  max-width: 56ch;
+  line-height: 1.5;
+}
 
-  @media (max-width: 780px) {
-    .who-grid { grid-template-columns: 1fr; gap: var(--s-6); }
-    .who-grid .col.is-for {
-      padding-right: 0;
-      border-right: none;
-      padding-bottom: var(--s-6);
-      border-bottom: 1px dashed rgba(26,26,28,0.15);
-    }
-  }
+.panel-controls {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+.panel-control {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.15);
+  color: var(--graphite);
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.panel-control:hover { border-color: var(--graphite); background: var(--paper-deep); }
+.panel-control:active { transform: translateY(1px); }
+.panel-control svg { width: 10px; height: 10px; }
 
-  .who-grid h3 {
-    font-family: var(--font-mono);
-    font-size: 0.6875rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--pencil);
-    margin-bottom: var(--s-4);
-  }
+.panel-body {
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.08);
+  padding: 22px;
+  min-height: 280px;
+}
 
-  .who-grid ul {
-    list-style: none;
-  }
+.panel-foot {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
 
-  .who-grid li {
-    position: relative;
-    padding: var(--s-3) 0 var(--s-3) var(--s-6);
-    font-size: 1rem;
-    line-height: 1.55;
-    border-bottom: 1px dashed rgba(26,26,28,0.08);
-  }
+/* ===== Stage 01 — Kill the idea ===== */
+.kill-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.kill-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 70px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--paper-tape);
+  border-left: 3px solid transparent;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+.kill-row.kill-row-killed {
+  border-left-color: var(--kill);
+  opacity: 0.55;
+}
+.kill-row.kill-row-killed .kill-row-name { text-decoration: line-through; }
+.kill-row.kill-row-kept {
+  border-left-color: var(--shipped);
+  background: rgba(63, 155, 111, 0.06);
+}
+.kill-row-name { font-weight: 500; color: var(--graphite); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.kill-row-bar {
+  height: 6px;
+  background: rgba(26,26,28,0.08);
+  position: relative;
+}
+.kill-row-bar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--signal);
+  transition: width 0.6s ease;
+}
+.kill-row-killed .kill-row-bar-fill { background: var(--kill); }
+.kill-row-kept .kill-row-bar-fill { background: var(--shipped); }
+.kill-row-verdict {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+.kill-row-killed .kill-row-verdict { color: var(--kill); }
+.kill-row-kept .kill-row-verdict { color: var(--shipped); }
+.kill-summary {
+  margin-top: 14px;
+  padding: 12px 14px;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.kill-summary .signal { color: var(--signal); }
 
-  .who-grid li:last-child { border-bottom: none; }
+/* ===== Stage 02 — Validate ===== */
+.validate-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .validate-grid { grid-template-columns: 1fr; }
+}
+.validate-card {
+  background: var(--paper-tape);
+  border: 1px solid rgba(26,26,28,0.08);
+  padding: 16px;
+}
+.validate-card-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 10px;
+}
+.validate-num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--graphite);
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.validate-num.shipped { color: var(--shipped); }
+.validate-num.signal { color: var(--signal); }
+.validate-num.kill { color: var(--kill); }
+.validate-sub {
+  font-size: 12px;
+  color: var(--pencil);
+}
+.validate-bar-wrap {
+  margin-top: 10px;
+  height: 6px;
+  background: rgba(26,26,28,0.08);
+  position: relative;
+  overflow: hidden;
+}
+.validate-bar-fill {
+  position: absolute; left: 0; top: 0; bottom: 0;
+  background: var(--signal);
+}
+.validate-verdict {
+  margin-top: 14px;
+  padding: 14px;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+}
+.validate-verdict .label {
+  color: var(--pencil-light);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.validate-verdict .kill-text { color: #ff7a5c; font-weight: 600; }
+.validate-verdict .ship-text { color: var(--shipped); font-weight: 600; }
 
-  .who-grid li::before {
-    position: absolute;
-    left: 0;
-    top: var(--s-3);
-    font-family: var(--font-mono);
-    font-weight: 600;
-  }
+/* ===== Stage 03 — Blueprint ===== */
+.blueprint-doc {
+  background: var(--ink);
+  color: var(--chalk);
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+.blueprint-doc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(237,235,229,0.15);
+}
+.blueprint-fname {
+  color: var(--signal);
+  font-weight: 600;
+  font-size: 13px;
+}
+.blueprint-meta {
+  color: rgba(237,235,229,0.4);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.blueprint-section { margin-bottom: 12px; }
+.blueprint-section:last-child { margin-bottom: 0; }
+.blueprint-section-label {
+  color: var(--pencil-light);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.blueprint-section ul { list-style: none; }
+.blueprint-section li {
+  padding: 2px 0;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.blueprint-section li::before {
+  content: "·";
+  color: rgba(237,235,229,0.3);
+  width: 8px;
+  flex-shrink: 0;
+}
+.blueprint-must li::before { content: "✓"; color: var(--shipped); }
+.blueprint-cut li::before { content: "✗"; color: var(--kill); }
+.blueprint-cut li { color: rgba(237,235,229,0.45); text-decoration: line-through; }
+.blueprint-later li::before { content: "○"; color: var(--stuck); }
 
-  .who-grid .is-for li::before {
-    content: "→";
-    color: var(--signal);
-  }
+/* ===== Stage 04 — Ship ===== */
+.ship-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+.ship-row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 14px;
+  padding: 12px 14px;
+  background: var(--paper-tape);
+  border-left: 3px solid var(--shipped);
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.ship-row.pending { border-left-color: var(--stuck); opacity: 0.7; }
+.ship-row.failing { border-left-color: var(--kill); }
+.ship-row-hash { color: var(--signal); font-weight: 600; }
+.ship-row-msg { color: var(--graphite); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ship-row-status {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: right;
+}
+.ship-row .ship-status-ok { color: var(--shipped); }
+.ship-row .ship-status-pending { color: var(--stuck); }
+.ship-row .ship-status-fail { color: var(--kill); }
 
-  .who-grid .not-for li {
-    color: var(--pencil);
-  }
+.deploy-bar {
+  margin-top: 14px;
+  background: var(--ink);
+  color: var(--chalk);
+  padding: 12px 14px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.deploy-bar-left { display: flex; align-items: center; gap: 10px; }
+.deploy-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--shipped);
+  animation: pulse 2s ease-in-out infinite;
+}
+.deploy-bar-url { color: var(--signal); }
+.deploy-bar-time { color: rgba(237,235,229,0.5); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; }
 
-  .who-grid .not-for li::before {
-    content: "×";
-    color: var(--pencil-light);
-  }
+/* ===== Stage 05 — Sell ===== */
+.sell-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .sell-grid { grid-template-columns: 1fr; }
+}
+.sell-stripe {
+  background: var(--ink);
+  color: var(--chalk);
+  padding: 16px 18px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.sell-stripe-head {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed rgba(237,235,229,0.12);
+}
+.sell-stripe-label {
+  color: rgba(237,235,229,0.5);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.sell-stripe-total { color: var(--shipped); font-weight: 700; }
+.sell-payment {
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+  gap: 12px;
+  padding: 6px 0;
+  align-items: baseline;
+  border-bottom: 1px dashed rgba(237,235,229,0.08);
+}
+.sell-payment:last-child { border-bottom: none; }
+.sell-payment-time { color: rgba(237,235,229,0.45); font-size: 10px; }
+.sell-payment-id { color: var(--chalk); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.sell-payment-amt { color: var(--shipped); font-weight: 600; }
 
-  .story-section {
-    padding: var(--s-6) 0;
-    border-top: 1px solid rgba(26,26,28,0.08);
-  }
+.sell-replies {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sell-reply {
+  background: var(--paper-tape);
+  border: 1px solid rgba(26,26,28,0.08);
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.sell-reply-from {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--pencil);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.sell-reply-text { color: var(--graphite); }
 
-  .story-section .content {
-    max-width: var(--max-w-reading);
-  }
+/* Footer of panel */
+.panel-cta-row {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(26,26,28,0.12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.panel-next-stage {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.15s ease;
+}
+.panel-next-stage:hover { color: var(--signal); }
+.panel-next-stage .arrow { color: var(--signal); }
 
-  .story-section p {
-    margin-top: var(--s-5);
-    font-size: 1.0625rem;
-    line-height: 1.7;
-  }
+/* ——— Body sections ——— */
+section.body-section {
+  padding: 32px 0;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
 
-  .story-section p:first-of-type { margin-top: var(--s-5); }
+h2.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 18px;
+}
 
-  .story-section .kicker {
-    margin-top: var(--s-6);
-    font-weight: 600;
-    color: var(--graphite);
-  }
+.section-lead {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--graphite);
+  max-width: 36ch;
+  margin-bottom: 20px;
+}
 
-  .final-cta {
-    padding: var(--s-6) 0;
-    background: var(--paper-tape);
-  }
+.section-body p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  margin-bottom: 16px;
+  max-width: 62ch;
+}
+.section-body p:last-child { margin-bottom: 0; }
 
-  .final-cta .inner {
-    max-width: 620px;
-  }
+/* ——— Get list ——— */
+.get-list { list-style: none; margin: 20px 0; }
+.get-list li {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(26,26,28,0.12);
+  align-items: baseline;
+}
+.get-list li:last-child { border-bottom: none; }
+.get-list .num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--pencil);
+  padding-top: 4px;
+}
+.get-list .item { font-size: 16px; line-height: 1.5; color: var(--graphite); }
+.get-list .item strong { font-weight: 600; font-family: var(--font-display); }
 
-  .final-cta h2 {
-    margin-top: var(--s-4);
-  }
+/* ========================================================
+   PROBLEM TIMELINE — vertical timeline of "the next 6 months"
+   ======================================================== */
+.problem-section {
+  padding: 48px 0 56px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 60px;
+  align-items: start;
+}
+@media (max-width: 800px) {
+  .problem-grid { grid-template-columns: 1fr; gap: 32px; }
+}
 
-  .final-cta .form-box { margin-top: var(--s-6); }
+.problem-lead {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+}
+.problem-lead .strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--kill);
+  text-decoration-thickness: 2px;
+  color: var(--pencil);
+}
+.problem-lead .signal { color: var(--signal); }
+
+.timeline {
+  position: relative;
+  padding-left: 28px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 6px;
+  bottom: 24px;
+  width: 1px;
+  background: rgba(26,26,28,0.15);
+  background-image: linear-gradient(to bottom, rgba(26,26,28,0.2) 50%, transparent 50%);
+  background-size: 1px 6px;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 0 0 22px 0;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-marker {
+  position: absolute;
+  left: -28px;
+  top: 4px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--pencil);
+}
+.timeline-item.now .timeline-marker {
+  border-color: var(--graphite);
+  background: var(--graphite);
+}
+.timeline-item.bad .timeline-marker {
+  border-color: var(--kill);
+}
+.timeline-item.bad.peak .timeline-marker {
+  background: var(--kill);
+  border-color: var(--kill);
+}
+.timeline-item.good .timeline-marker {
+  border-color: var(--signal);
+  background: var(--signal);
+  box-shadow: 0 0 0 4px rgba(255, 91, 31, 0.15);
+}
+
+.timeline-when {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 4px;
+}
+.timeline-item.bad .timeline-when { color: var(--kill); }
+.timeline-item.good .timeline-when { color: var(--signal); }
+
+.timeline-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--graphite);
+  max-width: 56ch;
+}
+.timeline-text strong { font-weight: 600; }
+.timeline-text em {
+  font-style: normal;
+  background: rgba(196, 69, 54, 0.12);
+  padding: 1px 4px;
+  border-radius: 1px;
+}
+
+.timeline-tape {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 6px 10px;
+  background: var(--paper-tape);
+  border-left: 2px solid var(--signal);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--graphite);
+  letter-spacing: 0.01em;
+}
+
+/* ========================================================
+   KIT — asymmetric "What you get" with Kill Filter as hero
+   ======================================================== */
+.kit-section {
+  padding: 48px 0 56px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.kit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 40px;
+  align-items: stretch;
+}
+@media (max-width: 800px) {
+  .kit-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+.kit-list-col h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(22px, 2.6vw, 30px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+  margin-bottom: 20px;
+  max-width: 22ch;
+}
+
+.kit-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.kit-item {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px dashed rgba(26,26,28,0.12);
+  align-items: baseline;
+}
+.kit-item:last-child { border-bottom: none; }
+.kit-item-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--pencil);
+}
+.kit-item-text {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+.kit-item-text strong { font-weight: 600; font-family: var(--font-display); }
+
+.kit-disclaimer {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--pencil);
+  letter-spacing: 0.02em;
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+
+/* Hero card on the right */
+.kit-hero {
+  background: var(--ink);
+  color: var(--chalk);
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.kit-hero::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--signal);
+}
+
+.kit-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--signal);
+  align-self: flex-start;
+}
+.kit-hero-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.kit-hero-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 3.6vw, 40px);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--chalk);
+}
+
+.kit-hero-desc {
+  font-size: 15px;
+  line-height: 1.5;
+  color: rgba(237, 235, 229, 0.75);
+  max-width: 38ch;
+}
+.kit-hero-desc strong {
+  color: var(--chalk);
+  font-weight: 600;
+}
+
+.kit-hero-mini {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 14px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--chalk);
+}
+.kit-hero-mini-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed rgba(237, 235, 229, 0.1);
+}
+.kit-hero-mini-head .fname {
+  color: var(--signal);
+  font-weight: 600;
+  font-size: 11px;
+}
+.kit-hero-mini-head .meta {
+  color: rgba(237, 235, 229, 0.4);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.kit-hero-mini-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 11px;
+  padding: 1px 0;
+}
+.kit-hero-mini-row .check {
+  color: var(--shipped);
+  width: 10px;
+  display: inline-block;
+}
+.kit-hero-mini-row .x {
+  color: var(--kill);
+  width: 10px;
+  display: inline-block;
+}
+.kit-hero-mini-row .label {
+  color: rgba(237, 235, 229, 0.55);
+  min-width: 78px;
+}
+.kit-hero-mini-row .file {
+  color: var(--chalk);
+}
+.kit-hero-mini-row.killed .file {
+  color: rgba(237, 235, 229, 0.4);
+  text-decoration: line-through;
+}
+
+.kit-hero-foot {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(237, 235, 229, 0.55);
+  letter-spacing: 0.02em;
+  border-top: 1px dashed rgba(237, 235, 229, 0.1);
+  padding-top: 12px;
+}
+.kit-hero-foot strong {
+  color: var(--signal);
+  font-weight: 600;
+}
+
+/* ========================================================
+   SHIP BOARD — "Built with Build Room"
+   ======================================================== */
+.ship-board {
+  padding: 44px 0 48px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+  background: var(--paper-tape);
+}
+.ship-board-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.ship-board-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(24px, 3.5vw, 36px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+}
+.ship-board-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+.ship-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 800px) { .ship-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .ship-cards { grid-template-columns: 1fr; } }
+
+.ship-card {
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.1);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  transition: border-color 0.15s ease;
+}
+.ship-card:hover { border-color: var(--graphite); }
+.ship-card.placeholder {
+  background: transparent;
+  border-style: dashed;
+  border-color: rgba(26,26,28,0.18);
+}
+.ship-card.placeholder .ship-card-name,
+.ship-card.placeholder .ship-card-stat,
+.ship-card.placeholder .ship-card-url { color: var(--pencil-light); }
+
+/* Mini-preview at top of a real ship card */
+.ship-card-preview {
+  margin: -18px -18px 4px;
+  padding: 14px 16px 12px;
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-mono);
+}
+.ship-card-preview-tabs {
+  display: flex;
+  gap: 14px;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.ship-card-preview-tab { opacity: 0.4; }
+.ship-card-preview-tab.active {
+  opacity: 1;
+  position: relative;
+}
+.ship-card-preview-tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1px;
+}
+.ship-card-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.ship-card-preview-item {
+  font-size: 9px;
+  padding: 3px 6px;
+  border-left: 2px solid;
+  background: rgba(255,255,255,0.04);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Concert Radar theme — dark + neon yellow-green */
+.ship-card-preview.theme-radar {
+  background: #0A0A0A;
+  color: #C8FF3D;
+}
+.ship-card-preview.theme-radar .ship-card-preview-tab { color: #6B7E3A; }
+.ship-card-preview.theme-radar .ship-card-preview-tab.active { color: #C8FF3D; }
+.ship-card-preview.theme-radar .ship-card-preview-tab.active::after { background: #C8FF3D; }
+.ship-card-preview.theme-radar .ship-card-preview-item {
+  color: #C8FF3D;
+  border-left-color: #C8FF3D;
+}
+.ship-card-preview.theme-radar .ship-card-preview-item.alt {
+  color: #FF7A5C;
+  border-left-color: #FF7A5C;
+}
+
+/* Etsy Automation theme — light + Etsy orange */
+.ship-card-preview.theme-etsy {
+  background: #FAF8F4;
+  color: #1A1A1C;
+  border-bottom: 1px solid rgba(26,26,28,0.08);
+}
+.ship-card-preview.theme-etsy .ship-card-preview-tabs {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: -0.005em;
+  font-size: 10px;
+}
+.ship-card-preview.theme-etsy .ship-card-preview-tab { color: #8a8a8e; }
+.ship-card-preview.theme-etsy .ship-card-preview-tab.active { color: #F1641E; }
+.ship-card-preview.theme-etsy .ship-card-preview-tab.active::after { background: #F1641E; }
+.ship-card-preview.theme-etsy .ship-card-preview-item {
+  background: #ffffff;
+  color: #1A1A1C;
+  border-left-color: #3F9B6F;
+  border: 1px solid rgba(26,26,28,0.08);
+  border-left: 2px solid #3F9B6F;
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 8px;
+  font-family: var(--font-body);
+  font-weight: 500;
+}
+.ship-card-preview.theme-etsy .ship-card-preview-item.alt {
+  border-left-color: #D4A84B;
+  color: #6B6B6E;
+}
+.ship-card-preview.theme-etsy .ship-card-preview-item .price {
+  color: #F1641E;
+  font-weight: 600;
+  margin-left: 8px;
+  font-family: var(--font-mono);
+}
+
+/* Competitor Intel theme — dark + cool blue, terminal/dashboard energy */
+.ship-card-preview.theme-intel {
+  background: #0F1419;
+  color: #94A3B8;
+  font-family: var(--font-mono);
+  position: relative;
+}
+.ship-card-preview.theme-intel::before {
+  content: "// LIVE";
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 7px;
+  letter-spacing: 0.2em;
+  color: #5EEAD4;
+  font-weight: 700;
+}
+.ship-card-preview.theme-intel .ship-card-preview-tabs {
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  color: #475569;
+  margin-bottom: 8px;
+}
+.ship-card-preview.theme-intel .ship-card-preview-tab { color: #475569; }
+.ship-card-preview.theme-intel .ship-card-preview-tab.active { color: #5EEAD4; }
+.ship-card-preview.theme-intel .ship-card-preview-tab.active::after { background: #5EEAD4; }
+.ship-card-preview.theme-intel .ship-card-preview-item {
+  background: rgba(94, 234, 212, 0.04);
+  color: #CBD5E1;
+  border-left-color: #5EEAD4;
+  display: flex;
+  justify-content: space-between;
+  padding: 3px 8px;
+  font-size: 9px;
+  letter-spacing: 0.02em;
+}
+.ship-card-preview.theme-intel .ship-card-preview-item.alt {
+  border-left-color: #FB7185;
+  background: rgba(251, 113, 133, 0.05);
+  color: #FB7185;
+}
+.ship-card-preview.theme-intel .ship-card-preview-item .delta {
+  font-weight: 700;
+  margin-left: 8px;
+}
+
+.ship-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.ship-card-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--shipped);
+}
+.ship-card-status::before {
+  content: "";
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--shipped);
+}
+.ship-card.placeholder .ship-card-status { color: var(--pencil-light); }
+.ship-card.placeholder .ship-card-status::before { background: var(--pencil-light); }
+
+.ship-card-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: -0.015em;
+  color: var(--graphite);
+  line-height: 1.2;
+}
+.ship-card-url {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--signal);
+  text-decoration: none;
+  word-break: break-all;
+}
+.ship-card-url:hover { text-decoration: underline; }
+.ship-card.placeholder .ship-card-url { color: var(--pencil-light); }
+
+.ship-card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+  padding-top: 10px;
+  border-top: 1px dashed rgba(26,26,28,0.12);
+}
+.ship-card-stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 2px;
+}
+.ship-card-stat {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--graphite);
+  letter-spacing: -0.01em;
+}
+.ship-card-stat.signal { color: var(--signal); }
+.ship-card-stat.shipped { color: var(--shipped); }
+
+.ship-card-founder {
+  font-size: 12px;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+/* ========================================================
+   PROOF / RECEIPTS
+   ======================================================== */
+.proof-strip { padding: 36px 0; border-top: 1px solid rgba(26,26,28,0.08); border-bottom: 1px solid rgba(26,26,28,0.08); }
+.proof-item { padding: 16px 0; border-bottom: 1px dashed rgba(26,26,28,0.12); }
+.proof-item:last-child { border-bottom: none; }
+.proof-quote { font-size: 17px; line-height: 1.5; color: var(--graphite); margin-bottom: 8px; max-width: 62ch; }
+.proof-attribution {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.receipts-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pencil);
+  margin-top: 16px;
+}
+
+/* ========================================================
+   RECEIPTS SECTION — actual paper receipts
+   ======================================================== */
+.receipts-section {
+  padding: 48px 0 56px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+  background: var(--paper-tape);
+  position: relative;
+}
+
+.receipts-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 24px;
+}
+@media (max-width: 800px) {
+  .receipts-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* Single receipt — paper/dotted aesthetic */
+.receipt {
+  background: var(--paper);
+  padding: 22px 24px;
+  position: relative;
+  font-family: var(--font-body);
+  box-shadow: 0 1px 0 rgba(26,26,28,0.04), 0 14px 40px -28px rgba(26,26,28,0.25);
+}
+
+/* Torn-paper effect — top and bottom zigzag */
+.receipt::before,
+.receipt::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image:
+    linear-gradient(135deg, transparent 50%, var(--paper-tape) 50%),
+    linear-gradient(45deg, transparent 50%, var(--paper-tape) 50%);
+  background-size: 12px 8px, 12px 8px;
+  background-position: 0 0, 6px 0;
+  background-repeat: repeat-x;
+}
+.receipt::before { top: -8px; transform: scaleY(-1); }
+.receipt::after { bottom: -8px; }
+
+.receipt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px dashed rgba(26,26,28,0.18);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.receipt-header .receipt-id { color: var(--graphite); }
+
+.receipt-body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+.receipt-body .quote-mark {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 0.8;
+  color: var(--signal);
+  margin-bottom: 4px;
+  font-weight: 800;
+}
+
+.receipt-foot {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed rgba(26,26,28,0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.receipt-foot .stamp {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--shipped);
+  border: 1.5px solid var(--shipped);
+  padding: 3px 8px;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+
+/* Founder ledger — bigger, more detailed receipt */
+.receipt-ledger {
+  background: var(--paper);
+  padding: 24px 26px;
+  position: relative;
+  box-shadow: 0 1px 0 rgba(26,26,28,0.04), 0 14px 40px -28px rgba(26,26,28,0.25);
+}
+.receipt-ledger::before,
+.receipt-ledger::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background-image:
+    linear-gradient(135deg, transparent 50%, var(--paper-tape) 50%),
+    linear-gradient(45deg, transparent 50%, var(--paper-tape) 50%);
+  background-size: 12px 8px, 12px 8px;
+  background-position: 0 0, 6px 0;
+  background-repeat: repeat-x;
+}
+.receipt-ledger::before { top: -8px; transform: scaleY(-1); }
+.receipt-ledger::after { bottom: -8px; }
+
+.ledger-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 14px;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--graphite);
+  font-family: var(--font-mono);
+}
+.ledger-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--graphite);
+}
+.ledger-meta {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--pencil);
+}
+
+.ledger-rows {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.ledger-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 6px 0;
+  border-bottom: 1px dotted rgba(26,26,28,0.15);
+  align-items: baseline;
+}
+.ledger-row:last-of-type { border-bottom: none; }
+.ledger-row-label {
+  color: var(--pencil);
+  letter-spacing: 0.04em;
+}
+.ledger-row-value {
+  color: var(--graphite);
+  font-weight: 600;
+  text-align: right;
+}
+.ledger-row.failed .ledger-row-value { color: var(--kill); }
+.ledger-row.now .ledger-row-value { color: var(--shipped); }
+
+.ledger-summary {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 2px solid var(--graphite);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--graphite);
+}
+.ledger-summary strong { font-weight: 700; }
+.ledger-summary .signal { color: var(--signal); font-weight: 600; }
+
+.ledger-foot {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(26,26,28,0.18);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+
+.receipts-tag-line {
+  text-align: center;
+  margin-top: 32px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: var(--pencil);
+}
+.receipts-tag-line strong { color: var(--graphite); font-weight: 600; }
+
+/* ========================================================
+   REVIEW WALL — real reviews from previous community
+   ======================================================== */
+.review-wall-head {
+  margin-top: 40px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px dashed rgba(26,26,28,0.18);
+}
+.review-wall-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--graphite);
+  max-width: 38ch;
+}
+.review-wall-title .signal { color: var(--signal); }
+.review-wall-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.review-wall-meta .stars { color: var(--stuck); letter-spacing: 0.05em; font-size: 12px; }
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+@media (max-width: 800px) { .review-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 500px) { .review-grid { grid-template-columns: 1fr; } }
+
+.review-card {
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.08);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: border-color 0.15s ease;
+}
+.review-card:hover { border-color: rgba(26,26,28,0.25); }
+
+.review-stars {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--stuck);
+}
+.review-text {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--graphite);
+}
+.review-text.short { font-weight: 600; font-size: 15px; }
+.review-name {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-top: auto;
+  padding-top: 6px;
+  border-top: 1px dashed rgba(26,26,28,0.1);
+}
+
+/* Featured card — the anchor quote at top */
+.review-card.featured {
+  grid-column: span 2;
+  background: var(--paper-tape);
+  border-color: var(--graphite);
+  padding: 18px 20px;
+}
+@media (max-width: 800px) { .review-card.featured { grid-column: span 2; } }
+@media (max-width: 500px) { .review-card.featured { grid-column: 1; } }
+.review-card.featured .review-text {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(16px, 1.8vw, 20px);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.review-card.featured .review-text .quote-mark {
+  color: var(--signal);
+  font-weight: 800;
+  font-size: 1.3em;
+  display: inline-block;
+  margin-right: 2px;
+  position: relative;
+  top: 4px;
+}
+
+/* ========================================================
+   FIT — Who this is / isn't for, asymmetric
+   ======================================================== */
+.fit-section {
+  padding: 48px 0 56px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+
+.fit-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: stretch;
+  margin-top: 8px;
+}
+@media (max-width: 800px) {
+  .fit-grid { grid-template-columns: 1fr; gap: 20px; }
+}
+
+.fit-col {
+  padding: 24px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.fit-col-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fit-col-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.fit-col-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--graphite);
+}
+
+/* Primary "is for" column — Signal Orange accent */
+.fit-col.is {
+  background: var(--paper-tape);
+  border: 1px solid rgba(26,26,28,0.1);
+  border-left: 3px solid var(--signal);
+}
+.fit-col.is .fit-col-num { color: var(--signal); }
+.fit-col.is .fit-col-num::before {
+  content: "→ ";
+}
+
+.fit-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.fit-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  gap: 10px;
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(26,26,28,0.12);
+  align-items: baseline;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.fit-list li:last-child { border-bottom: none; }
+.fit-list li .check {
+  color: var(--signal);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+.fit-col.is .fit-list li { color: var(--graphite); }
+.fit-col.is .fit-list li strong { font-weight: 600; }
+
+/* "Not for" column — quiet, smaller, struck */
+.fit-col.not {
+  background: transparent;
+  border: 1px dashed rgba(26,26,28,0.2);
+  border-left: 3px solid rgba(196, 69, 54, 0.3);
+}
+.fit-col.not .fit-col-num { color: var(--pencil); }
+.fit-col.not .fit-col-num::before { content: "× "; color: var(--kill); }
+.fit-col.not .fit-col-title { color: var(--pencil); font-size: clamp(18px, 2.2vw, 22px); }
+
+.fit-col.not .fit-list li { color: var(--pencil); font-size: 14px; }
+.fit-col.not .fit-list li .check { color: var(--kill); content: "×"; }
+
+/* ——— Two-col ——— */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+@media (max-width: 720px) { .two-col { grid-template-columns: 1fr; gap: 24px; } }
+.col h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 16px;
+}
+.col ul { list-style: none; }
+.col li {
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 8px 0;
+  color: var(--graphite);
+  border-bottom: 1px dashed rgba(26,26,28,0.12);
+}
+.col li:last-child { border-bottom: none; }
+.col.not li { color: var(--pencil); }
+
+/* ========================================================
+   SHAMELESS CTA — retro starter kit
+   ======================================================== */
+.shameless {
+  padding: 56px 0;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.shameless-eyebrow {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 40px);
+  letter-spacing: -0.03em;
+  color: var(--graphite);
+  margin-bottom: 8px;
+}
+.shameless-subline {
+  color: var(--pencil);
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 56ch;
+}
+
+.shameless-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 760px) { .shameless-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Left: the box */
+.kit-box {
+  position: relative;
+  padding: 24px;
+  background: var(--paper-tape);
+  border: 1px solid rgba(26,26,28,0.12);
+}
+.kit-box-tag {
+  position: absolute;
+  top: -10px;
+  left: 18px;
+  background: var(--paper);
+  color: var(--graphite);
+  border: 1px solid var(--graphite);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+}
+
+.kit-box-product {
+  position: relative;
+  background: var(--ink);
+  border: 1px solid rgba(255,255,255,0.05);
+  padding: 30px 22px 22px;
+  overflow: hidden;
+}
+.kit-box-stamp {
+  position: absolute;
+  top: 14px;
+  right: -28px;
+  background: var(--signal);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 32px;
+  transform: rotate(18deg);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.kit-box-version {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(237,235,229,0.5);
+  margin-bottom: 4px;
+}
+
+.kit-box-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--chalk);
+  margin-bottom: 4px;
+}
+.kit-box-name .signal { color: var(--signal); }
+.kit-box-tagline {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(237,235,229,0.65);
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.kit-box-contents {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px dashed rgba(237,235,229,0.15);
+}
+.kit-box-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--chalk);
+  letter-spacing: 0.02em;
+}
+.kit-box-content::before {
+  content: "▸";
+  color: var(--signal);
+  font-size: 9px;
+}
+
+.kit-box-footer {
+  margin-top: 14px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--pencil);
+  letter-spacing: 0.05em;
+  font-style: italic;
+}
+
+/* Right: the order */
+.kit-order {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.kit-order-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--shipped);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  align-self: flex-start;
+}
+.kit-order-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--paper);
+  border-radius: 50%;
+}
+
+.kit-order-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(36px, 5vw, 56px);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--graphite);
+}
+.kit-order-disclaimer {
+  font-size: 12px;
+  color: var(--pencil);
+  font-style: italic;
+}
+
+.kit-order-price-block {
+  padding: 14px 0;
+  border-top: 1px solid rgba(26,26,28,0.1);
+  border-bottom: 1px solid rgba(26,26,28,0.1);
+}
+.kit-order-price-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  margin-bottom: 4px;
+}
+.kit-order-price {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 40px;
+  letter-spacing: -0.04em;
+  color: var(--graphite);
+}
+.kit-order-price .free { color: var(--signal); }
+.kit-order-price-aside {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pencil);
+  margin-left: 8px;
+}
+
+.kit-order-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: -0.015em;
+  padding: 18px 28px;
+  background: var(--signal);
+  color: var(--chalk);
+  border: 2px solid var(--graphite);
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.15s ease;
+  align-self: flex-start;
+}
+.kit-order-cta:hover { background: var(--signal-deep); transform: translate(-1px, -1px); box-shadow: 3px 3px 0 var(--graphite); }
+.kit-order-cta:active { transform: translate(0, 0); box-shadow: none; }
+
+.kit-order-rush {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--pencil);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+.kit-order-rush strong { color: var(--graphite); font-weight: 600; }
+
+/* ——— Bottom CTA ——— */
+.bottom-cta {
+  padding: 44px 0 40px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.bottom-cta .section-lead { max-width: 22ch; margin-bottom: 24px; }
+
+/* ——— Footer ——— */
+footer {
+  padding: 24px 0 32px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.footer-stamp {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pencil);
+}
+.footer-links {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.footer-links a {
+  color: var(--pencil);
+  text-decoration: none;
+  margin-left: 20px;
+}
+.footer-links a:hover { color: var(--graphite); }
+
+@media (prefers-reduced-motion: reduce) {
+  .console-panel { animation: none; }
+}
 </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header class="nav">
-  <div class="wrap">
-    <a href="/" class="logo" aria-label="Build Room home">
-      <span class="logo-mark"></span>
-      <span class="logo-text">Build Room</span>
+<nav class="top">
+  <div class="container">
+    <a href="/" class="wordmark">
+      <span class="wordmark-mark"></span>
+      <span>BUILD ROOM</span>
     </a>
-    <div class="nav-right">Free Intro<span class="dim"> · </span>~ 30 min</div>
+    <span class="nav-meta">v1 · 2026</span>
   </div>
-</header>
+</nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="wrap">
-    <div class="eyebrow">Free · No card required</div>
+  <div class="container">
 
-    <h1>Stop paying <span class="signal-word">$180/mo</span> for AI tools you haven't shipped anything with.</h1>
+    <div class="stage-strip" aria-label="Vibe-to-Ship Protocol stages">
+      <span class="stage">01_IDEATE</span>
+      <span class="arrow">→</span>
+      <span class="stage">02_VALIDATE</span>
+      <span class="arrow">→</span>
+      <span class="stage">03_BLUEPRINT</span>
+      <span class="arrow">→</span>
+      <span class="stage">04_SHIP</span>
+      <span class="arrow">→</span>
+      <span class="stage">05_SELL</span>
+    </div>
 
-    <p class="sub dim">
-      A free 30-minute Claude Code intro and 5 starter prompts. Watch it, run them, and decide if you want more.
+    <p class="hero-eyebrow">For the person sitting on an idea</p>
+
+    <h1 class="hero-headline">
+      Your half-built app is making someone else <span class="dollar">$50K/mo</span> right now.
+    </h1>
+
+    <p class="hero-sub">
+      The idea you&rsquo;re sitting on isn&rsquo;t the problem. The fact that you haven&rsquo;t shipped it is. Three things, free: a 30-minute Claude Code intro, 5 starter prompts, and <strong style="font-weight: 600; color: var(--graphite);">the Kill Filter</strong> &mdash; a tool I built that scores your idea, kills it if it&rsquo;s bad, or generates the files you need to build it if it&rsquo;s good.
     </p>
 
-    <div style="margin-top: var(--s-7); display: flex; gap: var(--s-4); align-items: center; flex-wrap: wrap;">
-      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta">
-        Claim The Free Intro <span class="arrow">→</span>
-      </a>
-      <span style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--pencil);">No card<span class="dim"> · </span>One-click access</span>
+    <div class="hero-cta-wrap">
+      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
+      <span class="cta-meta">Instant access</span>
+    </div>
+
+    <p class="form-bonus">
+      <strong>Bonus if you grab it in the next 48 hours:</strong> a PDF of the 5 most common walls non-technical founders hit with Claude Code and how to skip them.
+    </p>
+
+    <div class="terminal-wrap">
+      <p class="terminal-caption">Live · Stage 01_IDEATE · The Kill Filter</p>
+      <div class="terminal-stage">
+        <div class="terminal" role="img" aria-label="Terminal demonstration of the Kill Filter scoring three ideas and recommending two be killed.">
+          <div class="terminal-chrome" aria-hidden="true">
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-dot"></span>
+            <span class="terminal-path">~/buildroom · kill-filter</span>
+          </div>
+          <div class="terminal-body" id="hero-terminal"></div>
+        </div>
+
+        <div class="verdict-rail" aria-hidden="true" id="verdict-rail">
+          <!-- verdict cards injected by JS -->
+        </div>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- THE PROBLEM -->
+<!-- ==========================================================
+     FUNNEL CONSOLE — tabbed interactive demo (PostHog-style)
+     ========================================================== -->
+<section class="console-section">
+  <div class="container">
+
+    <div class="console-header">
+      <span class="console-eyebrow">The Vibe-to-Ship Protocol</span>
+      <h2 class="console-title">Five stages. No skipping. <span class="rotator" id="console-rotator" aria-live="polite"><span class="rotator-text">No rabbit holes.</span></span></h2>
+      <p class="console-sub">Every stage produces an artifact you can see, run, and copy. Click through to watch what each one actually outputs.</p>
+    </div>
+
+    <div class="console-tabs" role="tablist" aria-label="Vibe-to-Ship Protocol stages">
+      <button class="console-tab" role="tab" aria-selected="true" aria-controls="panel-01" id="tab-01" data-stage="01">
+        <span class="console-tab-num">01</span>
+        <span class="console-tab-name">Kill the idea</span>
+      </button>
+      <button class="console-tab" role="tab" aria-selected="false" aria-controls="panel-02" id="tab-02" data-stage="02">
+        <span class="console-tab-num">02</span>
+        <span class="console-tab-name">Validate demand</span>
+      </button>
+      <button class="console-tab" role="tab" aria-selected="false" aria-controls="panel-03" id="tab-03" data-stage="03">
+        <span class="console-tab-num">03</span>
+        <span class="console-tab-name">Blueprint MVP</span>
+      </button>
+      <button class="console-tab" role="tab" aria-selected="false" aria-controls="panel-04" id="tab-04" data-stage="04">
+        <span class="console-tab-num">04</span>
+        <span class="console-tab-name">Ship it</span>
+      </button>
+      <button class="console-tab" role="tab" aria-selected="false" aria-controls="panel-05" id="tab-05" data-stage="05">
+        <span class="console-tab-num">05</span>
+        <span class="console-tab-name">Sell it</span>
+      </button>
+    </div>
+
+    <div class="console-panel-wrap">
+      <div class="console-rotate-bar paused" id="console-rotate-bar" aria-hidden="true">
+        <div class="console-rotate-bar-fill"></div>
+      </div>
+
+      <!-- ===== Stage 01 ===== -->
+      <div class="console-panel active" id="panel-01" role="tabpanel" aria-labelledby="tab-01">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <span class="panel-stage-tag">Stage 01 · Ideate</span>
+            <h3 class="panel-title">The Kill Filter scores your idea in 4 minutes.</h3>
+            <p class="panel-desc">Drop in 3 ideas. The Kill Filter scores each one against a 5-criteria rubric, kills the bad ones, and on the survivor it generates the files you need to start building &mdash; CLAUDE.md, scope, stack, the whole skeleton. You stop falling in love with bad ideas. You get this tool free when you sign up.</p>
+          </div>
+          <div class="panel-controls">
+            <button class="panel-control" data-action="shuffle" data-stage="01" aria-label="Shuffle ideas">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M14 4L11 1v2H8L1 11l3 3 6-7h1v2l3-3-3-3v2zM10 12l3 3-3 3v-2H8l-3-3 1-1 2 2h2v-2z"/></svg>
+              Shuffle
+            </button>
+            <button class="panel-control" data-action="run" data-stage="01">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1l11 7-11 7V1z"/></svg>
+              Run filter
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="kill-list" id="kill-list"></div>
+          <div class="kill-summary" id="kill-summary"></div>
+        </div>
+        <div class="panel-cta-row">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pencil);">Output: 1 idea worth building, 2 dead.</span>
+          <button class="panel-next-stage" data-go="02">Next: Validate demand <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- ===== Stage 02 ===== -->
+      <div class="console-panel" id="panel-02" role="tabpanel" aria-labelledby="tab-02">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <span class="panel-stage-tag">Stage 02 · Validate</span>
+            <h3 class="panel-title">$30 ad. Landing page. 72 hours. No code.</h3>
+            <p class="panel-desc">Before you write a line of code, prove someone will pay. We run a tiny ad to a deposit page and watch what happens. Clicks are vanity. Deposits are signal.</p>
+          </div>
+          <div class="panel-controls">
+            <button class="panel-control" data-action="run" data-stage="02">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1l11 7-11 7V1z"/></svg>
+              Run test
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="validate-grid">
+            <div class="validate-card">
+              <div class="validate-card-label">Ad spend</div>
+              <div class="validate-num" id="v-spend">$30</div>
+              <div class="validate-sub">Meta · 72hrs · 1 audience</div>
+              <div class="validate-bar-wrap"><div class="validate-bar-fill" style="width: 100%;"></div></div>
+            </div>
+            <div class="validate-card">
+              <div class="validate-card-label">Landing clicks</div>
+              <div class="validate-num signal" id="v-clicks">412</div>
+              <div class="validate-sub">CPC $0.073 · CTR 3.1%</div>
+              <div class="validate-bar-wrap"><div class="validate-bar-fill" id="v-clicks-bar" style="width: 80%;"></div></div>
+            </div>
+            <div class="validate-card">
+              <div class="validate-card-label">Email signups</div>
+              <div class="validate-num shipped" id="v-signups">91</div>
+              <div class="validate-sub">22% of clicks · soft signal</div>
+              <div class="validate-bar-wrap"><div class="validate-bar-fill" id="v-signups-bar" style="width: 22%; background: var(--shipped);"></div></div>
+            </div>
+            <div class="validate-card">
+              <div class="validate-card-label">$5 deposits</div>
+              <div class="validate-num" id="v-deposits" style="color: var(--graphite);">7</div>
+              <div class="validate-sub" id="v-deposits-sub">7.7% of signups · real signal</div>
+              <div class="validate-bar-wrap"><div class="validate-bar-fill" id="v-deposits-bar" style="width: 16%; background: var(--shipped);"></div></div>
+            </div>
+          </div>
+          <div class="validate-verdict" id="v-verdict">
+            <span class="label">Verdict</span>
+            <span class="ship-text">→ Build it.</span> 7 strangers paid $5 each before you wrote a line of code. That&rsquo;s pre-validation. Now you have $35 and 7 people waiting.
+          </div>
+        </div>
+        <div class="panel-cta-row">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pencil);">Output: real proof someone will pay.</span>
+          <button class="panel-next-stage" data-go="03">Next: Blueprint MVP <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- ===== Stage 03 ===== -->
+      <div class="console-panel" id="panel-03" role="tabpanel" aria-labelledby="tab-03">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <span class="panel-stage-tag">Stage 03 · Blueprint</span>
+            <h3 class="panel-title">One file. Four features. Everything else cut.</h3>
+            <p class="panel-desc">Claude produces a CLAUDE.md that scopes the MVP, names what gets built, names what gets cut, and locks the stack. This is the file that keeps you out of the rabbit hole.</p>
+          </div>
+          <div class="panel-controls">
+            <button class="panel-control" data-action="run" data-stage="03">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1l11 7-11 7V1z"/></svg>
+              Generate
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="blueprint-doc">
+            <div class="blueprint-doc-head">
+              <span class="blueprint-fname">CLAUDE.md</span>
+              <span class="blueprint-meta">v1 · invoicer</span>
+            </div>
+            <div class="blueprint-section">
+              <div class="blueprint-section-label">Stack</div>
+              <ul>
+                <li>Next.js 15 · App Router</li>
+                <li>Supabase · Postgres + Auth</li>
+                <li>Stripe · subscription mode</li>
+                <li>Vercel · prod deploy</li>
+              </ul>
+            </div>
+            <div class="blueprint-section blueprint-must">
+              <div class="blueprint-section-label">Must build (week 1)</div>
+              <ul>
+                <li>Email/password auth</li>
+                <li>Create + send invoice</li>
+                <li>Stripe checkout per invoice</li>
+                <li>Basic invoice list view</li>
+              </ul>
+            </div>
+            <div class="blueprint-section blueprint-cut">
+              <div class="blueprint-section-label">Cut · do not build</div>
+              <ul>
+                <li>Team accounts</li>
+                <li>Custom branding</li>
+                <li>Recurring invoices</li>
+                <li>Multi-currency</li>
+                <li>Mobile app</li>
+              </ul>
+            </div>
+            <div class="blueprint-section blueprint-later">
+              <div class="blueprint-section-label">Later · only if 5 people ask</div>
+              <ul>
+                <li>PDF export</li>
+                <li>Client portal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="panel-cta-row">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pencil);">Output: a scope that fits in your head.</span>
+          <button class="panel-next-stage" data-go="04">Next: Ship it <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- ===== Stage 04 ===== -->
+      <div class="console-panel" id="panel-04" role="tabpanel" aria-labelledby="tab-04">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <span class="panel-stage-tag">Stage 04 · Ship</span>
+            <h3 class="panel-title">Auth, payments, deploy. Skip the walls.</h3>
+            <p class="panel-desc">Three things kill 90% of vibe-coded apps: Supabase auth, Stripe webhooks, deployment. We pre-solve all three with the Wall-Skip Kit. Your job: paste the prompts, watch it build.</p>
+          </div>
+          <div class="panel-controls">
+            <button class="panel-control" data-action="run" data-stage="04">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1l11 7-11 7V1z"/></svg>
+              Run build
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="ship-grid" id="ship-grid">
+            <!-- populated by JS -->
+          </div>
+          <div class="deploy-bar" id="deploy-bar" style="display: none;">
+            <div class="deploy-bar-left">
+              <span class="deploy-dot"></span>
+              <span style="color: var(--chalk);">Deployed</span>
+              <a class="deploy-bar-url" href="#" onclick="return false;">invoicer-mvp.vercel.app</a>
+            </div>
+            <span class="deploy-bar-time" id="deploy-bar-time">Built in 47 minutes</span>
+          </div>
+        </div>
+        <div class="panel-cta-row">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pencil);">Output: a real URL real strangers can hit.</span>
+          <button class="panel-next-stage" data-go="05">Next: Sell it <span class="arrow">→</span></button>
+        </div>
+      </div>
+
+      <!-- ===== Stage 05 ===== -->
+      <div class="console-panel" id="panel-05" role="tabpanel" aria-labelledby="tab-05">
+        <div class="panel-head">
+          <div class="panel-head-left">
+            <span class="panel-stage-tag">Stage 05 · Sell</span>
+            <h3 class="panel-title">First real dollar. Then the next one.</h3>
+            <p class="panel-desc">Email the 7 people who deposited. Send the link. Watch the Stripe pings come in. The metric isn&rsquo;t MRR yet. The metric is: did someone you don&rsquo;t know pay you for something you made?</p>
+          </div>
+          <div class="panel-controls">
+            <button class="panel-control" data-action="run" data-stage="05">
+              <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3 1l11 7-11 7V1z"/></svg>
+              Replay
+            </button>
+          </div>
+        </div>
+        <div class="panel-body">
+          <div class="sell-grid">
+            <div class="sell-stripe">
+              <div class="sell-stripe-head">
+                <span class="sell-stripe-label">Stripe · last 24h</span>
+                <span class="sell-stripe-total" id="sell-total">$203.00</span>
+              </div>
+              <div id="sell-payments"></div>
+            </div>
+            <div class="sell-replies">
+              <div class="sell-reply">
+                <div class="sell-reply-from">marcus@· 11:42 AM</div>
+                <div class="sell-reply-text">&ldquo;Just paid. Took me 6 seconds. How do I add a logo?&rdquo;</div>
+              </div>
+              <div class="sell-reply">
+                <div class="sell-reply-from">sarah.k@· 9:18 AM</div>
+                <div class="sell-reply-text">&ldquo;This is exactly what I&rsquo;ve been looking for. Will you build a Quickbooks export?&rdquo;</div>
+              </div>
+              <div class="sell-reply">
+                <div class="sell-reply-from">designstudio· 8:03 AM</div>
+                <div class="sell-reply-text">&ldquo;Bought 3 seats for the team.&rdquo;</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-cta-row">
+          <span style="font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pencil);">Output: identity change. You&rsquo;re a builder now.</span>
+          <button class="panel-next-stage" data-go="01">Restart loop <span class="arrow">↻</span></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     SHIP BOARD — Built with Build Room
+     ========================================================== -->
+<section class="ship-board">
+  <div class="container">
+    <div class="ship-board-head">
+      <h2 class="ship-board-title">Built with Build Room.</h2>
+      <span class="ship-board-meta">Ship board · 2026 · honest</span>
+    </div>
+
+    <div class="ship-cards">
+
+      <div class="ship-card">
+        <div class="ship-card-preview theme-radar" aria-hidden="true">
+          <div class="ship-card-preview-tabs">
+            <span class="ship-card-preview-tab active">Concerts</span>
+            <span class="ship-card-preview-tab">Sports</span>
+            <span class="ship-card-preview-tab">Calendar</span>
+            <span class="ship-card-preview-tab">Saved</span>
+          </div>
+          <div class="ship-card-preview-list">
+            <div class="ship-card-preview-item">The Nude Party · Apr 27</div>
+            <div class="ship-card-preview-item">Oklou · Union Transfer · Apr 28</div>
+            <div class="ship-card-preview-item alt">Phillies vs. Giants · Apr 28</div>
+          </div>
+        </div>
+
+        <div class="ship-card-row">
+          <span>Slot 01</span>
+          <span class="ship-card-status">Shipped</span>
+        </div>
+        <div class="ship-card-name">Concert Radar</div>
+        <div class="ship-card-stats">
+          <div>
+            <div class="ship-card-stat-label">Built in</div>
+            <div class="ship-card-stat signal">2 days</div>
+          </div>
+          <div>
+            <div class="ship-card-stat-label">First $</div>
+            <div class="ship-card-stat shipped">$700</div>
+          </div>
+        </div>
+        <div class="ship-card-founder">Concerts, sports, and calendar in one feed for Philly.</div>
+      </div>
+
+      <div class="ship-card">
+        <div class="ship-card-preview theme-etsy" aria-hidden="true">
+          <div class="ship-card-preview-tabs">
+            <span class="ship-card-preview-tab active">Listings</span>
+            <span class="ship-card-preview-tab">Orders</span>
+            <span class="ship-card-preview-tab">Auto-replies</span>
+          </div>
+          <div class="ship-card-preview-list">
+            <div class="ship-card-preview-item">
+              <span>Linen apron · auto-relisted</span>
+              <span class="price">$48</span>
+            </div>
+            <div class="ship-card-preview-item">
+              <span>Ceramic mug set · 3 sold</span>
+              <span class="price">$72</span>
+            </div>
+            <div class="ship-card-preview-item alt">
+              <span>Custom tag · reply queued</span>
+              <span class="price">—</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ship-card-row">
+          <span>Slot 02</span>
+          <span class="ship-card-status">Shipped</span>
+        </div>
+        <div class="ship-card-name">Etsy Autopilot</div>
+        <div class="ship-card-stats">
+          <div>
+            <div class="ship-card-stat-label">Built in</div>
+            <div class="ship-card-stat signal">3 days</div>
+          </div>
+          <div>
+            <div class="ship-card-stat-label">First $</div>
+            <div class="ship-card-stat shipped">$149/mo</div>
+          </div>
+        </div>
+        <div class="ship-card-founder">Auto-relists, order replies, and inventory alerts for solo Etsy sellers.</div>
+      </div>
+
+      <div class="ship-card">
+        <div class="ship-card-preview theme-intel" aria-hidden="true">
+          <div class="ship-card-preview-tabs">
+            <span class="ship-card-preview-tab active">Signals</span>
+            <span class="ship-card-preview-tab">Pricing</span>
+            <span class="ship-card-preview-tab">Hires</span>
+          </div>
+          <div class="ship-card-preview-list">
+            <div class="ship-card-preview-item">
+              <span>Acme · pricing page changed</span>
+              <span class="delta">+$20</span>
+            </div>
+            <div class="ship-card-preview-item alt">
+              <span>Northwind · 4 senior hires</span>
+              <span class="delta">+4</span>
+            </div>
+            <div class="ship-card-preview-item">
+              <span>Globex · new feature shipped</span>
+              <span class="delta">v2.1</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ship-card-row">
+          <span>Slot 03</span>
+          <span class="ship-card-status">Shipped</span>
+        </div>
+        <div class="ship-card-name">Competitor Pulse</div>
+        <div class="ship-card-stats">
+          <div>
+            <div class="ship-card-stat-label">Built in</div>
+            <div class="ship-card-stat signal">9 days</div>
+          </div>
+          <div>
+            <div class="ship-card-stat-label">First $</div>
+            <div class="ship-card-stat shipped">$2,400</div>
+          </div>
+        </div>
+        <div class="ship-card-founder">Weekly competitor intel reports for B2B teams &mdash; pricing, hires, launches.</div>
+      </div>
+
+    </div>
+
+    <p style="margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--pencil);">
+      Three real projects. Three real founders. Three real first dollars. <span style="color: var(--graphite);">&mdash; Receipts, not renders.</span>
+    </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     PROBLEM TIMELINE — what happens if you don't ship
+     ========================================================== -->
 <section class="problem-section">
-  <div class="wrap">
-    <div class="content">
-      <div class="mono-label">02_THE_PROBLEM</div>
-      <h2>Most people don't need another course.</h2>
+  <div class="container">
+    <div class="problem-grid">
 
-      <p>
-        They have 14 browser tabs open, a Claude subscription, three unfinished projects, and no deployed URL.
-      </p>
+      <div>
+        <h2 class="section-label" style="margin-bottom: 16px;">The problem</h2>
+        <p class="problem-lead">
+          You don&rsquo;t need another tool. The idea is fine. <span class="signal">You just haven&rsquo;t finished it.</span>
+        </p>
+      </div>
 
-      <p>
-        The problem isn't the tools. It's that nobody showed you how to cut through the weeds and actually finish one thing.
-      </p>
+      <div class="timeline" aria-label="What happens over the next six months">
 
-      <p>
-        This free intro shows you the 5-stage process I use — Ideate, Validate, Blueprint, Ship, Sell — and gives you 5 copy-paste Claude Code prompts that do the first stage for you.
-      </p>
+        <div class="timeline-item now">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">Today</div>
+          <p class="timeline-text">
+            You have an idea. You&rsquo;ve had it for a while. You&rsquo;ve opened Cursor twice this week and closed it.
+          </p>
+        </div>
 
-      <div class="stage-strip stage-strip-callout" aria-label="Vibe-to-Ship Protocol stages">
-        <span class="stage"><strong>01_IDEATE</strong></span>
-        <span class="arrow">→</span>
-        <span class="stage"><strong>02_VALIDATE</strong></span>
-        <span class="arrow">→</span>
-        <span class="stage"><strong>03_BLUEPRINT</strong></span>
-        <span class="arrow">→</span>
-        <span class="stage"><strong>04_SHIP</strong></span>
-        <span class="arrow">→</span>
-        <span class="stage"><strong>05_SELL</strong></span>
+        <div class="timeline-item bad">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">3 months from now</div>
+          <p class="timeline-text">
+            Same idea. Same head. Same tabs.
+          </p>
+        </div>
+
+        <div class="timeline-item bad peak">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">6 months from now</div>
+          <p class="timeline-text">
+            Someone less talented than you ships a worse version of it and charges <em>$29/mo</em>. You see their ad. You feel something specific.
+          </p>
+        </div>
+
+        <div class="timeline-item good">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">The fix</div>
+          <p class="timeline-text">
+            Not more research. A process &mdash; <strong>Ideate, Validate, Blueprint, Ship, Sell</strong> &mdash; that gets you from &ldquo;vague idea&rdquo; to &ldquo;real customer paying you.&rdquo;
+          </p>
+          <span class="timeline-tape">This free intro shows you what that looks like.</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     KIT — asymmetric "What you get" with Kill Filter as hero
+     ========================================================== -->
+<section class="kit-section">
+  <div class="container">
+    <h2 class="section-label" style="margin-bottom: 24px;">What you get</h2>
+
+    <div class="kit-grid">
+
+      <div class="kit-list-col">
+        <h3>Three things, one kit, zero dollars.</h3>
+        <ul class="kit-items">
+          <li class="kit-item">
+            <span class="kit-item-num">01</span>
+            <span class="kit-item-text"><strong>A 30-minute video</strong> walking through the Vibe-to-Ship Protocol at a surface level.</span>
+          </li>
+          <li class="kit-item">
+            <span class="kit-item-num">02</span>
+            <span class="kit-item-text"><strong>5 Claude Code starter prompts</strong> that take you from &ldquo;vague idea&rdquo; to &ldquo;I know if this is worth building.&rdquo;</span>
+          </li>
+          <li class="kit-item">
+            <span class="kit-item-num">03</span>
+            <span class="kit-item-text"><strong>One email a day for 10 days</strong> &mdash; real examples, real failures, the things I teach inside Build Room.</span>
+          </li>
+        </ul>
+        <p class="kit-disclaimer">No upsell wall. No &ldquo;book a call.&rdquo; Put your email in and watch.</p>
+      </div>
+
+      <div class="kit-hero">
+        <span class="kit-hero-tag">04 · The headline thing</span>
+        <h3 class="kit-hero-name">The Kill Filter</h3>
+        <p class="kit-hero-desc">
+          A tool I built that scores your idea against a 5-criteria rubric. <strong>Kills it if it&rsquo;s bad.</strong> Generates the build files if it&rsquo;s good.
+        </p>
+
+        <div class="kit-hero-mini" aria-hidden="true">
+          <div class="kit-hero-mini-head">
+            <span class="fname">kill-filter --output</span>
+            <span class="meta">on KEEP</span>
+          </div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">CLAUDE.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">spec.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">stack.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">cut-list.md</span></div>
+          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">team accounts</span></div>
+          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">multi-currency</span></div>
+        </div>
+
+        <p class="kit-hero-foot">
+          <strong>$0 here.</strong> Saves you weeks of building the wrong product.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     RECEIPTS — review wall from previous community
+     ========================================================== -->
+<section class="receipts-section">
+  <div class="container">
+    <h2 class="section-label">Receipts</h2>
+    <p class="problem-lead" style="max-width: 32ch; margin-top: 8px;">
+      Things people actually said. <span class="signal">Not testimonials I wrote.</span>
+    </p>
+
+    <!-- Review wall from This group -->
+    <div class="review-wall-head">
+      <h3 class="review-wall-title">
+        <span class="signal">15k+ members.</span> Real reviews.
+      </h3>
+      <div class="review-wall-meta">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.6 avg &middot; This group</span>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- WHAT YOU GET -->
-<section class="what-you-get">
-  <div class="wrap">
-    <div class="inner">
-      <div class="mono-label">03_WHAT_YOU_GET</div>
+    <div class="review-grid">
 
-      <ul class="get-list">
-        <li>
-          <span class="num">01</span>
-          <div class="body">
-            <strong>30-minute intro video</strong>
-            <p>What Claude Code actually is, how to start, and a surface-level walkthrough of the Vibe-to-Ship Protocol. No fluff, no sponsor reads.</p>
-          </div>
-        </li>
-        <li>
-          <span class="num">02</span>
-          <div class="body">
-            <strong>5 starter prompts</strong>
-            <p>Copy-paste prompts for the five places people get stuck first: ideating, scoping, debugging, shipping, and finding the first user.</p>
-          </div>
-        </li>
-        <li>
-          <span class="num">03</span>
-          <div class="body">
-            <strong>10-day Claude Code training</strong>
-            <p>One email a day for 10 days. Real examples, real failures, and the exact things I teach inside Build Room — delivered straight to your inbox.</p>
-          </div>
-        </li>
-      </ul>
+      <div class="review-card featured">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text"><span class="quote-mark">&ldquo;</span>This group is unreal. If you&rsquo;re trying to grow and monetize fast, this is the tool. This is by far the most valuable community I have ever been a part of.</div>
+        <div class="review-name">Kait</div>
+      </div>
 
-      <p class="get-note">No upsell wall. No "book a call." Claim the free intro and watch.</p>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">Built working automations in weeks (not months) and finally feel like I&rsquo;m doing something with AI, not just watching from the sidelines.</div>
+        <div class="review-name">Alicia Polan</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">Used one of the workflows to repurpose TikToks and already started making money today. Super easy to follow and actually works.</div>
+        <div class="review-name">John Anthony</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">From day one, I&rsquo;ve already gotten more than my money&rsquo;s worth. I was previously paying $90/mo for not even half of what this community has to offer.</div>
+        <div class="review-name">Kalen Hardy</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text short">Immense value daily.</div>
+        <div class="review-name">Greg Tresler</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">Pushes me to greater opportunities in life. Great help from owner every day.</div>
+        <div class="review-name">BountifullStories</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text short">So much detail here. It is awesome.</div>
+        <div class="review-name">HAZR</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text">Turned a slow-paced TikTok into a fast-moving money machine. Appreciate how much the community cares about each other&rsquo;s success.</div>
+        <div class="review-name">Justin</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-text short">Great help with automations.</div>
+        <div class="review-name">holdingthetorch</div>
+      </div>
+
     </div>
+
+    <p class="receipts-tag-line">
+      <strong>&mdash; Receipts, not renders.</strong>
+    </p>
   </div>
 </section>
 
-<!-- WHO THIS IS / ISN'T FOR -->
-<section class="who-section">
-  <div class="wrap">
-    <div class="mono-label">04_WHO_THIS_IS_FOR</div>
+<!-- ==========================================================
+     FIT — who this is/isn't for, asymmetric
+     ========================================================== -->
+<section class="fit-section">
+  <div class="container">
+    <h2 class="section-label">Fit check</h2>
+    <p class="problem-lead" style="max-width: 28ch; margin-top: 8px; margin-bottom: 24px;">
+      The Kill Filter, applied <span class="signal">to the audience.</span>
+    </p>
 
-    <div class="who-grid">
-      <div class="col is-for">
-        <h3>Who this is for</h3>
-        <ul>
-          <li>You've been paying for Claude, ChatGPT, Cursor, Lovable, or some combo of them — and haven't shipped.</li>
-          <li>You've got ideas but can't tell which ones are worth building.</li>
-          <li>You're not a developer and you're tired of hearing "just learn to code."</li>
-          <li>You want one process, not ten more tools.</li>
+    <div class="fit-grid">
+
+      <div class="fit-col is">
+        <div class="fit-col-head">
+          <span class="fit-col-num">For</span>
+        </div>
+        <h3 class="fit-col-title">You, if any of these are true.</h3>
+        <ul class="fit-list">
+          <li>
+            <span class="check">&check;</span>
+            <span>You&rsquo;ve been paying for Claude, ChatGPT, Cursor, Lovable, or some combo of them &mdash; and <strong>haven&rsquo;t shipped a product.</strong></span>
+          </li>
+          <li>
+            <span class="check">&check;</span>
+            <span>You&rsquo;ve got ideas but can&rsquo;t tell which ones are worth building.</span>
+          </li>
+          <li>
+            <span class="check">&check;</span>
+            <span>You often <strong>jump from idea to idea</strong> when things get hard.</span>
+          </li>
+          <li>
+            <span class="check">&check;</span>
+            <span>You&rsquo;re not a developer and you&rsquo;re tired of <strong>hitting your AI credit limits.</strong></span>
+          </li>
+          <li>
+            <span class="check">&check;</span>
+            <span>You want <strong>one process that works,</strong> not ten more tools.</span>
+          </li>
         </ul>
       </div>
 
-      <div class="col not-for">
-        <h3>Who this isn't for</h3>
-        <ul>
-          <li>People looking for a "build a SaaS in a weekend" fantasy.</li>
-          <li>Experienced engineers. This will feel slow.</li>
-          <li>Anyone who wants done-for-you. I teach. You build.</li>
+      <div class="fit-col not">
+        <div class="fit-col-head">
+          <span class="fit-col-num">Not for</span>
+        </div>
+        <h3 class="fit-col-title">Skip this if&hellip;</h3>
+        <ul class="fit-list">
+          <li>
+            <span class="check">&times;</span>
+            <span>You want a &ldquo;get rich in a weekend&rdquo; fantasy.</span>
+          </li>
+          <li>
+            <span class="check">&times;</span>
+            <span>You&rsquo;re not willing to follow the process.</span>
+          </li>
+          <li>
+            <span class="check">&times;</span>
+            <span>You want done-for-you. I teach. You build.</span>
+          </li>
         </ul>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- STORY -->
-<section class="story-section">
-  <div class="wrap">
-    <div class="content">
-      <div class="mono-label">05_WHY_THIS_EXISTS</div>
-      <h2 style="margin-top: var(--s-4);">I ran a 1,200-member community teaching n8n. It failed.</h2>
+<!-- ==========================================================
+     SHAMELESS CTA — retro starter kit box
+     ========================================================== -->
+<section class="shameless">
+  <div class="container">
+    <h2 class="shameless-eyebrow">Shameless CTA.</h2>
+    <p class="shameless-subline">If nothing above sold you, here&rsquo;s the retro infomercial version. Same offer.</p>
 
-      <p>
-        Not in the "it shut down" sense. It paid the bills. It had retention. But it failed at the thing I actually wanted it to do: most members never shipped.
-      </p>
+    <div class="shameless-grid">
 
-      <p>
-        n8n was too hard for the people who needed it most. They'd join, get excited, spend three weeks on one workflow, quit. Not because they were dumb — because the tool was a wall.
-      </p>
+      <!-- Left: the box -->
+      <div class="kit-box">
+        <span class="kit-box-tag">As seen on procrastination</span>
+        <div class="kit-box-product">
+          <span class="kit-box-stamp">NOT ENDORSED BY YOUR PROCRAST&shy;INATION</span>
+          <div class="kit-box-version">v1 · 2026 release</div>
+          <h3 class="kit-box-name">BUILD<span class="signal"> ROOM</span><br>STARTER&nbsp;KIT</h3>
+          <p class="kit-box-tagline">// idea → execution · 30 min runtime</p>
 
-      <div class="receipts-block">
-        <div class="receipts-header">RECEIPTS · AUTOMATIONFLOW · 2022—2025</div>
-        <div class="receipts-rows">
-          <div class="receipts-row">
-            <span class="label">Members</span>
-            <span class="value">1,200 <span class="sub">paying</span></span>
+          <div class="kit-box-contents">
+            <div class="kit-box-content">The Kill Filter (the actual tool)</div>
+            <div class="kit-box-content">30-min Claude Code intro</div>
+            <div class="kit-box-content">5 starter prompts (battle-tested)</div>
+            <div class="kit-box-content">10-day email drip</div>
+            <div class="kit-box-content">PDF: 5 walls + how to skip them</div>
+            <div class="kit-box-content">Zero upsells inside</div>
           </div>
-          <div class="receipts-row">
-            <span class="label">Duration</span>
-            <span class="value">3 years <span class="sub">active community</span></span>
-          </div>
-          <div class="receipts-row">
-            <span class="label">Who shipped</span>
-            <span class="value kill">&lt; 5%</span>
-          </div>
+
+          <div class="kit-box-footer">// system req: an idea you&rsquo;ve been sitting on. Web browser optional.</div>
         </div>
-        <div class="receipts-tag">— Receipts, not renders.</div>
       </div>
 
-      <p>
-        Then Claude Code came out. And the same people who'd quit before started shipping actual software. Apps people paid for.
-      </p>
+      <!-- Right: the order -->
+      <div class="kit-order">
+        <span class="kit-order-tag">In stock · ships instantly</span>
+        <h3 class="kit-order-name">Build Room Starter Kit</h3>
+        <p class="kit-order-disclaimer">*Will not build the app for you. You still have to do the thing.</p>
 
-      <p class="kicker">
-        The bottleneck was never the tool. It was the process.
-      </p>
-
-      <p>
-        This free intro is 30 minutes of that process. If it helps, there's more where it came from. If it doesn't, unsubscribe and we never talk again.
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- FINAL CTA -->
-<section class="final-cta">
-  <div class="wrap">
-    <div class="inner">
-      <div class="mono-label">06_START</div>
-      <h2>Watch the 30 minutes. Run the 5 prompts. Decide.</h2>
-
-      <form class="form-box" style="margin-top: var(--s-6);">
-        <div style="display: flex; gap: var(--s-4); align-items: center; flex-wrap: wrap;">
-          <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta">
-            Claim The Free Intro <span class="arrow">→</span>
-          </a>
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; color: var(--pencil);">Free forever<span class="dim"> · </span>No card</span>
+        <div class="kit-order-price-block">
+          <div class="kit-order-price-label">Price</div>
+          <div class="kit-order-price">
+            <span class="free">$0 FREE</span>
+            <span class="kit-order-price-aside">∞ left at this price</span>
+          </div>
         </div>
-      </form>
+
+        <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="kit-order-cta" target="_blank" rel="noopener">Get the kit</a>
+
+        <p class="kit-order-rush">
+          <strong>Hurry:</strong> the idea you&rsquo;re sitting on doesn&rsquo;t care that you&rsquo;re tired today. <strong>Act now</strong> and get $0 off your first order.
+        </p>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <div class="wrap">
-    <a href="/" class="logo">
-      <span class="logo-mark"></span>
-      <span class="logo-text">Build Room</span>
-    </a>
-    <div class="version-stamp">
-      <a href="/privacy">Privacy</a><span class="dot">·</span><a href="/terms">Terms</a><span class="dot">·</span>SHIP-YOUR-FIRST-THING.v1<span class="dot">·</span>2026-04-23
+<section class="bottom-cta">
+  <div class="container-narrow">
+    <h2 class="section-label">Start</h2>
+    <p class="section-lead">Ship the idea. Charge for it. Find out what it&rsquo;s worth.</p>
+
+    <div class="hero-cta-wrap">
+      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
+      <span class="cta-meta">Instant access</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span class="footer-stamp">BUILD-ROOM.v1 · 2026-04-22</span>
+    <div class="footer-links">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="mailto:kevin@brnk.studio">Contact</a>
     </div>
   </div>
 </footer>
+
+<script>
+/* ==========================================================
+   Hero terminal — kill filter demo
+   ========================================================== */
+(function() {
+  const el = document.getElementById('hero-terminal');
+  const rail = document.getElementById('verdict-rail');
+  if (!el) return;
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Verdict cards keyed by id, fired when their script line renders.
+  const verdicts = {
+    v1: { num: '01', type: 'kill', stamp: 'Dead.', name: 'AI-powered journal app', score: '12 / 50' },
+    v2: { num: '02', type: 'kill', stamp: 'Dead.', name: 'Habit tracker (v9)', score: '13 / 50' },
+    v3: { num: '03', type: 'keep', stamp: 'Ship this.', name: 'Invoicer for freelance designers', score: '40 / 50' }
+  };
+
+  const script = [
+    { html: '<span class="term-prompt">&gt;</span> <span class="term-user">kill-filter run --ideas=3</span>', wait: 600 },
+    { html: '<span class="term-comment"># Loading 5-criteria rubric...</span>', wait: 500 },
+    { html: '<span class="term-comment"># Scoring ideas against the Kill Filter...</span>', wait: 700 },
+    { html: '&nbsp;', wait: 200 },
+    { html: '<span class="term-bold">[1]  AI-powered journal app</span>', wait: 300 },
+    { html: '     <span class="term-dim">paying proximity</span>  <span class="term-score-bar"><span class="term-score-fill" style="width:30%;"></span></span> <span class="term-kill">3/10</span>', wait: 200 },
+    { html: '     <span class="term-dim">build scope</span>       <span class="term-score-bar"><span class="term-score-fill" style="width:50%;"></span></span> <span class="term-dim">5/10</span>', wait: 200 },
+    { html: '     <span class="term-dim">validation cost</span>   <span class="term-score-bar"><span class="term-score-fill" style="width:40%;"></span></span> <span class="term-kill">4/10</span>', wait: 200 },
+    { html: '     → <span class="term-kill">KILL</span> — no clear buyer, saturated category', wait: 500, verdict: 'v1' },
+    { html: '&nbsp;', wait: 200 },
+    { html: '<span class="term-bold">[2]  Habit tracker (v9)</span>', wait: 300 },
+    { html: '     <span class="term-dim">paying proximity</span>  <span class="term-score-bar"><span class="term-score-fill" style="width:40%;"></span></span> <span class="term-kill">4/10</span>', wait: 200 },
+    { html: '     <span class="term-dim">unfair advantage</span>  <span class="term-score-bar"><span class="term-score-fill" style="width:20%;"></span></span> <span class="term-kill">2/10</span>', wait: 200 },
+    { html: '     → <span class="term-kill">KILL</span> — you have no reason to win at this', wait: 500, verdict: 'v2' },
+    { html: '&nbsp;', wait: 200 },
+    { html: '<span class="term-bold">[3]  Invoicer for freelance designers</span>', wait: 300 },
+    { html: '     <span class="term-dim">paying proximity</span>  <span class="term-score-bar"><span class="term-score-fill" style="width:80%;"></span></span> <span class="term-shipped">8/10</span>', wait: 200 },
+    { html: '     <span class="term-dim">build scope</span>       <span class="term-score-bar"><span class="term-score-fill" style="width:90%;"></span></span> <span class="term-shipped">9/10</span>', wait: 200 },
+    { html: '     <span class="term-dim">validation cost</span>   <span class="term-score-bar"><span class="term-score-fill" style="width:80%;"></span></span> <span class="term-shipped">8/10</span>', wait: 200 },
+    { html: '     → <span class="term-shipped">KEEP</span> — clear buyer, testable in 72h', wait: 700, verdict: 'v3' },
+    { html: '&nbsp;', wait: 200 },
+    { html: '<span class="term-comment"># Survivor detected. Generating build files...</span>', wait: 500 },
+    { html: '  <span class="term-shipped">✓</span> <span class="term-dim">CLAUDE.md</span>          generated', wait: 250 },
+    { html: '  <span class="term-shipped">✓</span> <span class="term-dim">spec.md</span>            generated', wait: 250 },
+    { html: '  <span class="term-shipped">✓</span> <span class="term-dim">stack.md</span>           generated', wait: 250 },
+    { html: '  <span class="term-shipped">✓</span> <span class="term-dim">cut-list.md</span>        generated', wait: 250 },
+    { html: '<span class="term-comment"># Done. You have 4 files and one idea worth building.</span>', wait: 700 },
+    { html: '&nbsp;', wait: 200 },
+    { html: '<span class="term-prompt">&gt;</span> <span class="term-user">_</span>', wait: 2500 }
+  ];
+
+  let timers = [];
+  let running = false;
+
+  function clearTimers() {
+    timers.forEach(t => clearTimeout(t));
+    timers = [];
+  }
+
+  function buildVerdictCard(v) {
+    const card = document.createElement('div');
+    card.className = 'verdict-card ' + v.type;
+    const arrow = v.type === 'kill' ? '×' : '→';
+    card.innerHTML = `
+      <div class="verdict-card-meta">
+        <span>Idea · ${v.num}</span>
+        <span>${v.score}</span>
+      </div>
+      <div class="verdict-card-stamp"><span class="arrow">${arrow}</span>${v.stamp}</div>
+      <div class="verdict-card-name">${v.name}</div>
+    `;
+    return card;
+  }
+
+  function fireVerdict(id) {
+    if (!rail) return;
+    const v = verdicts[id];
+    if (!v) return;
+    const card = buildVerdictCard(v);
+    rail.appendChild(card);
+    // trigger animation on next frame
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => card.classList.add('visible'));
+    });
+  }
+
+  function clearRail() {
+    if (rail) rail.innerHTML = '';
+  }
+
+  function render() {
+    if (running) return;
+    running = true;
+    el.innerHTML = '';
+    clearRail();
+    let cumulative = 0;
+    script.forEach(line => {
+      const t = setTimeout(() => {
+        const div = document.createElement('div');
+        div.className = 'term-line visible';
+        div.innerHTML = line.html;
+        el.appendChild(div);
+        el.scrollTop = el.scrollHeight;
+        if (line.verdict) fireVerdict(line.verdict);
+      }, cumulative);
+      timers.push(t);
+      cumulative += line.wait;
+    });
+    const restart = setTimeout(() => { running = false; render(); }, cumulative + 1000);
+    timers.push(restart);
+  }
+
+  function renderStatic() {
+    el.innerHTML = '';
+    clearRail();
+    script.forEach(line => {
+      const div = document.createElement('div');
+      div.className = 'term-line visible';
+      div.style.animation = 'none';
+      div.innerHTML = line.html;
+      el.appendChild(div);
+    });
+    // show all verdicts at once, no animation
+    Object.keys(verdicts).forEach(k => {
+      const card = buildVerdictCard(verdicts[k]);
+      card.classList.add('visible');
+      if (rail) rail.appendChild(card);
+    });
+  }
+
+  if (reduced) { renderStatic(); return; }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { render(); io.disconnect(); }
+    });
+  }, { threshold: 0.3 });
+  io.observe(el);
+})();
+
+/* ==========================================================
+   CONSOLE TITLE ROTATOR — pain phrases that swap every 2.5s
+   ========================================================== */
+(function() {
+  const rotator = document.getElementById('console-rotator');
+  if (!rotator) return;
+
+  const textEl = rotator.querySelector('.rotator-text');
+  if (!textEl) return;
+
+  const phrases = [
+    'No rabbit holes.',
+    'No 2am vibe coding sessions.',
+    'No more pressing 2 all day.',
+    'No more "let\u2019s start from the beginning."',
+    'No more WTFs.',
+    'No more 14 browser tabs.',
+    'No more "I\u2019ll fix that tomorrow."',
+    'No more refactoring instead of shipping.'
+  ];
+
+  const HOLD_MS = 2500;
+  const FADE_MS = 250;
+
+  let i = 0;
+  let timer = null;
+  let paused = false;
+  let started = false;
+  let visible = true;
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function step() {
+    if (paused || !visible) return;
+    i = (i + 1) % phrases.length;
+    const next = phrases[i];
+
+    textEl.classList.add('fade-out');
+    setTimeout(() => {
+      textEl.textContent = next;
+      textEl.classList.remove('fade-out');
+      textEl.classList.add('fade-in-prep');
+      // force reflow then drop the prep class so it transitions in
+      void textEl.offsetWidth;
+      textEl.classList.remove('fade-in-prep');
+    }, FADE_MS);
+
+    timer = setTimeout(step, HOLD_MS);
+  }
+
+  function start() {
+    if (started || reduced) return;
+    started = true;
+    timer = setTimeout(step, HOLD_MS);
+  }
+
+  function stop() {
+    if (timer) { clearTimeout(timer); timer = null; }
+  }
+
+  // Pause on hover, resume on leave
+  rotator.addEventListener('mouseenter', () => { paused = true; });
+  rotator.addEventListener('mouseleave', () => {
+    if (paused && started) {
+      paused = false;
+      stop();
+      timer = setTimeout(step, HOLD_MS);
+    }
+  });
+
+  // Pause when tab is hidden
+  document.addEventListener('visibilitychange', () => {
+    visible = !document.hidden;
+    if (!visible) {
+      stop();
+    } else if (started && !paused) {
+      timer = setTimeout(step, HOLD_MS);
+    }
+  });
+
+  // Only start when the section scrolls into view
+  const consoleSection = document.querySelector('.console-section');
+  if (consoleSection) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          start();
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(consoleSection);
+  } else {
+    start();
+  }
+})();
+
+/* ==========================================================
+   FUNNEL CONSOLE — tab switching + auto-rotate + per-stage interactivity
+   ========================================================== */
+(function() {
+  const tabs = document.querySelectorAll('.console-tab');
+  const panels = document.querySelectorAll('.console-panel');
+  const panelWrap = document.querySelector('.console-panel-wrap');
+  const stages = ['01', '02', '03', '04', '05'];
+  const ROTATE_MS = 5000;
+
+  let rotateTimer = null;
+  let userInteracted = false;
+  let rotateStarted = false;
+  const rotateBar = document.getElementById('console-rotate-bar');
+
+  function restartBar() {
+    if (!rotateBar) return;
+    rotateBar.classList.remove('running', 'paused');
+    // force reflow so animation restarts
+    void rotateBar.offsetWidth;
+    rotateBar.classList.add('running');
+  }
+
+  function pauseBar() {
+    if (!rotateBar) return;
+    rotateBar.classList.remove('running');
+    rotateBar.classList.add('paused');
+  }
+
+  function activate(stage) {
+    tabs.forEach(t => {
+      const isActive = t.dataset.stage === stage;
+      t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+    panels.forEach(p => {
+      const isActive = p.id === 'panel-' + stage;
+      p.classList.toggle('active', isActive);
+    });
+    if (panelWrap) panelWrap.setAttribute('data-active-stage', stage);
+    // restart the progress bar if rotate is still running
+    if (rotateStarted && !userInteracted) restartBar();
+  }
+
+  function getCurrentStage() {
+    const active = document.querySelector('.console-tab[aria-selected="true"]');
+    return active ? active.dataset.stage : '01';
+  }
+
+  function nextStage(current) {
+    const i = stages.indexOf(current);
+    return stages[(i + 1) % stages.length];
+  }
+
+  function tick() {
+    if (userInteracted) return;
+    activate(nextStage(getCurrentStage()));
+    rotateTimer = setTimeout(tick, ROTATE_MS);
+  }
+
+  function startRotate() {
+    if (rotateStarted || userInteracted) return;
+    rotateStarted = true;
+    restartBar();
+    rotateTimer = setTimeout(tick, ROTATE_MS);
+  }
+
+  function stopRotate() {
+    userInteracted = true;
+    pauseBar();
+    if (rotateTimer) {
+      clearTimeout(rotateTimer);
+      rotateTimer = null;
+    }
+  }
+
+  // Initial state
+  activate('01');
+
+  // Tabs: click + keyboard nav both stop the rotate
+  tabs.forEach(t => {
+    t.addEventListener('click', () => {
+      stopRotate();
+      activate(t.dataset.stage);
+    });
+    t.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+        e.preventDefault();
+        stopRotate();
+        const arr = Array.from(tabs);
+        const i = arr.indexOf(t);
+        const next = e.key === 'ArrowRight' ? (i + 1) % arr.length : (i - 1 + arr.length) % arr.length;
+        arr[next].focus();
+        activate(arr[next].dataset.stage);
+      }
+    });
+  });
+
+  // "Next stage" buttons inside panels also stop the rotate
+  document.querySelectorAll('.panel-next-stage').forEach(btn => {
+    btn.addEventListener('click', () => {
+      stopRotate();
+      activate(btn.dataset.go);
+      document.querySelector('.console-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Panel controls (Run, Shuffle inside stages) also stop the rotate
+  document.querySelectorAll('.panel-control').forEach(btn => {
+    btn.addEventListener('click', stopRotate);
+  });
+
+  // Hovering the panel pauses rotate (gives the reader a chance)
+  if (panelWrap) {
+    panelWrap.addEventListener('mouseenter', stopRotate);
+  }
+
+  // Respect reduced-motion: don't auto-rotate
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Only kick off when the console section is visible
+  const consoleSection = document.querySelector('.console-section');
+  if (consoleSection && !reduced) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          startRotate();
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.25 });
+    io.observe(consoleSection);
+  }
+
+  // Pause when the page tab is hidden, resume when visible (and user hasn't interacted)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (rotateTimer) { clearTimeout(rotateTimer); rotateTimer = null; }
+    } else if (rotateStarted && !userInteracted && !rotateTimer) {
+      rotateTimer = setTimeout(tick, ROTATE_MS);
+    }
+  });
+})();
+
+/* ==========================================================
+   STAGE 01 — Kill the idea
+   ========================================================== */
+(function() {
+  const ideaPool = [
+    { name: 'AI-powered journal app', score: 32, verdict: 'KILL', reason: 'no clear buyer, saturated category' },
+    { name: 'Habit tracker (v9)', score: 28, verdict: 'KILL', reason: 'you have no reason to win at this' },
+    { name: 'Invoicer for freelance designers', score: 86, verdict: 'KEEP', reason: 'clear buyer, testable in 72h' },
+    { name: 'AI dating coach', score: 24, verdict: 'KILL', reason: 'trust + retention nightmare' },
+    { name: 'Note-taking app v∞', score: 18, verdict: 'KILL', reason: 'graveyard of dreams' },
+    { name: 'Slack for dentists', score: 72, verdict: 'KEEP', reason: 'narrow + paying' },
+    { name: 'GPT wrapper for resumes', score: 35, verdict: 'KILL', reason: 'commodity in 6 months' },
+    { name: 'Bookkeeping for Etsy sellers', score: 81, verdict: 'KEEP', reason: 'underserved + buyer in pain' },
+    { name: 'Newsletter platform v47', score: 22, verdict: 'KILL', reason: 'Substack already won' },
+    { name: 'Inventory tool for ceramic studios', score: 78, verdict: 'KEEP', reason: 'small, paying, ignored' },
+    { name: 'AI lawyer chatbot', score: 30, verdict: 'KILL', reason: 'liability + trust = no' },
+    { name: 'Booking tool for personal trainers', score: 75, verdict: 'KEEP', reason: 'they hate Calendly' },
+  ];
+
+  let runId = 0;
+
+  function pickThree() {
+    // Always include at least 1 KEEP and 2 KILLs for storytelling
+    const kills = ideaPool.filter(i => i.verdict === 'KILL').sort(() => Math.random() - 0.5);
+    const keeps = ideaPool.filter(i => i.verdict === 'KEEP').sort(() => Math.random() - 0.5);
+    return [kills[0], kills[1], keeps[0]];
+  }
+
+  function renderKillList(immediate = false) {
+    const myRun = ++runId;
+    const ideas = pickThree();
+    const list = document.getElementById('kill-list');
+    const summary = document.getElementById('kill-summary');
+    if (!list || !summary) return;
+
+    list.innerHTML = '';
+    summary.innerHTML = '';
+
+    ideas.forEach((idea, i) => {
+      const row = document.createElement('div');
+      row.className = 'kill-row';
+      row.innerHTML = `
+        <div class="kill-row-name">${idea.name}</div>
+        <div class="kill-row-bar"><div class="kill-row-bar-fill" style="width: 0%;"></div></div>
+        <div class="kill-row-verdict">scoring…</div>
+      `;
+      list.appendChild(row);
+
+      const delay = immediate ? 0 : 400 + i * 600;
+      setTimeout(() => {
+        if (myRun !== runId) return;
+        row.classList.add(idea.verdict === 'KILL' ? 'kill-row-killed' : 'kill-row-kept');
+        row.querySelector('.kill-row-bar-fill').style.width = idea.score + '%';
+        row.querySelector('.kill-row-verdict').textContent = idea.verdict;
+        // append reason as a subtle line below name
+        const sub = document.createElement('div');
+        sub.style.cssText = 'grid-column: 1 / -1; font-family: var(--font-mono); font-size: 10px; color: var(--pencil); letter-spacing: 0.04em; margin-top: 4px;';
+        sub.textContent = '→ ' + idea.reason + '  ·  ' + idea.score + '/100';
+        row.appendChild(sub);
+      }, delay);
+    });
+
+    const summaryDelay = immediate ? 100 : 400 + ideas.length * 600 + 300;
+    setTimeout(() => {
+      if (myRun !== runId) return;
+      const keeper = ideas.find(i => i.verdict === 'KEEP');
+      summary.innerHTML = `<span class="signal">→ verdict:</span> kill 2, keep 1. proceed with: <strong>${keeper.name}</strong>`;
+    }, summaryDelay);
+  }
+
+  // Initial render — slight delay so it animates when panel becomes visible
+  setTimeout(() => renderKillList(false), 600);
+
+  // Wire up Run + Shuffle controls
+  document.querySelectorAll('[data-stage="01"][data-action]').forEach(btn => {
+    btn.addEventListener('click', () => renderKillList(false));
+  });
+})();
+
+/* ==========================================================
+   STAGE 02 — Validate (animated counters on click)
+   ========================================================== */
+(function() {
+  const scenarios = [
+    { spend: 30, clicks: 412, signups: 91, deposits: 7,  verdict: 'ship', label: '7.7%' },
+    { spend: 30, clicks: 287, signups: 62, deposits: 4,  verdict: 'ship', label: '6.5%' },
+    { spend: 30, clicks: 521, signups: 104, deposits: 11, verdict: 'ship', label: '10.6%' },
+    { spend: 30, clicks: 380, signups: 80, deposits: 1,  verdict: 'kill', label: '1.3%' },
+    { spend: 30, clicks: 195, signups: 33, deposits: 0,  verdict: 'kill', label: '0%' },
+  ];
+
+  function animNum(el, target, opts = {}) {
+    if (!el) return;
+    const prefix = opts.prefix || '';
+    const start = 0;
+    const dur = 700;
+    const t0 = performance.now();
+    function frame(t) {
+      const p = Math.min(1, (t - t0) / dur);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const val = Math.round(start + (target - start) * eased);
+      el.textContent = prefix + val.toLocaleString();
+      if (p < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function run() {
+    const s = scenarios[Math.floor(Math.random() * scenarios.length)];
+    animNum(document.getElementById('v-spend'), s.spend, { prefix: '$' });
+    animNum(document.getElementById('v-clicks'), s.clicks);
+    animNum(document.getElementById('v-signups'), s.signups);
+    animNum(document.getElementById('v-deposits'), s.deposits);
+
+    const sub = document.getElementById('v-deposits-sub');
+    if (sub) sub.textContent = s.label + ' of signups · ' + (s.verdict === 'ship' ? 'real signal' : 'soft signal only');
+
+    const dBar = document.getElementById('v-deposits-bar');
+    if (dBar) dBar.style.width = Math.min(40, s.deposits * 2.5) + '%';
+
+    const clicksBar = document.getElementById('v-clicks-bar');
+    if (clicksBar) clicksBar.style.width = Math.min(100, s.clicks / 6) + '%';
+
+    const sBar = document.getElementById('v-signups-bar');
+    if (sBar) sBar.style.width = (s.signups / s.clicks * 100) + '%';
+
+    const v = document.getElementById('v-verdict');
+    if (v) {
+      if (s.verdict === 'ship') {
+        v.innerHTML = `
+          <span class="label">Verdict</span>
+          <span class="ship-text">→ Build it.</span> ${s.deposits} strangers paid $5 each before you wrote a line of code. That&rsquo;s pre-validation. Now you have $${s.deposits * 5} and ${s.deposits} people waiting.
+        `;
+      } else {
+        v.innerHTML = `
+          <span class="label">Verdict</span>
+          <span class="kill-text">→ Kill it.</span> ${s.deposits === 0 ? 'Zero' : s.deposits} deposits on ${s.signups} signups. Clicks aren&rsquo;t intent. Money is intent. Back to Stage 01.
+        `;
+      }
+    }
+
+    // Color the deposits number red if killed
+    const depEl = document.getElementById('v-deposits');
+    if (depEl) {
+      depEl.classList.remove('shipped', 'kill', 'signal');
+      depEl.classList.add(s.verdict === 'ship' ? 'shipped' : 'kill');
+    }
+  }
+
+  document.querySelectorAll('[data-stage="02"][data-action]').forEach(btn => {
+    btn.addEventListener('click', run);
+  });
+
+  // Run once when panel becomes visible (intersection)
+  const panel = document.getElementById('panel-02');
+  if (panel) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && panel.classList.contains('active')) {
+          // already shows default values from HTML; one anim pass for polish
+          animNum(document.getElementById('v-clicks'), 412);
+          animNum(document.getElementById('v-signups'), 91);
+          animNum(document.getElementById('v-deposits'), 7);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(panel);
+  }
+})();
+
+/* ==========================================================
+   STAGE 04 — Ship: animated build sequence
+   ========================================================== */
+(function() {
+  const grid = document.getElementById('ship-grid');
+  const deployBar = document.getElementById('deploy-bar');
+  const deployTime = document.getElementById('deploy-bar-time');
+  if (!grid) return;
+
+  const steps = [
+    { hash: 'a3f2e1b', msg: 'feat: scaffold next.js + supabase + stripe' },
+    { hash: '7b9c4d2', msg: 'fix: supabase auth callback URL' },
+    { hash: 'e8f1a23', msg: 'feat: stripe checkout per-invoice' },
+    { hash: 'c4d8e9f', msg: 'fix: stripe webhook signature verification' },
+    { hash: 'b1c2d3e', msg: 'feat: invoice list + send via email' },
+    { hash: '9f8e7d6', msg: 'deploy: vercel prod · invoicer-mvp.vercel.app' },
+  ];
+
+  let runId = 0;
+
+  function run() {
+    const myRun = ++runId;
+    grid.innerHTML = '';
+    if (deployBar) deployBar.style.display = 'none';
+
+    // Render all rows in pending state
+    steps.forEach((s, i) => {
+      const row = document.createElement('div');
+      row.className = 'ship-row pending';
+      row.innerHTML = `
+        <div class="ship-row-hash">${s.hash}</div>
+        <div class="ship-row-msg">${s.msg}</div>
+        <div class="ship-row-status"><span class="ship-status-pending">queued</span></div>
+      `;
+      grid.appendChild(row);
+    });
+
+    // Flip them to ok one by one
+    steps.forEach((s, i) => {
+      setTimeout(() => {
+        if (myRun !== runId) return;
+        const row = grid.children[i];
+        if (!row) return;
+        row.classList.remove('pending');
+        row.querySelector('.ship-row-status').innerHTML = '<span class="ship-status-ok">ok</span>';
+      }, 400 + i * 350);
+    });
+
+    // Show deploy bar after all done
+    setTimeout(() => {
+      if (myRun !== runId) return;
+      if (deployBar) deployBar.style.display = 'flex';
+      const minutes = 32 + Math.floor(Math.random() * 30);
+      if (deployTime) deployTime.textContent = `Built in ${minutes} minutes`;
+    }, 400 + steps.length * 350 + 200);
+  }
+
+  // Run once on mount + on click
+  setTimeout(run, 400);
+  document.querySelectorAll('[data-stage="04"][data-action]').forEach(btn => {
+    btn.addEventListener('click', run);
+  });
+})();
+
+/* ==========================================================
+   STAGE 05 — Sell: animated stripe payments
+   ========================================================== */
+(function() {
+  const list = document.getElementById('sell-payments');
+  const total = document.getElementById('sell-total');
+  if (!list) return;
+
+  const payments = [
+    { time: '11:42a', id: 'pi_3OqN9k...AB7', amt: 29 },
+    { time: '11:18a', id: 'pi_3OqN8j...XY2', amt: 29 },
+    { time: '10:54a', id: 'pi_3OqN7h...QR9', amt: 29 },
+    { time: '10:31a', id: 'pi_3OqN6g...MN4', amt: 29 },
+    { time: '9:18a',  id: 'pi_3OqN5f...PQ6', amt: 29 },
+    { time: '8:47a',  id: 'pi_3OqN4e...RS1', amt: 29 },
+    { time: '8:03a',  id: 'pi_3OqN3d...TV8', amt: 29 },
+  ];
+
+  let runId = 0;
+
+  function run() {
+    const myRun = ++runId;
+    list.innerHTML = '';
+    let runningTotal = 0;
+    if (total) total.textContent = '$0.00';
+
+    payments.forEach((p, i) => {
+      setTimeout(() => {
+        if (myRun !== runId) return;
+        const row = document.createElement('div');
+        row.className = 'sell-payment';
+        row.innerHTML = `
+          <span class="sell-payment-time">${p.time}</span>
+          <span class="sell-payment-id">${p.id}</span>
+          <span class="sell-payment-amt">+$${p.amt}.00</span>
+        `;
+        // animate in
+        row.style.opacity = '0';
+        row.style.transform = 'translateX(-6px)';
+        list.insertBefore(row, list.firstChild);
+        requestAnimationFrame(() => {
+          row.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+          row.style.opacity = '1';
+          row.style.transform = 'translateX(0)';
+        });
+
+        runningTotal += p.amt;
+        if (total) total.textContent = '$' + runningTotal.toFixed(2);
+      }, 200 + i * 350);
+    });
+  }
+
+  setTimeout(run, 400);
+  document.querySelectorAll('[data-stage="05"][data-action]').forEach(btn => {
+    btn.addEventListener('click', run);
+  });
+})();
+
+/* ==========================================================
+   STAGE 03 — re-trigger animation on Generate click
+   ========================================================== */
+(function() {
+  const panel = document.getElementById('panel-03');
+  if (!panel) return;
+  document.querySelectorAll('[data-stage="03"][data-action]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const doc = panel.querySelector('.blueprint-doc');
+      if (!doc) return;
+      doc.style.animation = 'none';
+      // force reflow
+      void doc.offsetWidth;
+      doc.style.animation = 'panel-in 0.45s ease-out';
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
