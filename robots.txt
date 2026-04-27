@@ -1,0 +1,14 @@
+# Build Room — robots.txt
+# Public funnel pages are indexable. The post-opt-in OTO and the
+# higher-tier sales pages (ship-loop, ship-and-sell) are deliberately
+# hidden — they are only shared via DM, email, or member chat.
+
+User-agent: *
+Allow: /
+Allow: /build-room
+
+Disallow: /thank-you
+Disallow: /ship-loop
+Disallow: /ship-and-sell
+
+Sitemap: https://buildroom.studio/sitemap.xml
