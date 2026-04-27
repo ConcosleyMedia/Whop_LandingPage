@@ -410,6 +410,29 @@ a.cta-large:active {
   .verdict-card.visible { transform: translateY(0); }
 }
 
+/* Small phones — stack verdict cards vertically so names don't wrap awkwardly */
+@media (max-width: 480px) {
+  .verdict-rail {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .verdict-card {
+    flex: 0 0 auto;
+    padding: 12px 14px;
+    gap: 6px;
+  }
+  .verdict-card-stamp {
+    font-size: 26px;
+  }
+  .verdict-card.keep .verdict-card-stamp {
+    font-size: 28px;
+  }
+  .verdict-card-name {
+    font-size: 11px;
+  }
+}
+
 .verdict-card-meta {
   font-family: var(--font-mono);
   font-size: 10px;
@@ -686,8 +709,14 @@ a.cta-large:active {
   margin-bottom: -1px;
 }
 @media (max-width: 720px) {
-  .console-tabs { grid-template-columns: repeat(5, minmax(120px, 1fr)); overflow-x: auto; scrollbar-width: none; }
-  .console-tabs::-webkit-scrollbar { display: none; }
+  .console-tabs { grid-template-columns: repeat(5, 1fr); }
+  .console-tab { padding: 10px 4px; gap: 2px; }
+  .console-tab-num { font-size: 9px; letter-spacing: 0.08em; }
+  .console-tab-name { font-size: 11px; line-height: 1.2; letter-spacing: -0.005em; }
+}
+@media (max-width: 380px) {
+  .console-tab { padding: 8px 2px; }
+  .console-tab-name { font-size: 10px; }
 }
 
 .console-tab {
