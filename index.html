@@ -2655,18 +2655,6 @@ footer .container {
 <section class="hero">
   <div class="container">
 
-    <div class="stage-strip" aria-label="Vibe-to-Ship Protocol stages">
-      <span class="stage">01_IDEATE</span>
-      <span class="arrow">→</span>
-      <span class="stage">02_VALIDATE</span>
-      <span class="arrow">→</span>
-      <span class="stage">03_BLUEPRINT</span>
-      <span class="arrow">→</span>
-      <span class="stage">04_SHIP</span>
-      <span class="arrow">→</span>
-      <span class="stage">05_SELL</span>
-    </div>
-
     <p class="hero-eyebrow">For the person sitting on an idea</p>
 
     <h1 class="hero-headline">
@@ -2674,7 +2662,7 @@ footer .container {
     </h1>
 
     <p class="hero-sub">
-      The idea you&rsquo;re sitting on isn&rsquo;t the problem. The fact that you haven&rsquo;t shipped it is. Three things, free: a 30-minute Claude Code intro, 5 starter prompts, and <strong style="font-weight: 600; color: var(--graphite);">the Kill Filter</strong> &mdash; a tool I built that scores your idea, kills it if it&rsquo;s bad, or generates the files you need to build it if it&rsquo;s good.
+      The idea isn&rsquo;t the problem. Not shipping it is. Free: <strong style="font-weight: 600; color: var(--graphite);">the Kill Filter</strong>, a 30-minute Claude Code intro, and 5 starter prompts.
     </p>
 
     <div class="hero-cta-wrap">
@@ -3816,22 +3804,13 @@ footer .container {
     const io = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          startRotate();
+          // Auto-rotate disabled — user clicks the tabs to switch stages.
           io.disconnect();
         }
       });
     }, { threshold: 0.25 });
     io.observe(consoleSection);
   }
-
-  // Pause when the page tab is hidden, resume when visible (and user hasn't interacted)
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      if (rotateTimer) { clearTimeout(rotateTimer); rotateTimer = null; }
-    } else if (rotateStarted && !userInteracted && !rotateTimer) {
-      rotateTimer = setTimeout(tick, ROTATE_MS);
-    }
-  });
 })();
 
 /* ==========================================================
