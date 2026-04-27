@@ -2634,6 +2634,37 @@ h2.section-label {
 }
 .bottom-cta .section-lead { max-width: 22ch; margin-bottom: 24px; }
 
+/* ——— Inline CTA strip (between sections, mobile rest stops) ——— */
+.inline-cta {
+  padding: 24px 0;
+  border-top: 1px solid rgba(26,26,28,0.08);
+}
+.inline-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.inline-cta-line {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pencil);
+  flex: 1 1 240px;
+  min-width: 0;
+}
+.inline-cta-line strong {
+  color: var(--graphite);
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .inline-cta { padding: 20px 0; }
+  .inline-cta-row { flex-direction: column; align-items: stretch; gap: 12px; }
+  .inline-cta-row .cta { text-align: center; }
+}
+
 /* ——— Footer ——— */
 footer {
   padding: 24px 0 32px;
@@ -3000,6 +3031,18 @@ footer .container {
 </section>
 
 <!-- ==========================================================
+     INLINE CTA — after the console, primed by curiosity
+     ========================================================== -->
+<section class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-row">
+      <p class="inline-cta-line">That&rsquo;s the process. <strong>Skip the rabbit holes.</strong> Start with the Kill Filter.</p>
+      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
      SHIP BOARD — Built with Build Room
      ========================================================== -->
 <section class="ship-board">
@@ -3131,6 +3174,18 @@ footer .container {
     <p style="margin-top: 18px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.04em; color: var(--pencil);">
       Three real projects. Three real founders. Three real first dollars. <span style="color: var(--graphite);">&mdash; Receipts, not renders.</span>
     </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     INLINE CTA — after ship board, primed by social proof
+     ========================================================== -->
+<section class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-row">
+      <p class="inline-cta-line">Three real founders started here. <strong>Same kit. Same start. Free.</strong></p>
+      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
+    </div>
   </div>
 </section>
 
@@ -3328,6 +3383,18 @@ footer .container {
     <p class="receipts-tag-line">
       <strong>&mdash; Receipts, not renders.</strong>
     </p>
+  </div>
+</section>
+
+<!-- ==========================================================
+     INLINE CTA — after the review wall, primed by validation
+     ========================================================== -->
+<section class="inline-cta">
+  <div class="container">
+    <div class="inline-cta-row">
+      <p class="inline-cta-line">15,000+ members already said yes. <strong>Your turn.</strong></p>
+      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
+    </div>
   </div>
 </section>
 
