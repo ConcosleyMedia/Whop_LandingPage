@@ -44,38 +44,47 @@
 <script defer src="/cta-tracking.js"></script>
 
 <style>
-  .confirm {
-    padding: var(--s-9) 0 var(--s-7);
+  /* Tight confirmation strip — replaces the old big H1 confirm so the OTO leads */
+  .confirm-strip {
+    padding: var(--s-4) 0;
+    border-bottom: 1px solid rgba(26,26,28,0.08);
+    background: var(--paper-tape);
   }
-
-  .confirm .content {
-    max-width: 620px;
-  }
-
-  .checkmark {
-    display: inline-flex;
+  .confirm-strip .wrap {
+    display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: var(--shipped);
-    color: white;
-    border-radius: 50%;
+  }
+  .confirm-strip-line {
     font-family: var(--font-mono);
-    font-weight: 700;
-    margin-bottom: var(--s-5);
-  }
-
-  .confirm h1 {
-    font-size: clamp(2.5rem, 5vw + 1rem, 4rem);
-    max-width: 18ch;
-  }
-
-  .confirm .sub {
-    margin-top: var(--s-5);
-    font-size: 1.125rem;
-    line-height: 1.6;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
     color: var(--pencil);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .confirm-strip-line .check {
+    color: var(--shipped);
+    font-weight: 700;
+    margin-right: 6px;
+  }
+  .confirm-strip-line strong {
+    color: var(--graphite);
+    font-weight: 600;
+  }
+  @media (max-width: 480px) {
+    .confirm-strip-line { font-size: 0.6875rem; letter-spacing: 0.04em; }
+  }
+
+  /* OTO is now the hero — slightly bigger headline, more dominant */
+  .oto {
+    padding: var(--s-7) 0 var(--s-6);
+  }
+  .oto-card h2,
+  .oto-card h1 {
+    font-size: clamp(1.875rem, 3vw + 1rem, 2.75rem);
+    max-width: 22ch;
+    line-height: 1.05;
   }
 
   .what-next {
@@ -281,24 +290,62 @@
   </div>
 </header>
 
-<!-- CONFIRMATION -->
-<section class="confirm">
+<!-- CONFIRM STRIP — small mono note, doesn't compete with OTO -->
+<section class="confirm-strip">
   <div class="wrap">
-    <div class="content">
-      <div class="mono-label">01_CONFIRMED</div>
-      <h1 style="margin-top: var(--s-4);">You're in. Check your email.</h1>
+    <p class="confirm-strip-line">
+      <span class="check">✓</span>
+      <strong>Confirmed.</strong> Email arriving in under 2 minutes — check spam if it&rsquo;s not there.
+    </p>
+  </div>
+</section>
+
+<!-- ONE-TIME OFFER — now the hero, first thing they see -->
+<section class="oto">
+  <div class="wrap">
+    <div class="oto-card">
+      <div class="eyebrow">One-time offer · Ends when you leave this page</div>
+      <h1>Skip the 10-day warm-up. Get in the room for <span class="signal-word">$1</span>.</h1>
       <p class="sub">
-        The intro video, the 5 starter prompts, and the first email of the 10-day training are on their way. Should arrive in under 2 minutes. If it's not there, check promotions or spam — sometimes my emails land there the first time.
+        If you already know you want more than a 30-minute intro, the first month of Build Room is $1. After that, $9/mo. Cancel anytime — the cancel button is in your account, not behind a support ticket.
       </p>
+
+      <div class="oto-price">
+        <span class="was">$9</span>
+        <span class="now"><span class="dollar">$</span>1</span>
+        <span class="then">/ first month, then $9/mo</span>
+      </div>
+
+      <div class="oto-includes">
+        <div class="mono-label">What you get</div>
+        <ul>
+          <li>50+ Claude Code blueprints (copy-paste repos)</li>
+          <li>The full Wall-Skip Kit — Supabase auth, Stripe webhooks, deploy checklist</li>
+          <li>One new drop every day (prompt, pattern, or fix)</li>
+          <li>Private chat with people building next to you</li>
+          <li>Weekly office hours call with me</li>
+        </ul>
+      </div>
+
+      <div class="oto-cta">
+        <a href="https://whop.com/checkout/plan_CbVyv3zqRXaFH" class="cta" style="width: 100%; max-width: 320px;">
+          Start for $1 <span class="arrow">→</span>
+        </a>
+        <p class="oto-micro">Payment by Whop · Cancel in one click</p>
+      </div>
+    </div>
+
+    <div class="pass">
+      <a href="#what-next">No thanks — I&rsquo;ll start with the free intro</a>
     </div>
   </div>
 </section>
 
-<!-- WHAT NEXT -->
-<section class="what-next">
+<!-- WHAT NEXT — now below the OTO, for people who skip -->
+<section class="what-next" id="what-next">
   <div class="wrap">
-    <div class="mono-label">02_WHAT_TO_DO_NOW</div>
-    <h3 style="margin-top: var(--s-3);">While you wait for the email</h3>
+    <div class="mono-label">While you wait</div>
+    <h3 style="margin-top: var(--s-3);">Three things to do before the email lands</h3>
 
     <ol class="step-list">
       <li>
@@ -320,47 +367,6 @@
         </div>
       </li>
     </ol>
-  </div>
-</section>
-
-<!-- ONE-TIME OFFER -->
-<section class="oto">
-  <div class="wrap">
-    <div class="oto-card">
-      <div class="eyebrow">One-time offer · Ends when you leave this page</div>
-      <h2>Skip the 10-day warm-up. Get in the room for <span class="signal-word">$1</span>.</h2>
-      <p class="sub">
-        If you already know you want more than a 30-minute intro, the first month of Build Room is $1. After that, $9/mo. Cancel anytime — the cancel button is in your account, not behind a support ticket.
-      </p>
-
-      <div class="oto-price">
-        <span class="was">$9</span>
-        <span class="now"><span class="dollar">$</span>1</span>
-        <span class="then">/ first month, then $9/mo</span>
-      </div>
-
-      <div class="oto-includes">
-        <div class="mono-label">03_WHAT_YOU_GET</div>
-        <ul>
-          <li>50+ Claude Code blueprints (copy-paste repos)</li>
-          <li>The full Wall-Skip Kit — Supabase auth, Stripe webhooks, deploy checklist</li>
-          <li>One new drop every day (prompt, pattern, or fix)</li>
-          <li>Private chat with people building next to you</li>
-          <li>Weekly office hours call with me</li>
-        </ul>
-      </div>
-
-      <div class="oto-cta">
-        <a href="https://whop.com/checkout/plan_CbVyv3zqRXaFH" class="cta" style="width: 100%; max-width: 320px;">
-          Start for $1 <span class="arrow">→</span>
-        </a>
-        <p class="oto-micro">Payment by Whop · Cancel in one click</p>
-      </div>
-    </div>
-
-    <div class="pass">
-      <a href="#">No thanks — I'll try the free intro first</a>
-    </div>
   </div>
 </section>
 
