@@ -626,6 +626,100 @@ a.cta-large:active {
 }
 
 /* ========================================================
+   KILL FILTER EXPLAINER — between hero and funnel console
+   ======================================================== */
+.kill-filter-section {
+  padding: 44px 0 52px;
+  border-top: 1px solid rgba(26,26,28,0.08);
+  background: var(--paper-tape);
+}
+.kill-filter-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--signal);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.kill-filter-eyebrow::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--signal);
+}
+.kill-filter-headline {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+  color: var(--graphite);
+  max-width: 26ch;
+  margin-bottom: 22px;
+}
+.kill-filter-headline .signal { color: var(--signal); }
+.kill-filter-body p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--graphite);
+  max-width: 60ch;
+  margin-bottom: 14px;
+}
+.kill-filter-body p:last-child { margin-bottom: 0; }
+.kill-filter-criteria {
+  list-style: none;
+  margin: 24px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+@media (max-width: 600px) {
+  .kill-filter-criteria { grid-template-columns: 1fr; gap: 8px; }
+}
+.kill-filter-criteria li {
+  background: var(--paper);
+  border: 1px solid rgba(26,26,28,0.08);
+  border-left: 3px solid var(--signal);
+  padding: 14px 16px;
+}
+.kill-filter-criteria li strong {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  color: var(--graphite);
+  margin-bottom: 4px;
+}
+.kill-filter-criteria li span {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--pencil);
+}
+.kill-filter-output {
+  margin-top: 22px;
+  padding: 14px 18px;
+  background: var(--ink);
+  color: var(--chalk);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+.kill-filter-output strong {
+  color: var(--signal);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 11px;
+  margin-right: 6px;
+}
+
+/* ========================================================
    FUNNEL CONSOLE — the main upgrade
    ======================================================== */
 .console-section {
@@ -2757,6 +2851,48 @@ footer .container {
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ==========================================================
+     KILL FILTER EXPLAINER — what the tool actually does
+     ========================================================== -->
+<section class="kill-filter-section">
+  <div class="container">
+    <p class="kill-filter-eyebrow">Inside the Kill Filter</p>
+    <h2 class="kill-filter-headline">Most AI tells you yes. <span class="signal">The Kill Filter is built to say no.</span></h2>
+
+    <div class="kill-filter-body">
+      <p>Ask Claude or ChatGPT if your idea is good — you'll get a paragraph that says yes. AI is trained to be encouraging. That's why your last 12 ideas all sounded great in the chat and zero of them shipped.</p>
+      <p>The Kill Filter is calibrated the other way. It scores every idea against five criteria pulled from market data — not vibes — and it's biased toward kill. The ones that survive are the ones worth your next 30 days.</p>
+    </div>
+
+    <ul class="kill-filter-criteria">
+      <li>
+        <strong>Paying proximity</strong>
+        <span>How close is the buyer to a credit card right now?</span>
+      </li>
+      <li>
+        <strong>Build scope</strong>
+        <span>Can you ship a working MVP in 30 days?</span>
+      </li>
+      <li>
+        <strong>Validation cost</strong>
+        <span>Can you test demand for under $50?</span>
+      </li>
+      <li>
+        <strong>Unfair advantage</strong>
+        <span>Why you, and not someone faster or cheaper?</span>
+      </li>
+      <li>
+        <strong>Retention shape</strong>
+        <span>Would they come back next month, or use it once?</span>
+      </li>
+    </ul>
+
+    <div class="kill-filter-output">
+      <strong>Output:</strong>a score out of 50, a verdict, and either the four build files (CLAUDE.md, spec.md, stack.md, cut-list.md) or a one-line reason it&rsquo;s dead.
+    </div>
   </div>
 </section>
 
