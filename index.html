@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Build Room — Ship Your First Thing · Free Kill Filter + Claude Code Intro</title>
-<meta name="description" content="The Kill Filter scores your idea, kills it if it's bad, or generates the files you need to build it. Plus a 30-min Claude Code intro and 5 starter prompts. Free.">
+<meta name="description" content="The Kill Filter scores your idea, kills it if it's bad, or generates the files you need to build it. Plus a 30-min Claude Code intro and 5 skills. Free.">
 <link rel="canonical" href="https://buildroom.studio/">
 
 <!-- Open Graph -->
@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://buildroom.studio/">
 <meta property="og:site_name" content="Build Room">
 <meta property="og:title" content="Your half-built app is making someone else $50K/mo right now.">
-<meta property="og:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 starter prompts. Stop sitting on the idea. Ship it.">
+<meta property="og:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 skills. Stop sitting on the idea. Ship it.">
 <meta property="og:image" content="https://buildroom.studio/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -21,7 +21,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Your half-built app is making someone else $50K/mo right now.">
-<meta name="twitter:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 starter prompts.">
+<meta name="twitter:description" content="Free: the Kill Filter, a 30-min Claude Code intro, and 5 skills.">
 <meta name="twitter:image" content="https://buildroom.studio/og-image.png">
 
 <!-- Structured Data -->
@@ -47,7 +47,7 @@
     {
       "@type": "Course",
       "name": "Ship Your First Thing",
-      "description": "A free Claude Code intro, 5 starter prompts, and the Kill Filter — a tool that scores your idea or generates the build files for you.",
+      "description": "A free Claude Code intro, 5 skills, and the Kill Filter — a tool that scores your idea or generates the build files for you.",
       "provider": { "@id": "https://buildroom.studio/#organization" },
       "url": "https://buildroom.studio/",
       "offers": {
@@ -343,179 +343,6 @@ a.cta-large:active {
    HERO TERMINAL
    ======================================================== */
 .terminal-wrap { margin-top: 36px; max-width: 940px; }
-
-.terminal-stage {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 20px;
-  align-items: start;
-}
-
-@media (max-width: 640px) {
-  .terminal-stage { grid-template-columns: 1fr; gap: 16px; }
-}
-
-.verdict-rail {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-top: 0;
-  position: relative;
-  height: 520px;
-}
-
-@media (max-width: 640px) {
-  .verdict-rail {
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-top: 0;
-    height: auto;
-    /* Reserve full height so cards fading in don't push content below */
-    min-height: 140px;
-  }
-}
-
-.verdict-card {
-  background: var(--paper);
-  border: 1px solid rgba(26,26,28,0.1);
-  padding: 18px 18px 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: relative;
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
-  box-shadow: 0 1px 0 rgba(26,26,28,0.04), 0 8px 24px -16px rgba(26,26,28,0.15);
-  flex: 1 1 0;
-  min-height: 0;
-  justify-content: center;
-}
-
-@media (max-width: 640px) {
-  .verdict-card {
-    flex: 1 1 calc(33.333% - 8px);
-    min-width: 0;
-    transform: translateY(12px);
-    justify-content: flex-start;
-  }
-}
-
-.verdict-card.visible {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-@media (max-width: 640px) {
-  .verdict-card.visible { transform: translateY(0); }
-}
-
-/* Small phones — stack verdict cards vertically so names don't wrap awkwardly */
-@media (max-width: 480px) {
-  .verdict-rail {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 8px;
-    /* Reserve full stacked height so cards fading in don't push content below */
-    min-height: 300px;
-  }
-  .verdict-card {
-    flex: 0 0 auto;
-    padding: 12px 14px;
-    gap: 6px;
-  }
-  .verdict-card-stamp {
-    font-size: 26px;
-  }
-  .verdict-card.keep .verdict-card-stamp {
-    font-size: 28px;
-  }
-  .verdict-card-name {
-    font-size: 11px;
-  }
-}
-
-.verdict-card-meta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--pencil);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.verdict-card-stamp {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 1;
-  letter-spacing: -0.04em;
-}
-
-.verdict-card-stamp .arrow {
-  display: inline-block;
-  margin-right: 6px;
-  font-size: 24px;
-  vertical-align: middle;
-  position: relative;
-  top: -2px;
-}
-
-.verdict-card.kill .verdict-card-stamp { color: var(--kill); }
-.verdict-card.keep .verdict-card-stamp { color: var(--shipped); }
-
-.verdict-card-name {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--graphite);
-  letter-spacing: 0.01em;
-  line-height: 1.4;
-  word-wrap: break-word;
-}
-
-.verdict-card.kill .verdict-card-name {
-  color: var(--pencil);
-  text-decoration: line-through;
-  text-decoration-color: rgba(196, 69, 54, 0.4);
-}
-
-.verdict-card-score {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--pencil);
-  letter-spacing: 0.05em;
-}
-
-/* Side accent bar — kill = red, keep = green */
-.verdict-card::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-}
-.verdict-card.kill::before { background: var(--kill); }
-.verdict-card.keep::before { background: var(--shipped); }
-
-/* Big stamp emphasis on the keep card */
-.verdict-card.keep {
-  background: var(--paper);
-  border-color: rgba(63, 155, 111, 0.3);
-}
-.verdict-card.keep .verdict-card-stamp {
-  font-size: 40px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .verdict-card { transition: opacity 0.2s ease; transform: none !important; }
-}
 
 .terminal-caption {
   font-family: var(--font-mono);
@@ -2820,7 +2647,7 @@ footer .container {
     </h1>
 
     <p class="hero-sub">
-      The idea isn&rsquo;t the problem. Not shipping it is. Free: <strong style="font-weight: 600; color: var(--graphite);">the Kill Filter</strong>, a 30-minute Claude Code intro, and 5 starter prompts.
+      The idea isn&rsquo;t the problem. Not shipping it is. Free: <strong style="font-weight: 600; color: var(--graphite);">the Kill Filter</strong>, a 30-minute Claude Code intro, and 5 skills.
     </p>
 
     <div class="hero-cta-wrap">
@@ -2829,28 +2656,134 @@ footer .container {
     </div>
 
     <p class="form-bonus">
-      <strong>Bonus if you grab it in the next 48 hours:</strong> a PDF of the 5 most common walls non-technical founders hit with Claude Code and how to skip them.
+      <strong>Also included:</strong> a PDF of the 5 most common walls non-technical founders hit with Claude Code and how to skip them.
     </p>
 
     <div class="terminal-wrap">
-      <p class="terminal-caption">Live · Stage 01_IDEATE · The Kill Filter</p>
-      <div class="terminal-stage">
-        <div class="terminal" role="img" aria-label="Terminal demonstration of the Kill Filter scoring three ideas and recommending two be killed.">
-          <div class="terminal-chrome" aria-hidden="true">
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-            <span class="terminal-dot"></span>
-            <span class="terminal-path">~/buildroom · kill-filter</span>
-          </div>
-          <div class="terminal-body" id="hero-terminal"></div>
+      <p class="terminal-caption">Live &middot; Stage 01_IDEATE &middot; the Kill Filter</p>
+      <div class="terminal" role="img" aria-label="Terminal demonstration of the Kill Filter scoring three ideas and recommending two be killed.">
+        <div class="terminal-chrome" aria-hidden="true">
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-dot"></span>
+          <span class="terminal-path">~/buildroom &middot; kill-filter</span>
         </div>
-
-        <div class="verdict-rail" aria-hidden="true" id="verdict-rail">
-          <!-- verdict cards injected by JS -->
-        </div>
+        <div class="terminal-body" id="hero-terminal"></div>
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ==========================================================
+     PROBLEM TIMELINE — what happens if you don't ship
+     ========================================================== -->
+<section class="problem-section">
+  <div class="container">
+    <div class="problem-grid">
+
+      <div>
+        <h2 class="section-label" style="margin-bottom: 16px;">The problem</h2>
+        <p class="problem-lead">
+          You don&rsquo;t need another tool. The idea is fine. <span class="signal">You just haven&rsquo;t finished it.</span>
+        </p>
+      </div>
+
+      <div class="timeline" aria-label="What happens over the next six months">
+
+        <div class="timeline-item now">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">Today</div>
+          <p class="timeline-text">
+            You have an idea. You&rsquo;ve had it for a while. You&rsquo;ve opened Cursor twice this week and closed it.
+          </p>
+        </div>
+
+        <div class="timeline-item bad">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">3 months from now</div>
+          <p class="timeline-text">
+            Same idea. Same head. Same tabs.
+          </p>
+        </div>
+
+        <div class="timeline-item bad peak">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">6 months from now</div>
+          <p class="timeline-text">
+            Someone less talented than you ships a worse version of it and charges <em>$29/mo</em>. You see their ad. You feel something specific.
+          </p>
+        </div>
+
+        <div class="timeline-item good">
+          <span class="timeline-marker"></span>
+          <div class="timeline-when">The fix</div>
+          <p class="timeline-text">
+            Not more research. A process &mdash; <strong>Ideate, Validate, Blueprint, Ship, Sell</strong> &mdash; that gets you from &ldquo;vague idea&rdquo; to &ldquo;real customer paying you.&rdquo;
+          </p>
+          <span class="timeline-tape">This free intro shows you what that looks like.</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================================
+     KIT — asymmetric "What you get" with Kill Filter as hero
+     ========================================================== -->
+<section class="kit-section">
+  <div class="container">
+    <h2 class="section-label" style="margin-bottom: 24px;">What you get</h2>
+
+    <div class="kit-grid">
+
+      <div class="kit-list-col">
+        <h3>Three things, one kit, zero dollars.</h3>
+        <ul class="kit-items">
+          <li class="kit-item">
+            <span class="kit-item-num">01</span>
+            <span class="kit-item-text"><strong>A 30-minute video</strong> walking through the Vibe-to-Ship Protocol at a surface level.</span>
+          </li>
+          <li class="kit-item">
+            <span class="kit-item-num">02</span>
+            <span class="kit-item-text"><strong>5 Claude Code skills</strong> &mdash; the ones I run before every session. They prevent the slop.</span>
+          </li>
+          <li class="kit-item">
+            <span class="kit-item-num">03</span>
+            <span class="kit-item-text"><strong>One email a day for 10 days</strong> &mdash; real examples, real failures, the things I teach inside Build Room.</span>
+          </li>
+        </ul>
+        <p class="kit-disclaimer">No upsell wall. No &ldquo;book a call.&rdquo; Put your email in and watch.</p>
+      </div>
+
+      <div class="kit-hero">
+        <span class="kit-hero-tag">04 · The headline thing</span>
+        <h3 class="kit-hero-name">The Kill Filter</h3>
+        <p class="kit-hero-desc">
+          A tool I built that scores your idea against a 5-criteria rubric. <strong>Kills it if it&rsquo;s bad.</strong> Generates the build files if it&rsquo;s good.
+        </p>
+
+        <div class="kit-hero-mini" aria-hidden="true">
+          <div class="kit-hero-mini-head">
+            <span class="fname">kill-filter --output</span>
+            <span class="meta">on KEEP</span>
+          </div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">CLAUDE.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">spec.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">stack.md</span></div>
+          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">cut-list.md</span></div>
+          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">team accounts</span></div>
+          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">multi-currency</span></div>
+        </div>
+
+        <p class="kit-hero-foot">
+          <strong>$0 here.</strong> Saves you weeks of building the wrong product.
+        </p>
+      </div>
+
+    </div>
   </div>
 </section>
 
@@ -2911,7 +2844,7 @@ footer .container {
     <div class="console-tabs" role="tablist" aria-label="Vibe-to-Ship Protocol stages">
       <button class="console-tab" role="tab" aria-selected="true" aria-controls="panel-01" id="tab-01" data-stage="01">
         <span class="console-tab-num">01</span>
-        <span class="console-tab-name">Kill the idea</span>
+        <span class="console-tab-name">Ideate</span>
       </button>
       <button class="console-tab" role="tab" aria-selected="false" aria-controls="panel-02" id="tab-02" data-stage="02">
         <span class="console-tab-num">02</span>
@@ -3314,130 +3247,6 @@ footer .container {
 </section>
 
 <!-- ==========================================================
-     INLINE CTA — after ship board, primed by social proof
-     ========================================================== -->
-<section class="inline-cta">
-  <div class="container">
-    <div class="inline-cta-row">
-      <p class="inline-cta-line">Three real founders started here. <strong>Same kit. Same start. Free.</strong></p>
-      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================
-     PROBLEM TIMELINE — what happens if you don't ship
-     ========================================================== -->
-<section class="problem-section">
-  <div class="container">
-    <div class="problem-grid">
-
-      <div>
-        <h2 class="section-label" style="margin-bottom: 16px;">The problem</h2>
-        <p class="problem-lead">
-          You don&rsquo;t need another tool. The idea is fine. <span class="signal">You just haven&rsquo;t finished it.</span>
-        </p>
-      </div>
-
-      <div class="timeline" aria-label="What happens over the next six months">
-
-        <div class="timeline-item now">
-          <span class="timeline-marker"></span>
-          <div class="timeline-when">Today</div>
-          <p class="timeline-text">
-            You have an idea. You&rsquo;ve had it for a while. You&rsquo;ve opened Cursor twice this week and closed it.
-          </p>
-        </div>
-
-        <div class="timeline-item bad">
-          <span class="timeline-marker"></span>
-          <div class="timeline-when">3 months from now</div>
-          <p class="timeline-text">
-            Same idea. Same head. Same tabs.
-          </p>
-        </div>
-
-        <div class="timeline-item bad peak">
-          <span class="timeline-marker"></span>
-          <div class="timeline-when">6 months from now</div>
-          <p class="timeline-text">
-            Someone less talented than you ships a worse version of it and charges <em>$29/mo</em>. You see their ad. You feel something specific.
-          </p>
-        </div>
-
-        <div class="timeline-item good">
-          <span class="timeline-marker"></span>
-          <div class="timeline-when">The fix</div>
-          <p class="timeline-text">
-            Not more research. A process &mdash; <strong>Ideate, Validate, Blueprint, Ship, Sell</strong> &mdash; that gets you from &ldquo;vague idea&rdquo; to &ldquo;real customer paying you.&rdquo;
-          </p>
-          <span class="timeline-tape">This free intro shows you what that looks like.</span>
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================
-     KIT — asymmetric "What you get" with Kill Filter as hero
-     ========================================================== -->
-<section class="kit-section">
-  <div class="container">
-    <h2 class="section-label" style="margin-bottom: 24px;">What you get</h2>
-
-    <div class="kit-grid">
-
-      <div class="kit-list-col">
-        <h3>Three things, one kit, zero dollars.</h3>
-        <ul class="kit-items">
-          <li class="kit-item">
-            <span class="kit-item-num">01</span>
-            <span class="kit-item-text"><strong>A 30-minute video</strong> walking through the Vibe-to-Ship Protocol at a surface level.</span>
-          </li>
-          <li class="kit-item">
-            <span class="kit-item-num">02</span>
-            <span class="kit-item-text"><strong>5 Claude Code starter prompts</strong> that take you from &ldquo;vague idea&rdquo; to &ldquo;I know if this is worth building.&rdquo;</span>
-          </li>
-          <li class="kit-item">
-            <span class="kit-item-num">03</span>
-            <span class="kit-item-text"><strong>One email a day for 10 days</strong> &mdash; real examples, real failures, the things I teach inside Build Room.</span>
-          </li>
-        </ul>
-        <p class="kit-disclaimer">No upsell wall. No &ldquo;book a call.&rdquo; Put your email in and watch.</p>
-      </div>
-
-      <div class="kit-hero">
-        <span class="kit-hero-tag">04 · The headline thing</span>
-        <h3 class="kit-hero-name">The Kill Filter</h3>
-        <p class="kit-hero-desc">
-          A tool I built that scores your idea against a 5-criteria rubric. <strong>Kills it if it&rsquo;s bad.</strong> Generates the build files if it&rsquo;s good.
-        </p>
-
-        <div class="kit-hero-mini" aria-hidden="true">
-          <div class="kit-hero-mini-head">
-            <span class="fname">kill-filter --output</span>
-            <span class="meta">on KEEP</span>
-          </div>
-          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">CLAUDE.md</span></div>
-          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">spec.md</span></div>
-          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">stack.md</span></div>
-          <div class="kit-hero-mini-row"><span class="check">&check;</span><span class="label">generated</span><span class="file">cut-list.md</span></div>
-          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">team accounts</span></div>
-          <div class="kit-hero-mini-row killed"><span class="x">&times;</span><span class="label">cut</span><span class="file">multi-currency</span></div>
-        </div>
-
-        <p class="kit-hero-foot">
-          <strong>$0 here.</strong> Saves you weeks of building the wrong product.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ==========================================================
      RECEIPTS — review wall from previous community
      ========================================================== -->
 <section class="receipts-section">
@@ -3447,14 +3256,14 @@ footer .container {
       Things people actually said. <span class="signal">Not testimonials I wrote.</span>
     </p>
 
-    <!-- Review wall from This group -->
+    <!-- Review wall from AutomationFlow, the previous community -->
     <div class="review-wall-head">
       <h3 class="review-wall-title">
-        <span class="signal">15k+ members.</span> Real reviews.
+        <span class="signal">From AutomationFlow members.</span> The previous community &mdash; same operator, sharper protocol.
       </h3>
       <div class="review-wall-meta">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-        <span>4.6 avg &middot; This group</span>
+        <span>1,200 paying &middot; 3 years &middot; 4.6 avg</span>
       </div>
     </div>
 
@@ -3462,20 +3271,8 @@ footer .container {
 
       <div class="review-card featured">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-text"><span class="quote-mark">&ldquo;</span>This group is unreal. If you&rsquo;re trying to grow and monetize fast, this is the tool. This is by far the most valuable community I have ever been a part of.</div>
-        <div class="review-name">Kait</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-text">Built working automations in weeks (not months) and finally feel like I&rsquo;m doing something with AI, not just watching from the sidelines.</div>
+        <div class="review-text"><span class="quote-mark">&ldquo;</span>Built working automations in weeks (not months) and finally feel like I&rsquo;m doing something with AI, not just watching from the sidelines.</div>
         <div class="review-name">Alicia Polan</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-text">Used one of the workflows to repurpose TikToks and already started making money today. Super easy to follow and actually works.</div>
-        <div class="review-name">John Anthony</div>
       </div>
 
       <div class="review-card">
@@ -3504,14 +3301,8 @@ footer .container {
 
       <div class="review-card">
         <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-text">Turned a slow-paced TikTok into a fast-moving money machine. Appreciate how much the community cares about each other&rsquo;s success.</div>
+        <div class="review-text">Appreciate how much the community cares about each other&rsquo;s success.</div>
         <div class="review-name">Justin</div>
-      </div>
-
-      <div class="review-card">
-        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <div class="review-text short">Great help with automations.</div>
-        <div class="review-name">holdingthetorch</div>
       </div>
 
     </div>
@@ -3528,7 +3319,7 @@ footer .container {
 <section class="inline-cta">
   <div class="container">
     <div class="inline-cta-row">
-      <p class="inline-cta-line">15,000+ members already said yes. <strong>Your turn.</strong></p>
+      <p class="inline-cta-line">Real members. Real reviews. <strong>Your turn.</strong></p>
       <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
     </div>
   </div>
@@ -3591,7 +3382,7 @@ footer .container {
           </li>
           <li>
             <span class="check">&times;</span>
-            <span>You want done-for-you. I teach. You build.</span>
+            <span>You want me in the room with you. <strong>This is teach-yourself with a process.</strong> The cohort exists for that &mdash; that&rsquo;s not this.</span>
           </li>
         </ul>
       </div>
@@ -3622,7 +3413,7 @@ footer .container {
           <div class="kit-box-contents">
             <div class="kit-box-content">The Kill Filter (the actual tool)</div>
             <div class="kit-box-content">30-min Claude Code intro</div>
-            <div class="kit-box-content">5 starter prompts (battle-tested)</div>
+            <div class="kit-box-content">5 Claude Code skills (battle-tested)</div>
             <div class="kit-box-content">10-day email drip</div>
             <div class="kit-box-content">PDF: 5 walls + how to skip them</div>
             <div class="kit-box-content">Zero upsells inside</div>
@@ -3657,18 +3448,6 @@ footer .container {
   </div>
 </section>
 
-<section class="bottom-cta">
-  <div class="container-narrow">
-    <h2 class="section-label">Start</h2>
-    <p class="section-lead">Ship the idea. Charge for it. Find out what it&rsquo;s worth.</p>
-
-    <div class="hero-cta-wrap">
-      <a href="https://whop.com/checkout/plan_yRLG1PNR7m8Yh" class="cta cta-large" target="_blank" rel="noopener">Get the kit &mdash; free</a>
-      <span class="cta-meta">Instant access</span>
-    </div>
-  </div>
-</section>
-
 <footer>
   <div class="container">
     <span class="footer-stamp">BUILD-ROOM.v1 · 2026-04-22</span>
@@ -3686,16 +3465,8 @@ footer .container {
    ========================================================== */
 (function() {
   const el = document.getElementById('hero-terminal');
-  const rail = document.getElementById('verdict-rail');
   if (!el) return;
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Verdict cards keyed by id, fired when their script line renders.
-  const verdicts = {
-    v1: { num: '01', type: 'kill', stamp: 'Dead.', name: 'AI-powered journal app', score: '12 / 50' },
-    v2: { num: '02', type: 'kill', stamp: 'Dead.', name: 'Habit tracker (v9)', score: '13 / 50' },
-    v3: { num: '03', type: 'keep', stamp: 'Ship this.', name: 'Invoicer for freelance designers', score: '40 / 50' }
-  };
 
   const script = [
     { html: '<span class="term-prompt">&gt;</span> <span class="term-user">kill-filter run --ideas=3</span>', wait: 600 },
@@ -3737,42 +3508,10 @@ footer .container {
     timers = [];
   }
 
-  function buildVerdictCard(v) {
-    const card = document.createElement('div');
-    card.className = 'verdict-card ' + v.type;
-    const arrow = v.type === 'kill' ? '×' : '→';
-    card.innerHTML = `
-      <div class="verdict-card-meta">
-        <span>Idea · ${v.num}</span>
-        <span>${v.score}</span>
-      </div>
-      <div class="verdict-card-stamp"><span class="arrow">${arrow}</span>${v.stamp}</div>
-      <div class="verdict-card-name">${v.name}</div>
-    `;
-    return card;
-  }
-
-  function fireVerdict(id) {
-    if (!rail) return;
-    const v = verdicts[id];
-    if (!v) return;
-    const card = buildVerdictCard(v);
-    rail.appendChild(card);
-    // trigger animation on next frame
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => card.classList.add('visible'));
-    });
-  }
-
-  function clearRail() {
-    if (rail) rail.innerHTML = '';
-  }
-
   function render() {
     if (running) return;
     running = true;
     el.innerHTML = '';
-    clearRail();
     let cumulative = 0;
     script.forEach(line => {
       const t = setTimeout(() => {
@@ -3781,7 +3520,6 @@ footer .container {
         div.innerHTML = line.html;
         el.appendChild(div);
         el.scrollTop = el.scrollHeight;
-        if (line.verdict) fireVerdict(line.verdict);
       }, cumulative);
       timers.push(t);
       cumulative += line.wait;
@@ -3791,19 +3529,12 @@ footer .container {
 
   function renderStatic() {
     el.innerHTML = '';
-    clearRail();
     script.forEach(line => {
       const div = document.createElement('div');
       div.className = 'term-line visible';
       div.style.animation = 'none';
       div.innerHTML = line.html;
       el.appendChild(div);
-    });
-    // show all verdicts at once, no animation
-    Object.keys(verdicts).forEach(k => {
-      const card = buildVerdictCard(verdicts[k]);
-      card.classList.add('visible');
-      if (rail) rail.appendChild(card);
     });
   }
 
